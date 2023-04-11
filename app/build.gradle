@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.kustims.a6six'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.kustims.a6six"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -74,4 +74,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-runtime-ktx:$navigation_version"
+
+    // Kakao Login
+    implementation 'com.kakao.sdk:v2-user:2.10.0'
 }
