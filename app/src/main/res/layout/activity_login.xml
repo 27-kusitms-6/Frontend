@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Login.LoginActivity">
 
-    <TextView
+    <ImageButton
+        android:id="@+id/btn_login_kakao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="main_activity"
-        android:textSize="20sp"
-        android:layout_marginTop="350dp"
+        android:src="@drawable/kakao_login_medium_wide"
+        android:layout_marginBottom="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
