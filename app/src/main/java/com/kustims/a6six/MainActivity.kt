@@ -1,35 +1,46 @@
 package com.kustims.a6six
 
-import android.content.ContentValues.TAG
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.kustims.a6six.Login.LoginActivity
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.kustims.a6six.app.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import com.kustims.a6six.databinding.ActivityMainBinding
+import com.kustims.a6six.ui.MainScreen
+import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private var _binding : ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel : MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-//        checkKakaoUserCheck();
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContent {
+            MainScreen()
+        }
 
-        //Kakao login - key hash check code
-//        Log.d(TAG, "keyhash : ${Utility.getKeyHash(this)}")
+        initObserver()
     }
 
-//    fun checkKakaoUserCheck() {
-//        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-//            //tokenInfo == null (Login X)
-//            if(error != null) {
-//                val intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//            }
-//            //Login O
-//            else if (tokenInfo != null) {
-//
-//            }
-//        }
-//    }
+    //life cycle
+    fun initObserver()
+    {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            }
+        }
+    }
+
 }
