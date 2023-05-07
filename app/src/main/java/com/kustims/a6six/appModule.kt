@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 //Complete the CLIENT_ID with your own client id
-const val CLIENT_ID = ""
+const val CLIENT_ID = "http://3.39.186.220:8080/"
 
 val appModule = module {
     viewModel { LoginViewModel(get()) }

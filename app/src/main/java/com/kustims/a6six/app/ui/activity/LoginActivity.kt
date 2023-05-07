@@ -3,8 +3,6 @@ package com.kustims.a6six.app.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-
-
 import androidx.appcompat.app.AppCompatActivity
 import com.kustims.a6six.MainActivity
 import com.kustims.a6six.ui.Login.LoginScreen

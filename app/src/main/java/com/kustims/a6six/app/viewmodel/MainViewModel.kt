@@ -11,5 +11,4 @@ class MainViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-
 }

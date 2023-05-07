@@ -30,7 +30,7 @@ class LoginViewModel @Inject constructor(
             it.copy(loginStatus = LoginStatus.Loading)
         }
         viewModelScope.launch {
-            authenticateWithBackUseCase(googleToken).checkResult(
+            authenticateWithBackUseCase(googleToken)?.checkResult(
                 onSuccess =  {loginViewModelState.update { it.copy(loginStatus = LoginStatus.Success) }},
                 onError = {loginViewModelState.update { it.copy(loginStatus = LoginStatus.Failure) }}
 
