@@ -1,4 +1,4 @@
-package com.kustims.a6six
+package com.kustims.a6six.app.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
