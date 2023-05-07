@@ -1,6 +1,5 @@
 package com.kustims.a6six.data
 
-import com.kustims.a6six.domain.resource.
 import com.kustims.a6six.Repository.AuthenticationRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

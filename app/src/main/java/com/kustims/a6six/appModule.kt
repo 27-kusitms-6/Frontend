@@ -1,6 +1,7 @@
 package com.kustims.a6six
 
 import android.content.Context
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -12,6 +13,7 @@ import com.kustims.a6six.app.viewmodel.LoginViewModel
 import com.kustims.a6six.data.usecase.AuthenticateWithBackendUseCase
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 //Complete the CLIENT_ID with your own client id
