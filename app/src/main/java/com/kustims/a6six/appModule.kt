@@ -1,14 +1,13 @@
 package com.kustims.a6six
 
 import android.content.Context
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kustims.a6six.Repository.AuthenticationRepository
 import com.kustims.a6six.data.AuthenticationRemoteDataSource
-import com.kustims.a6six.data.AuthenticationRemoteDataSourceImpl
-import com.kustims.a6six.data.AuthenticationRepositoryImpl
+import com.kustims.a6six.data.repository.AuthenticationRemoteDataSourceImpl
+import com.kustims.a6six.data.repository.AuthenticationRepositoryImpl
 import com.kustims.a6six.app.viewmodel.LoginViewModel
 import com.kustims.a6six.data.usecase.AuthenticateWithBackendUseCase
 import kotlinx.coroutines.Dispatchers
