@@ -1,6 +1,7 @@
 package com.kustims.a6six.ui.Login
 
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.background
@@ -22,14 +23,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
+import com.kustims.a6six.MainActivity
 import com.kustims.a6six.R
 import com.kustims.a6six.app.AuthResultContract
 import com.kustims.a6six.app.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.get
 import org.koin.androidx.compose.getViewModel
+import kotlin.math.log
 
 
 @Composable
