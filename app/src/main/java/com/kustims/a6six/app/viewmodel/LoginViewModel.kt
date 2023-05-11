@@ -1,44 +1,45 @@
 package com.kustims.a6six.app.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.preference.PreferenceManager
 import androidx.lifecycle.viewModelScope
-import com.kustims.a6six.data.usecase.AuthenticateWithBackendUseCase
-import com.kustims.a6six.ui.Login.LoginStatus
-import com.kustims.a6six.ui.Login.LoginViewModelState
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
+import com.kustims.a6six.Repository.LoginRepository
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import kotlinx.coroutines.withContext
+import com.kustims.a6six.app.viewmodelstate.LoginState
+import com.kustims.a6six.domain.model.LoginGoogleResponse
+import com.kustims.a6six.domain.model.LoginSlothResponse
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-@HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val authenticateWithBackUseCase: AuthenticateWithBackendUseCase
-) : ViewModel() {
-    private val loginViewModelState = MutableStateFlow(LoginViewModelState())
+class LoginViewModel : BaseViewModel() {
+    private val loginRepository = LoginRepository()
 
-    val uiState = loginViewModelState
-        .stateIn(
-            viewModelScope,
-            SharingStarted.Eagerly,
-            loginViewModelState.value
+    suspend fun fetchSlothAuthInfo(
+        accessToken: String,
+        socialType: String,
+        context: CoroutineContext = Dispatchers.IO,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+    ): LoginState<LoginSlothResponse> = viewModelScope.async(
+        context = context,
+        start = start
+    ) {
+        loginRepository.fetchSlothAuthInfo(
+            accessToken = accessToken,
+            socialType = socialType
         )
-    fun authenticateWithBackend(googleToken : String) {
-        loginViewModelState.update {
-            it.copy(loginStatus = LoginStatus.Loading)
-        }
-        viewModelScope.launch {
-            authenticateWithBackUseCase(googleToken)?.checkResult(
-                onSuccess =  {loginViewModelState.update { it.copy(loginStatus = LoginStatus.Success) }},
-                onError = {loginViewModelState.update { it.copy(loginStatus = LoginStatus.Failure) }}
+    }.await()
 
-            )
-        }
-    }
+    suspend fun fetchGoogleAuthInfo(
+        authCode: String,
+        context: CoroutineContext = Dispatchers.IO,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+    ): LoginState<LoginGoogleResponse> = viewModelScope.async(
+        context = context,
+        start = start
+    ) {
+        loginRepository.fetchGoogleAuthInfo(
+            authCode = authCode
+        )
+    }.await()
 
-    fun onLoginError(){
-        loginViewModelState.update { it.copy(loginStatus = LoginStatus.Failure) }
-    }
 }

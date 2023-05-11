@@ -1,7 +1,6 @@
 package com.kustims.a6six.data
 
-import android.util.Log
-import com.kustims.a6six.Repository.AuthenticationRepository
+import com.kustims.a6six.Repository.LoginRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -9,15 +8,15 @@ import kotlinx.coroutines.withContext
 class AuthenticationRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val authenticationRemoteDataSource: AuthenticationRemoteDataSource,
-) : AuthenticationRepository {
+) : LoginRepository {
 
-    override suspend fun authenticateWithBackend(googleToken: String): DataResult<String> =
+    override suspend fun authenticateWithBackend(googleToken: String): GoogleLoginResult<String> =
         withContext(ioDispatcher) {
             try {
                 val apiToken = authenticationRemoteDataSource.authenticateWithBackend(googleToken)
-                DataResult.Success(apiToken)
+                GoogleLoginResult.Success(apiToken)
             } catch (e: Exception) {
-                DataResult.Error(CustomError.AUTHENTICATION_ERROR)
+                GoogleLoginResult.Error(CustomError.AUTHENTICATION_ERROR)
             }
         }
 }
