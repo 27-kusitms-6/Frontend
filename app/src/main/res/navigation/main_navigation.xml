@@ -8,6 +8,6 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.kustims.a6six.MainActivity"
+        android:name="com.kustims.a6six.app.ui.activity.MainActivity"
         android:label="MainActivity" />
 </navigation>
