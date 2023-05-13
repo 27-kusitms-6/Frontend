@@ -1,31 +1,30 @@
 package com.kustims.a6six.app.viewmodel
 
-import android.preference.PreferenceManager
 import androidx.lifecycle.viewModelScope
 import com.kustims.a6six.Repository.LoginRepository
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import com.kustims.a6six.app.viewmodelstate.LoginState
 import com.kustims.a6six.domain.model.LoginGoogleResponse
-import com.kustims.a6six.domain.model.LoginSlothResponse
+import com.kustims.a6six.domain.model.LoginResponse
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class LoginViewModel : BaseViewModel() {
     private val loginRepository = LoginRepository()
 
-    suspend fun fetchSlothAuthInfo(
+    suspend fun fetchAuthInfo(
         accessToken: String,
         socialType: String,
+        idToken :String,
         context: CoroutineContext = Dispatchers.IO,
         start: CoroutineStart = CoroutineStart.DEFAULT,
-    ): LoginState<LoginSlothResponse> = viewModelScope.async(
+    ): LoginState<LoginResponse> = viewModelScope.async(
         context = context,
         start = start
     ) {
-        loginRepository.fetchSlothAuthInfo(
+        loginRepository.fetchAuthInfo(
             accessToken = accessToken,
-            socialType = socialType
+            idToken = idToken
+//            socialType = socialType
         )
     }.await()
 

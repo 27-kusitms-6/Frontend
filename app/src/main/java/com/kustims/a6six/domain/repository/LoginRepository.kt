@@ -1,45 +1,49 @@
 package com.kustims.a6six.Repository
 
-import com.kustims.a6six.BuildConfig
+import com.kustims.a6six.Constants.GOOGLE_BASE_URL
+import com.kustims.a6six.Constants.GOOGLE_CLIENT_ID
+import com.kustims.a6six.Constants.GOOGLE_CLIENT_SECRET
+import com.kustims.a6six.Constants.LIKEIT_BASE_URL
 import com.kustims.a6six.domain.model.LoginGoogleResponse
-import kotlinx.coroutines.flow.Flow
 
 import com.kustims.a6six.data.remote.ServiceGenerator
 import com.kustims.a6six.app.viewmodelstate.LoginState
 import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.remote.ServiceGenerator.createService
 import com.kustims.a6six.domain.model.LoginGoogleRequest
-import com.kustims.a6six.domain.model.LoginSlothRequest
-import com.kustims.a6six.domain.model.LoginSlothResponse
+import com.kustims.a6six.domain.model.LoginRequest
+import com.kustims.a6six.domain.model.LoginResponse
 
 class LoginRepository {
-    suspend fun fetchSlothAuthInfo(accessToken: String, socialType: String): LoginState<LoginSlothResponse> {
+    suspend fun fetchAuthInfo(accessToken: String, idToken:String):
+            LoginState<LoginResponse> {
         ServiceGenerator.setBuilderOptions(
-            targetUrl = BuildConfig.SLOTH_BASE_URL,
+            targetUrl = LIKEIT_BASE_URL,
             authToken = accessToken
         ).createService(
             serviceClass = LoginService::class.java,
-        ).fetchSlothAuthInfo(
-            LoginSlothRequest(
-                socialType = socialType
+        ).fetchAuthInfo(
+            LoginRequest(
+                idToken = idToken
+//                socialType = socialType
             )
         )?.run {
             return LoginState.Success(
-                this.body() ?: LoginSlothResponse()
+                this.body() ?: LoginResponse()
             )
         } ?: return LoginState.Error(Exception("Login Exception"))
     }
 
     suspend fun fetchGoogleAuthInfo(authCode: String): LoginState<LoginGoogleResponse> {
         ServiceGenerator.setBuilderOptions(
-            targetUrl = BuildConfig.GOOGLE_BASE_URL
+            targetUrl = GOOGLE_BASE_URL
         ).createService(
             serviceClass = LoginService::class.java
         ).fetchGoogleAuthInfo(
             LoginGoogleRequest(
                 grant_type = "authorization_code",
-                client_id = BuildConfig.GOOGLE_CLIENT_ID,
-                client_secret = BuildConfig.GOOGLE_CLIENT_SECRET,
+                client_id = GOOGLE_CLIENT_ID,
+                client_secret = GOOGLE_CLIENT_SECRET,
                 redirect_uri = "",
                 code = authCode
             )

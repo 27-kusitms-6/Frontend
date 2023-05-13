@@ -1,6 +1,7 @@
 package com.kustims.a6six
 
 
+import com.kustims.a6six.Constants.GOOGLE_BASE_URL
 import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.util.CONNECT_TIME_OUT
 import com.kustims.a6six.data.util.READ_TIME_OUT
@@ -52,7 +53,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
-            .baseUrl(BuildConfig.GOOGLE_BASE_URL)
+            .baseUrl(GOOGLE_BASE_URL)
             .build()
     }
 

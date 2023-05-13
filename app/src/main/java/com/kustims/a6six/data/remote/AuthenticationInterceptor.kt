@@ -5,7 +5,8 @@ import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 
-class AuthenticationInterceptor(
+class
+AuthenticationInterceptor(
     private val accessToken: String? = null
 ) : Interceptor {
     private val contentType = "Content-Type"
