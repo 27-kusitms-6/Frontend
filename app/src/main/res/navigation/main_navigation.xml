@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/fragment_editor"
-        android:name="com.kustims.a6six.app.ui.fragment.Mypage.MypageFragment">
+        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/fragment_mypage"
-        android:name="com.kustims.a6six.app.ui.fragment.Mypage.MypageFragment">
+        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment">
     </fragment>
 
 </navigation>

@@ -6,15 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".app.ui.activity.LoginActivity">
 
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/google_login"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_app_logo_likeit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/size_138"
+        android:src="@drawable/ic_likeit_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_logo_likeit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_29.7"
+        android:src="@drawable/ic_likeit_logo_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_app_logo_likeit" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_login_bottom_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_20"
+        android:fontFamily="@font/suit_semibold"
+        android:text="@string/login_tv_logo_Bottom"
+        android:textColor="#303030"
+        android:textSize="@dimen/font_size_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo_likeit" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_29"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view1_login"
+        android:layout_width="135dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/size_31"
+        android:layout_marginTop="@dimen/size_148"
+        android:background="#606060"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_bottom_logo" />
+
+    <View
+        android:id="@+id/view2_login"
+        android:layout_width="135dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/size_31"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/size_148"
+        android:background="#606060"
+
+        app:layout_constraintTop_toBottomOf="@id/tv_login_bottom_logo"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_login_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_16"
+        android:layout_marginEnd="@dimen/size_16"
+        android:fontFamily="@font/suit_semibold"
+        android:text="@string/login_tv_login"
+        android:textColor="#606060"
+        android:textSize="@dimen/size_10"
+        app:layout_constraintEnd_toStartOf="@id/view2_login"
+        app:layout_constraintBottom_toBottomOf="@+id/view1_login"
+        app:layout_constraintStart_toEndOf="@id/view1_login"
+        app:layout_constraintTop_toTopOf="@+id/view1_login"
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

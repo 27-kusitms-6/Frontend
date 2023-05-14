@@ -1,5 +1,6 @@
 package com.kustims.a6six.app.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import com.kustims.a6six.app.viewmodel.MainViewModel
 import com.kustims.a6six.databinding.ActivityMainBinding
@@ -14,6 +15,11 @@ class MainActivity: BaseActivity<MainViewModel, ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.icSearchMain.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
