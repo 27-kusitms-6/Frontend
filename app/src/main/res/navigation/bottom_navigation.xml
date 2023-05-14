@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item1"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_editor_off"
+        android:title="에디터"/>
+    <item
+        android:id="@+id/item2"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_home_on"
+        android:title="홈"/>
+    <item
+        android:id="@+id/item3"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_mypage_off"
+        android:title="마이페이지"/>
+</menu>

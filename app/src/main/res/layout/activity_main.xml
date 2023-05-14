@@ -11,9 +11,19 @@
             android:id="@+id/fcv_main"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.fragment.app.FragmentContainerView>
+            android:layout_height="wrap_content"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/menu_main"
+            app:navGraph="@navigation/main_navigation"/>
+        
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/menu_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_56"
+            app:menu="@navigation/bottom_navigation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

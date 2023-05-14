@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mypage_navigation"
+    app:startDestination="@layout/fragment_mypage">
+
+    <fragment
+        android:id="@+id/fragment_mypage"
+        android:name="com.kustims.a6six.app.ui.fragment.Mypage.MypageFragment">
+
+        <action
+            android:id="@+id/action_fragment_mypage_to_fragment_settings_account_edit_mypage"
+            app:destination="@id/fragment_account_edit_mypage" />
+        <action
+            android:id="@+id/action_fragment_mypage_to_fragment_settings_account_mypage"
+            app:destination="@id/fragment_settings_account_mypage" />
+        <action
+            android:id="@+id/action_fragment_mypage_to_fragment_prefer_mypage"
+            app:destination="@id/fragment_prefer_mypage" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_account_edit_mypage"
+        android:name="com.kustims.a6six.app.ui.fragment.Mypage.AccounteEdit_MypageFragment">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_settings_account_mypage"
+        android:name="com.kustims.a6six.app.ui.fragment.Mypage.SettingsMypageFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_prefer_mypage"
+        android:name="com.kustims.a6six.app.ui.fragment.Mypage.PreferMypageFragment">
+
+    </fragment>
+
+</navigation>
