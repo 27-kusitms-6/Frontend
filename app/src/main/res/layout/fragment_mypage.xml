@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kustims.a6six.app.viewmodel.MypageViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_topbar_title_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:fontFamily="@font/suit_bold"
+            android:gravity="center"
+            android:text="@string/mypage_tv_topbar_mypage"
+            android:textColor="@color/purple_main"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/setting_topbar_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginEnd="@dimen/size_21"
+            android:src="@drawable/ic_mypage_union"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv_mypage"
+            android:name="com.promiseeight.www.ui.common.JoinNavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
+            app:navGraph="@navigation/mypage_navigation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

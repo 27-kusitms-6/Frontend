@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_navigation"
+    app:startDestination="@layout/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.kustims.a6six.app.ui.fragment.home.HomeFragment">
+
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_restaurant"
+            app:destination="@id/fragment_restaurant" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cafe"
+            app:destination="@id/fragment_cafe" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_play"
+            app:destination="@id/fragment_play" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_cafe"
+        android:name="com.kustims.a6six.app.ui.fragment.home.CafeRecommendationFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_restaurant"
+        android:name="com.kustims.a6six.app.ui.fragment.home.RestaurantRecommendationFragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_play"
+        android:name="com.kustims.a6six.app.ui.fragment.home.PlayRecommendationFragment">
+
+    </fragment>
+
+</navigation>

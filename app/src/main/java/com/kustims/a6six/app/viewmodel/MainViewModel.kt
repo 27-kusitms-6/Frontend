@@ -7,8 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
-
-) : BaseViewModel() {
+class MainViewModel: BaseViewModel() {
 
 }
