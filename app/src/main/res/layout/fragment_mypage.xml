@@ -39,15 +39,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv_mypage"
-            android:name="com.promiseeight.www.ui.common.JoinNavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
-            app:navGraph="@navigation/mypage_navigation" />
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/fcv_mypage"-->
+<!--            android:name="com.promiseeight.www.ui.common.JoinNavHostFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:defaultNavHost="true"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"-->
+<!--            app:navGraph="@navigation/mypage_navigation" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

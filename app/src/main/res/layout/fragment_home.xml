@@ -7,6 +7,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logo_likeit_main"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:src="@drawable/ic_likeit_logo_main"
+            android:foregroundGravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_search_main"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_marginEnd="@dimen/size_23"
+            android:src="@drawable/ic_search_main"
+            android:foregroundGravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -48,4 +48,5 @@ abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding> : AppCompatActiv
         super.onDestroy()
     }
 
+
 }
