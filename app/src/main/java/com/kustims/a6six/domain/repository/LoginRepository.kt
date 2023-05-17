@@ -13,26 +13,31 @@ import com.kustims.a6six.data.remote.ServiceGenerator.createService
 import com.kustims.a6six.data.model.request.LoginGoogleRequest
 import com.kustims.a6six.data.model.request.LoginRequest
 import com.kustims.a6six.data.model.response.LoginResponse
+import com.kustims.a6six.data.network.oAuthApi
+import com.kustims.a6six.data.util.AuthDataStore
+import com.kustims.a6six.data.util.UserPreferencesRepository
+import javax.inject.Inject
 
-class LoginRepository {
-    suspend fun fetchAuthInfo(accessToken: String, idToken:String):
-            LoginState<LoginResponse> {
-        ServiceGenerator.setBuilderOptions(
-            targetUrl = LIKEIT_BASE_URL,
-            authToken = accessToken
-        ).createService(
-            serviceClass = LoginService::class.java,
-        ).fetchAuthInfo(
-            LoginRequest(
-                idToken = idToken
-//                socialType = socialType
-            )
-        )?.run {
-            return LoginState.Success(
-                this.body() ?: LoginResponse()
-            )
-        } ?: return LoginState.Error(Exception("Login Exception"))
+class LoginRepository @Inject constructor(
+    private val oAuthApi: oAuthApi,
+    private val userPreferencesRepository: UserPreferencesRepository,
+    private val authDataStore:AuthDataStore
+) {
+
+//    suspend fun login(idToken: String): String {
+//        val jwt = oAuthApi.login(LoginRequest(idToken)).token
+//        if(jwt.isN)
+//    }
+
+    suspend fun logOut() {
+        clearUserCache()
     }
+
+    private suspend fun clearUserCache() {
+        userPreferencesRepository.clear()
+        authDataStore.authToken = ""
+    }
+
 
     suspend fun fetchGoogleAuthInfo(authCode: String): LoginState<LoginGoogleResponse> {
         ServiceGenerator.setBuilderOptions(

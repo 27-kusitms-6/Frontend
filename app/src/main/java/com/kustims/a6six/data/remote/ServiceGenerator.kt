@@ -19,7 +19,7 @@ object ServiceGenerator {
         authToken: String? = null
     ): Retrofit {
         val httpClient = OkHttpClient.Builder()
-        val authInterceptor = AuthenticationInterceptor(authToken)
+        val authInterceptor = AuthTokenInterceptor(authToken)
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             if (BuildConfig.DEBUG) {
                 level = HttpLoggingInterceptor.Level.BODY

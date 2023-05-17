@@ -8,4 +8,6 @@ data class LoginResponse(
     var rtk: String,
     //Sign Up
     var signUp: Boolean
-)
+) {
+    val token: String = ""
+}

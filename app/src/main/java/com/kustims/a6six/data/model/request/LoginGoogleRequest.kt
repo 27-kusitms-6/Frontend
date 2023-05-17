@@ -1,7 +1,9 @@
 package com.kustims.a6six.data.model.request
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class LoginGoogleRequest (
     @SerializedName("grant_type")
     private val grant_type: String,
