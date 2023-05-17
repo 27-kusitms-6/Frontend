@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.domain.model
+package com.kustims.a6six.data.model.response
 
 data class LoginGoogleResponse(
     var access_token: String = "",

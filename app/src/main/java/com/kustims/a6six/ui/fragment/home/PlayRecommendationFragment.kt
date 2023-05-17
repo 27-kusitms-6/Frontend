@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.fragment.home
+package com.kustims.a6six.ui.fragment.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

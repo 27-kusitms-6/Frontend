@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.fragment.Editor
+package com.kustims.a6six.ui.fragment.Editor
 
 import android.os.Bundle
 import android.view.LayoutInflater

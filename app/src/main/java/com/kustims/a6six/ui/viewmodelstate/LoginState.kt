@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.viewmodelstate
+package com.kustims.a6six.ui.viewmodelstate
 
 
 

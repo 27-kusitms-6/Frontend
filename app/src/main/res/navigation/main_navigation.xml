@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.kustims.a6six.app.ui.fragment.home.HomeFragment">
+        android:name="com.kustims.a6six.ui.fragment.home.HomeFragment">
 
         <action
             android:id="@+id/fragment_home_to_fragment_editor"
@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/fragment_editor"
-        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment">
+        android:name="com.kustims.a6six.ui.fragment.mypage.MypageFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/fragment_mypage"
-        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment">
+        android:name="com.kustims.a6six.ui.fragment.mypage.MypageFragment">
     </fragment>
 
 </navigation>

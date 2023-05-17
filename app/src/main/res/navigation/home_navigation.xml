@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.kustims.a6six.app.ui.fragment.home.HomeFragment">
+        android:name="com.kustims.a6six.ui.fragment.home.HomeFragment">
 
         <action
             android:id="@+id/action_fragment_home_to_fragment_restaurant"
@@ -21,19 +21,19 @@
 
     <fragment
         android:id="@+id/fragment_cafe"
-        android:name="com.kustims.a6six.app.ui.fragment.home.CafeRecommendationFragment">
+        android:name="com.kustims.a6six.ui.fragment.home.CafeRecommendationFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/fragment_restaurant"
-        android:name="com.kustims.a6six.app.ui.fragment.home.RestaurantRecommendationFragment">
+        android:name="com.kustims.a6six.ui.fragment.home.RestaurantRecommendationFragment">
 
     </fragment>
 
     <fragment
         android:id="@+id/fragment_play"
-        android:name="com.kustims.a6six.app.ui.fragment.home.PlayRecommendationFragment">
+        android:name="com.kustims.a6six.ui.fragment.home.PlayRecommendationFragment">
 
     </fragment>
 

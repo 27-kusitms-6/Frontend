@@ -1,13 +1,13 @@
 package com.kustims.a6six.Repository
 
-import com.kustims.a6six.data.util.Constants.GOOGLE_BASE_URL
-import com.kustims.a6six.data.util.Constants.GOOGLE_CLIENT_ID
-import com.kustims.a6six.data.util.Constants.GOOGLE_CLIENT_SECRET
-import com.kustims.a6six.data.util.Constants.LIKEIT_BASE_URL
+import com.kustims.a6six.data.Constants.GOOGLE_BASE_URL
+import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_ID
+import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_SECRET
+import com.kustims.a6six.data.Constants.LIKEIT_BASE_URL
 import com.kustims.a6six.data.model.response.LoginGoogleResponse
 
 import com.kustims.a6six.data.remote.ServiceGenerator
-import com.kustims.a6six.app.ui.viewmodelstate.LoginState
+import com.kustims.a6six.ui.viewmodelstate.LoginState
 import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.remote.ServiceGenerator.createService
 import com.kustims.a6six.data.model.request.LoginGoogleRequest
