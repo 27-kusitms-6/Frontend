@@ -1,11 +1,11 @@
 package com.kustims.a6six.data.model.response
 
 data class LoginResponse(
-    var id: String = "",
+    var id: Int,
     //Access Token
-    var atk: String = "",
+    var atk: String,
     //Refresh Token
-    var rtk: String = "",
+    var rtk: String,
     //Sign Up
-    var isSignUp: String = "",
+    var signUp: Boolean
 )

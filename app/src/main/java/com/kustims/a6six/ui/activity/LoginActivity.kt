@@ -91,6 +91,8 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
             Log.d("Google_Account", email)
             Log.d("Google_displayName", displayName)
 
+
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
