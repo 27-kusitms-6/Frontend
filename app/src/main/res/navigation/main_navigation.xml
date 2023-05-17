@@ -7,12 +7,8 @@
 
     <fragment
         android:id="@+id/fragment_home"
-<<<<<<< HEAD
         tools:layout="@layout/fragment_home"
-        android:name="com.kustims.a6six.app.ui.fragment.home.HomeFragment">
-=======
         android:name="com.kustims.a6six.ui.fragment.home.HomeFragment">
->>>>>>> 6d67c2b2df8ca98c5e969b80f866db10b25e0650
 
         <action
             android:id="@+id/fragment_home_to_fragment_editor"
@@ -25,23 +21,15 @@
 
     <fragment
         android:id="@+id/fragment_editor"
-<<<<<<< HEAD
-        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment"
+        android:name="com.kustims.a6six.ui.fragment.Editor.EditorFragment"
         tools:layout="@layout/fragment_editor">
-=======
-        android:name="com.kustims.a6six.ui.fragment.mypage.MypageFragment">
->>>>>>> 6d67c2b2df8ca98c5e969b80f866db10b25e0650
-
     </fragment>
 
     <fragment
         android:id="@+id/fragment_mypage"
-<<<<<<< HEAD
-        android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageFragment"
+        android:name="com.kustims.a6six.ui.fragment.mypage.MypageFragment"
         tools:layout="@layout/fragment_mypage">
-=======
-        android:name="com.kustims.a6six.ui.fragment.mypage.MypageFragment">
->>>>>>> 6d67c2b2df8ca98c5e969b80f866db10b25e0650
+
     </fragment>
 
 </navigation>

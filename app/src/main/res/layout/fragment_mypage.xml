@@ -41,7 +41,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_mypage"
-            android:name="com.kustims.a6six.app.ui.fragment.mypage.MypageHostFragment"
+            android:name="com.kustims.a6six.ui.fragment.mypage.MypageHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

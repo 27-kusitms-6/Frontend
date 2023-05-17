@@ -89,9 +89,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_version_info_mypage_setting" />
 
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

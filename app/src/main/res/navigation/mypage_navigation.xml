@@ -28,13 +28,8 @@
     </fragment>
 
     <fragment
-<<<<<<< HEAD
         android:id="@+id/fragment_settings_mypage"
-        android:name="com.kustims.a6six.app.ui.fragment.mypage.SettingsMypageFragment">
-=======
-        android:id="@+id/fragment_settings_account_mypage"
         android:name="com.kustims.a6six.ui.fragment.mypage.SettingsMypageFragment">
->>>>>>> 6d67c2b2df8ca98c5e969b80f866db10b25e0650
 
     </fragment>
 
