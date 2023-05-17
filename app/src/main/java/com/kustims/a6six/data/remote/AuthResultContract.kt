@@ -1,4 +1,4 @@
-package com.kustims.a6six.app
+package com.kustims.a6six.data.remote
 
 
 import android.app.Activity

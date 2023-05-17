@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.domain.model
+package com.kustims.a6six.data.model.response
 
 data class LoginResponse(
     var id: String = "",
@@ -7,5 +7,5 @@ data class LoginResponse(
     //Refresh Token
     var rtk: String = "",
     //Sign Up
-    var signUp: String = "",
+    var isSignUp: String = "",
 )

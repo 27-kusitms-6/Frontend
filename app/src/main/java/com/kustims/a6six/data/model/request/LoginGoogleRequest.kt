@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.domain.model
+package com.kustims.a6six.data.model.request
 
 import com.google.gson.annotations.SerializedName
 

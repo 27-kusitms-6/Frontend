@@ -1,12 +1,13 @@
-package com.kustims.a6six.app.di
+package com.kustims.a6six.di
 
 
 import com.kustims.a6six.BuildConfig
-import com.kustims.a6six.data.util.Constants.GOOGLE_BASE_URL
 import com.kustims.a6six.data.remote.LoginService
-import com.kustims.a6six.data.util.CONNECT_TIME_OUT
-import com.kustims.a6six.data.util.READ_TIME_OUT
-import com.kustims.a6six.data.util.WRITE_TIME_OUT
+import com.kustims.a6six.data.Constants.CONNECT_TIME_OUT
+import com.kustims.a6six.data.Constants.LIKEIT_BASE_URL
+import com.kustims.a6six.data.Constants.READ_TIME_OUT
+import com.kustims.a6six.data.Constants.WRITE_TIME_OUT
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,7 +56,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
-            .baseUrl(GOOGLE_BASE_URL)
+            .baseUrl(LIKEIT_BASE_URL)
             .build()
     }
 

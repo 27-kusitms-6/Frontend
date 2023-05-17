@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.activity
+package com.kustims.a6six.ui.activity
 
 
 import android.app.Activity
@@ -13,10 +13,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.kustims.a6six.data.util.Constants
+import com.kustims.a6six.data.Constants
 import com.kustims.a6six.R
 import com.kustims.a6six.app.Base.BaseActivity
-import com.kustims.a6six.app.ui.viewmodel.LoginViewModel
+import com.kustims.a6six.ui.viewmodel.LoginViewModel
 import com.kustims.a6six.databinding.ActivityLoginBinding
 
 

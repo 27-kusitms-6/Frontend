@@ -1,9 +1,9 @@
-package com.kustims.a6six.app.ui.activity
+package com.kustims.a6six.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
 import com.kustims.a6six.app.Base.BaseActivity
-import com.kustims.a6six.app.ui.viewmodel.MainViewModel
+import com.kustims.a6six.ui.viewmodel.MainViewModel
 import com.kustims.a6six.databinding.ActivityMainBinding
 
 class MainActivity: BaseActivity<MainViewModel, ActivityMainBinding>() {

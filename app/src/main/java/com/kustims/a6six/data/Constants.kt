@@ -1,4 +1,4 @@
-package com.kustims.a6six
+package com.kustims.a6six.data
 
 object Constants {
     const val GOOGLE_BASE_URL = "https://www.googleapis.com/oauth2/v4/token/"

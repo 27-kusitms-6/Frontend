@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.activity
+package com.kustims.a6six.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
