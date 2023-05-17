@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.kustims.a6six.app.viewmodel.MypageViewModel" />
+            type="com.kustims.a6six.ui.viewmodel.MypageViewModel" />
 
         <import type="android.view.View" />
     </data>

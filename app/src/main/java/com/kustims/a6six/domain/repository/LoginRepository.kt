@@ -1,18 +1,18 @@
 package com.kustims.a6six.Repository
 
-import com.kustims.a6six.Constants.GOOGLE_BASE_URL
-import com.kustims.a6six.Constants.GOOGLE_CLIENT_ID
-import com.kustims.a6six.Constants.GOOGLE_CLIENT_SECRET
-import com.kustims.a6six.Constants.LIKEIT_BASE_URL
-import com.kustims.a6six.domain.model.LoginGoogleResponse
+import com.kustims.a6six.data.Constants.GOOGLE_BASE_URL
+import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_ID
+import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_SECRET
+import com.kustims.a6six.data.Constants.LIKEIT_BASE_URL
+import com.kustims.a6six.data.model.response.LoginGoogleResponse
 
 import com.kustims.a6six.data.remote.ServiceGenerator
-import com.kustims.a6six.app.viewmodelstate.LoginState
+import com.kustims.a6six.ui.viewmodelstate.LoginState
 import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.remote.ServiceGenerator.createService
-import com.kustims.a6six.domain.model.LoginGoogleRequest
-import com.kustims.a6six.domain.model.LoginRequest
-import com.kustims.a6six.domain.model.LoginResponse
+import com.kustims.a6six.data.model.request.LoginGoogleRequest
+import com.kustims.a6six.data.model.request.LoginRequest
+import com.kustims.a6six.data.model.response.LoginResponse
 
 class LoginRepository {
     suspend fun fetchAuthInfo(accessToken: String, idToken:String):
