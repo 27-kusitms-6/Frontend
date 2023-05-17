@@ -1,6 +1,7 @@
 package com.kustims.a6six.ui.activity
 
 
+import BaseActivity
 import android.app.Activity
 import android.os.Bundle
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -8,6 +9,10 @@ import android.content.Intent
 import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import androidx.databinding.DataBindingUtil.setContentView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -15,18 +20,18 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.kustims.a6six.data.Constants
 import com.kustims.a6six.R
-import com.kustims.a6six.app.Base.BaseActivity
-import com.kustims.a6six.ui.viewmodel.LoginViewModel
 import com.kustims.a6six.databinding.ActivityLoginBinding
+import com.kustims.a6six.databinding.ActivityMainBinding
+import com.kustims.a6six.ui.viewmodel.LoginViewModel
 
 
-class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
+class LoginActivity : AppCompatActivity() {
 
-    override val viewModel: LoginViewModel
-        get() = LoginViewModel()
+    private var _binding : ActivityLoginBinding? = null
+    private val binding get() = _binding!!
 
-    override fun getViewBinding(): ActivityLoginBinding =
-        ActivityLoginBinding.inflate(layoutInflater)
+    private val viewModel : LoginViewModel by viewModels()
+
 
     private lateinit var mGoogleSignInClient: GoogleSignInClient
 
@@ -37,12 +42,10 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 //    private lateinit var refreshToken: String
 
 
-//    override fun onStart() {
-//        super.onStart()
-//        val gsa = GoogleSignIn.getLastSignedInAccount(this)
-//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         loginLauncher = registerForActivityResult(
