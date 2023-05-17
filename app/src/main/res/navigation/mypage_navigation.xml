@@ -11,12 +11,13 @@
         <action
             android:id="@+id/action_fragment_mypage_to_fragment_settings_account_edit_mypage"
             app:destination="@id/fragment_account_edit_mypage" />
-        <action
-            android:id="@+id/action_fragment_mypage_to_fragment_settings_account_mypage"
-            app:destination="@id/fragment_settings_account_mypage" />
+
         <action
             android:id="@+id/action_fragment_mypage_to_fragment_prefer_mypage"
             app:destination="@id/fragment_prefer_mypage" />
+        <action
+            android:id="@+id/action_fragment_mypage_to_fragment_settings_mypage"
+            app:destination="@id/fragment_settings_mypage" />
     </fragment>
 
     <fragment
@@ -27,7 +28,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_settings_account_mypage"
+        android:id="@+id/fragment_settings_mypage"
         android:name="com.kustims.a6six.ui.fragment.mypage.SettingsMypageFragment">
 
     </fragment>
@@ -37,6 +38,7 @@
         android:name="com.kustims.a6six.ui.fragment.mypage.PreferMypageFragment">
 
     </fragment>
+
 
 
 </navigation>

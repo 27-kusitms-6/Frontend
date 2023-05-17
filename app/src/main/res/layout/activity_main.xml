@@ -7,33 +7,14 @@
         android:layout_height="match_parent"
         tools:context=".ui.activity.MainActivity">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/logo_likeit_main"
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:src="@drawable/ic_likeit_logo_main"
-            android:foregroundGravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ic_search_main"
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:layout_marginEnd="@dimen/size_23"
-            android:src="@drawable/ic_search_main"
-            android:foregroundGravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_main"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app:layout_constraintTop_toBottomOf="@id/logo_likeit_main"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/menu_main"
             app:navGraph="@navigation/main_navigation"/>
         

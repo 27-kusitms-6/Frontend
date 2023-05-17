@@ -1,7 +1,6 @@
 package com.kustims.a6six.ui.activity
 
 
-import BaseActivity
 import android.app.Activity
 import android.os.Bundle
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

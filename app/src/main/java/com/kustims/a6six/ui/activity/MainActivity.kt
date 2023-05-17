@@ -1,16 +1,23 @@
 package com.kustims.a6six.ui.activity
 
-import BaseActivity
-import android.content.Intent
+
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.kustims.a6six.databinding.ActivityMainBinding
-import com.kustims.a6six.ui.viewmodel.MainViewModel
+import com.kustims.a6six.ui.fragment.Editor.EditorFragment
+import com.kustims.a6six.ui.fragment.home.HomeFragment
+import com.kustims.a6six.ui.fragment.mypage.MypageFragment
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kustims.a6six.R
+import androidx.appcompat.app.AppCompatActivity
+
 
 
 class MainActivity: AppCompatActivity() {
 
-    private var _binding : ActivityMainBinding? = null
+    lateinit var bottomNav: BottomNavigationView
+
+    private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +26,37 @@ class MainActivity: AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.icSearchMain.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
+        loadFragment(HomeFragment())
+
+        bottomNav = findViewById(R.id.menu_main) as BottomNavigationView
+        bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.fragment_home -> {
+                    loadFragment(HomeFragment())
+                    true
+                }
+                R.id.fragment_editor -> {
+                    loadFragment(EditorFragment())
+                    true
+                }
+
+                R.id.fragment_mypage -> {
+                    loadFragment(MypageFragment())
+                    true
+                }
+
+                else -> {
+                    false
+                }
+            }
         }
+
+
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fcv_main, fragment)
+        transaction.commit()
     }
 }
