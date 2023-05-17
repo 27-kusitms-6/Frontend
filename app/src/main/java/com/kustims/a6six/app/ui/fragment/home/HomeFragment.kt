@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.kustims.a6six.app.ui.fragment.BaseFragment
 import com.kustims.a6six.databinding.FragmentHomeBinding
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<com.kustims.a6six.databinding.FragmentHomeBinding>() {
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
