@@ -2,7 +2,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
-import com.kustims.a6six.base.BaseViewModel
+import com.kustims.a6six.app.Base.BaseViewModel
 import kotlinx.coroutines.Job
 
 abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding> : AppCompatActivity() {

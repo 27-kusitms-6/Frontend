@@ -29,16 +29,10 @@ class LoginActivity : AppCompatActivity() {
     private var _binding : ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel : LoginViewModel by viewModels()
-
 
     private lateinit var mGoogleSignInClient: GoogleSignInClient
 
     private lateinit var loginLauncher: ActivityResultLauncher<Intent>
-
-//    private lateinit var accessToken: String
-//
-//    private lateinit var refreshToken: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,6 +86,8 @@ class LoginActivity : AppCompatActivity() {
             Log.d("Google_idToken",idToken)
             Log.d("Google_Account", email)
             Log.d("Google_displayName", displayName)
+
+
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

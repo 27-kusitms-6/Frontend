@@ -15,6 +15,18 @@
 
     <!-- Mypage Fragment -->
     <string name="mypage_tv_topbar_mypage">마이페이지</string>
+    <string name="mypage_tv1_tablayout">tab1</string>
+
+    <string name="mypage_nickname">김영남</string>
+    <string name="mypage_filter">#독특한</string>
+    <string name="mypage_tv_likelist">내가 저장한 장소</string>
+    <string name="mypage_tv2_likelist">내가 좋아요한 콘텐츠</string>
+
+    <string name="likelist_save_tv_name">육품</string>
+
+    <string name="filter_name">조용한</string>
+    <string name="tv1_filter_mypage">공간에 대한 내 취향을 골라주세요</string>
+    <string name="tv2_filter_mypage">내 취향을 입력하면, 맞춤 장소를 추천하고\n 내가 좋아하는 장소를 모아서 볼수 있어요</string>
 
 </resources>
 
