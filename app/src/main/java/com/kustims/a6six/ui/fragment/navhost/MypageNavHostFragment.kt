@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.ui.fragment.NavHost
+package com.kustims.a6six.ui.fragment.navhost
 
 import androidx.navigation.fragment.NavHostFragment
 

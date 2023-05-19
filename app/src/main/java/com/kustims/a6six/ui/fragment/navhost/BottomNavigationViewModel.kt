@@ -1,4 +1,4 @@
-package com.kustims.a6six.app.viewmodel
+package com.kustims.a6six.ui.fragment.navhost
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
