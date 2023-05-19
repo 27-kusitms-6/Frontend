@@ -7,15 +7,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_mypage"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home_Fragment"
-            android:textSize="@dimen/size_19"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:tabTextAppearance="@dimen/font_size_14"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="oarent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            app:tabGravity="center"
+            app:tabMode="scrollable"
+            app:tabIndicator="@color/likeit_main_purple"
+            app:tabTextColor="@color/likeit_font_black_30"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

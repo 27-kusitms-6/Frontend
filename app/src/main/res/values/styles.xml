@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Typography -->
+    <style name="Text.Myreview" parent="android:TextAppearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_size_14</item>
+        <item name="android:fontFamily">@font/suit_bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    </resources>

@@ -7,15 +7,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_logo_prefer_mypage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home_Fragment"
-            android:textSize="@dimen/size_19"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_settinglogo_likeit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv1_prefer_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv1_filter_mypage"
+            android:layout_marginTop="@dimen/size_25"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="@dimen/font_size_22"
+            android:textColor="@color/likeit_font_black_30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_logo_prefer_mypage"/>
+
+        <TextView
+            android:id="@+id/tv2_prefer_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_ballon_setting"
+            android:text="@string/tv2_filter_mypage"
+            android:textSize="@dimen/font_size_11"
+            android:fontFamily="@font/suit_regular"
+            android:layout_marginTop="@dimen/size_35"
+            app:layout_constraintStart_toStartOf="@id/grid_view_prefer_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv1_prefer_mypage"
+            android:textColor="@color/likeit_main_purple"/>
+
+
+        <GridView
+            android:id="@+id/grid_view_prefer_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            android:horizontalSpacing="@dimen/size_6"
+            android:numColumns="2"
+            android:layout_marginTop="@dimen/size_11"
+            android:verticalSpacing="@dimen/size_12"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/tv1_prefer_mypage"
+            app:layout_constraintEnd_toEndOf="@id/tv1_prefer_mypage"
+            tools:listitem="@layout/filter_item"
+            app:layout_constraintTop_toBottomOf="@id/tv2_prefer_mypage"/>
+
+        <Button
+            android:id="@+id/btn_prefer_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_45"
+            android:text="저장"
+            android:textColor="@color/white"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="@dimen/font_size_16"
+            android:background="@drawable/btn_background_edit_mypage"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/size_50"/>
+
+
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

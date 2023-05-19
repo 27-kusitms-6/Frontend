@@ -9,4 +9,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
+    <!-- figma -->
+    <color name="likeit_main_purple">#5B26DD</color>
+    <color name="likeit_sub_purple">#9D7AF4</color>
+    <color name="likeit_font_black_30">#303030</color>
+
 </resources>

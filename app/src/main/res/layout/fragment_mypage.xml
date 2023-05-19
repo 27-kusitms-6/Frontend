@@ -25,7 +25,7 @@
             android:gravity="center"
             android:text="@string/mypage_tv_topbar_mypage"
             android:textColor="@color/purple_main"
-            android:textSize="@dimen/size_16"
+            android:textSize="@dimen/font_size_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,9 +41,11 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_mypage"
-            android:name="com.kustims.a6six.ui.fragment.mypage.MypageHostFragment"
+            android:name="com.kustims.a6six.ui.fragment.navhost.MypageNavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
             app:navGraph="@navigation/mypage_navigation" />

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.kustims.a6six.app.viewmodel.MypageViewModel
 import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentMypageBinding
 

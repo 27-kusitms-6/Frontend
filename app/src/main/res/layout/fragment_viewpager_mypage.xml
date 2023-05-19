@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv1_viewpager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_tv_likelist"
+            android:textSize="@dimen/font_size_14"
+            android:fontFamily="@font/suit_bold"
+            android:textColor="@color/likeit_font_black_30"
+            android:drawableEnd="@drawable/ic_plus_mypage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_viewpager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_11"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv1_viewpager_mypage"
+            tools:listitem="@layout/likelist_save_item"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv2_viewpager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_tv2_likelist"
+            android:textSize="@dimen/font_size_14"
+            android:fontFamily="@font/suit_bold"
+            android:textColor="@color/likeit_font_black_30"
+            android:drawableEnd="@drawable/ic_plus_mypage"
+            app:layout_constraintTop_toBottomOf="@id/rv_viewpager_mypage"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv2_viewpager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_11"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv2_viewpager_mypage"
+            tools:listitem="@layout/likelist_save_item"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
