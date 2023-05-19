@@ -10,8 +10,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.databinding.DataBindingUtil.setContentView
+import androidx.activity.viewModels
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,17 +21,31 @@ import com.kustims.a6six.R
 import com.kustims.a6six.databinding.ActivityLoginBinding
 import com.kustims.a6six.databinding.ActivityMainBinding
 import com.kustims.a6six.ui.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private var _binding : ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel:LoginViewModel by viewModels()
 
-    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private var mGoogleSignInClient: GoogleSignInClient? = null
 
     private lateinit var loginLauncher: ActivityResultLauncher<Intent>
+
+    override fun onStart() {
+        super.onStart()
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+        if (account != null) {
+            mGoogleSignInClient?.signOut()?.addOnCompleteListener(this) {
+                //Logout Success
+                Log.d("GOOGLE_LOGIN", "로그인된 계정 로그아웃 완료")
+            }
+        }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +53,20 @@ class LoginActivity : AppCompatActivity() {
 
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val googleClientId = Constants.GOOGLE_CLIENT_ID
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(googleClientId)
+            .requestEmail()
+            .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        binding.googleLogin.setOnClickListener { view ->
+            when (view.id) {
+                R.id.google_login -> loginwithGoogle()
+            }
+        }
 
         loginLauncher = registerForActivityResult(
             StartActivityForResult()
@@ -50,29 +77,10 @@ class LoginActivity : AppCompatActivity() {
                 handleSignInResult(task)
             }
         }
-        val googleClientId = Constants.GOOGLE_CLIENT_ID
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(googleClientId)
-            .requestEmail()
-            .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-
-
-
-
-
-        binding.googleLogin.setOnClickListener { view ->
-            when (view.id) {
-                R.id.google_login -> loginwithGoogle()
-            }
-        }
-
-
-        }
+    }
 
     private fun loginwithGoogle() {
-        val signInIntent: Intent = mGoogleSignInClient.signInIntent
+        val signInIntent: Intent = mGoogleSignInClient!!.signInIntent
         loginLauncher.launch(signInIntent)
     }
 
@@ -88,7 +96,6 @@ class LoginActivity : AppCompatActivity() {
             Log.d("Google_displayName", displayName)
 
 
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -100,14 +107,5 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-    override fun onStart() {
-        super.onStart()
-        val gsa = GoogleSignIn.getLastSignedInAccount(this)
-
-        if (gsa != null) {
-
-        }
-    }
 
 }
-

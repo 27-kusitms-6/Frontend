@@ -1,5 +1,6 @@
 package com.kustims.a6six.Repository
 
+import android.util.Log
 import com.kustims.a6six.data.Constants.GOOGLE_BASE_URL
 import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_ID
 import com.kustims.a6six.data.Constants.GOOGLE_CLIENT_SECRET
@@ -24,11 +25,17 @@ class LoginRepository @Inject constructor(
     private val authDataStore:AuthDataStore
 ) {
 
-//    suspend fun login(idToken: String): String {
-//        val jwt = oAuthApi.login(LoginRequest(idToken)).token
-//        if(jwt.isN)
-//    }
-
+    suspend fun login(oAuthToken: String): String {
+        val jwt = oAuthApi.login(LoginRequest(oAuthToken)).token
+        if(jwt.isNotEmpty()) {
+            authDataStore.authToken = jwt
+            Log.d("GOOGLE_LOGIN", "$oAuthToken")
+            Log.d("GOOGLE_LOGIN", "$jwt: $jwt")
+        } else {
+            throw IllegalStateException("Token is Empty.")
+        }
+        return jwt
+    }
     suspend fun logOut() {
         clearUserCache()
     }
