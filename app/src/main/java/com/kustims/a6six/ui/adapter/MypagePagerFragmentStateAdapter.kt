@@ -5,9 +5,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.kustims.a6six.ui.fragment.mypage.ViewpagerMypage2Fragment
 import com.kustims.a6six.ui.fragment.mypage.ViewpagerMypageFragment
 
-class MypageTabAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+class MypagePagerFragmentStateAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+
+    private var fragments : ArrayList<Fragment> = ArrayList()
+
     override fun getItemCount(): Int {
-        return 2
+        return fragments.size
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -17,6 +20,16 @@ class MypageTabAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
                 ViewpagerMypageFragment()
             }
         }
+    }
+
+    fun addFragment(fragment: Fragment) {
+        fragments.add(fragment)
+        notifyItemInserted(fragments.size -1)
+    }
+
+    fun removeFragment() {
+        fragments.removeAt(fragments.size - 1)
+        notifyItemRemoved(fragments.size -1)
     }
 
 
