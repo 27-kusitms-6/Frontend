@@ -13,8 +13,6 @@ import com.kustims.a6six.ui.adapter.MypageTabAdapter
 
 class AccountEditMypageFragment : BaseFragment<FragmentAccountEditMypageBinding>() {
 
-    private lateinit var mypagetabAdapter : MypageTabAdapter
-    private lateinit var viewPager: ViewPager2
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -27,19 +25,7 @@ class AccountEditMypageFragment : BaseFragment<FragmentAccountEditMypageBinding>
         super.onViewCreated(view, savedInstanceState)
 
         //tab layout attach
-        val tabLayout = binding.tabLayoutMypage
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            if(position == 0) {
-                tab.text = "LIKLIST"
-            }
-            else if (position == 1) {
-                tab.text = "나의 리뷰"
-            }
-        }.attach()
 
-        //adapter attach
-        mypagetabAdapter = MypageTabAdapter(this)
-        viewPager.adapter = mypagetabAdapter
 
     }
 

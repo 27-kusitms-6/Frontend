@@ -9,7 +9,6 @@ import com.kustims.a6six.data.model.response.LoginGoogleResponse
 
 import com.kustims.a6six.data.remote.ServiceGenerator
 import com.kustims.a6six.ui.viewmodelstate.LoginState
-import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.remote.ServiceGenerator.createService
 import com.kustims.a6six.data.model.request.LoginGoogleRequest
 import com.kustims.a6six.data.model.request.LoginRequest
@@ -25,7 +24,7 @@ class LoginRepository @Inject constructor(
     private val authDataStore:AuthDataStore
 ) {
 
-    suspend fun login(oAuthToken: String): String {
+    fun login(oAuthToken: String): String {
         val jwt = oAuthApi.login(LoginRequest(oAuthToken)).token
         if(jwt.isNotEmpty()) {
             authDataStore.authToken = jwt
@@ -45,24 +44,4 @@ class LoginRepository @Inject constructor(
         authDataStore.authToken = ""
     }
 
-
-    suspend fun fetchGoogleAuthInfo(authCode: String): LoginState<LoginGoogleResponse> {
-        ServiceGenerator.setBuilderOptions(
-            targetUrl = GOOGLE_BASE_URL
-        ).createService(
-            serviceClass = LoginService::class.java
-        ).fetchGoogleAuthInfo(
-            LoginGoogleRequest(
-                grant_type = "authorization_code",
-                client_id = GOOGLE_CLIENT_ID,
-                client_secret = GOOGLE_CLIENT_SECRET,
-                redirect_uri = "",
-                code = authCode
-            )
-        )?.run {
-            return LoginState.Success(
-                this.body() ?: LoginGoogleResponse()
-            )
-        } ?: return LoginState.Error(Exception("Retrofit Exception"))
-    }
 }

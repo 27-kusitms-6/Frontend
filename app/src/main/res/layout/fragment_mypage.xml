@@ -39,16 +39,78 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv_mypage"
-            android:name="com.kustims.a6six.ui.fragment.navhost.MypageNavHostFragment"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_profile_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_profile_mypage"
+            android:layout_marginTop="@dimen/size_25"
+            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_nickname_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_31"
+            android:layout_marginStart="@dimen/size_16"
+            android:text="@string/mypage_nickname"
+            android:textColor="@color/likeit_font_black_30"
+            android:textSize="@dimen/font_size_18"
+            android:fontFamily="@font/suit_bold"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_filter_mypage"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_filter"
+            android:layout_marginTop="@dimen/size_11"
+            android:textColor="@color/likeit_main_purple"
+            android:textSize="@dimen/font_size_12"
+            android:fontFamily="@font/suit_regular"
+            android:paddingStart="82dp"
+            android:drawableEnd="@drawable/imgbtn_change_mypage"
+            app:layout_constraintTop_toBottomOf="@id/tv_nickname_mypage"
+            app:layout_constraintStart_toStartOf="@id/tv_nickname_mypage"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_profile_edit_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_45"
+            android:layout_marginTop="@dimen/size_40"
+            android:background="@drawable/btn_background_edit_mypage"
+            android:fontFamily="@font/suit_bold"
+            android:text="프로필 설정"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tv_filter_mypage"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_8"
+            app:tabTextAppearance="@dimen/font_size_14"
+            app:layout_constraintTop_toBottomOf="@id/btn_profile_edit_mypage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            app:tabGravity="center"
+            app:tabMode="scrollable"
+            app:tabIndicator="@color/likeit_main_purple"
+            app:tabTextColor="@color/likeit_font_black_30"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
-            app:navGraph="@navigation/mypage_navigation" />
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_mypage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

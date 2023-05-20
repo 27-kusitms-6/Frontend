@@ -21,7 +21,7 @@ class LoginViewModel @Inject constructor(
     private val _loginDetailText = MutableStateFlow<String?>(null)
     val loginDetailText = _loginDetailText.asStateFlow()
 
-    suspend fun login(loginToken: String) {
+    fun login(loginToken: String) {
         loginRepository.login(loginToken)
     }
 }

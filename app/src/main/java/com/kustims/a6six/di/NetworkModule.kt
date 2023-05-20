@@ -2,7 +2,6 @@ package com.kustims.a6six.di
 
 
 import com.kustims.a6six.BuildConfig
-import com.kustims.a6six.data.remote.LoginService
 import com.kustims.a6six.data.Constants.CONNECT_TIME_OUT
 import com.kustims.a6six.data.Constants.LIKEIT_BASE_URL
 import com.kustims.a6six.data.Constants.READ_TIME_OUT
@@ -46,11 +45,6 @@ object NetworkModule {
         return ApiProvider.retrofit.create(UserApi::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideLoginService(retrofit: Retrofit): LoginService {
-        return retrofit.create(LoginService::class.java)
-    }
 }
 
 
