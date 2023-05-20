@@ -32,7 +32,6 @@ class UserPreferencesRepository @Inject constructor(
         val KEY_USER_ID = intPreferencesKey("KEY_USER_ID")
         val KEY_NICKNAME = stringPreferencesKey("KEY_NICKNAME")
         val KEY_PROFILE_IMAGE_INDEX = intPreferencesKey("KEY_PROFILE_IMAGE_INDEX")
-        val KEY_AUTH_SERVICE_TYPE = stringPreferencesKey("KEY_AUTH_SERVICE_TYPE")
     }
 
     val userPrefFlow: Flow<UserPref?> = context.userDataStore.data
@@ -48,12 +47,10 @@ class UserPreferencesRepository @Inject constructor(
             val userId = preferences[PreferencesKeys.KEY_USER_ID]
             val nickname = preferences[PreferencesKeys.KEY_NICKNAME]
             val profileImageIndex = preferences[PreferencesKeys.KEY_PROFILE_IMAGE_INDEX]
-            val authServiceType = preferences[PreferencesKeys.KEY_AUTH_SERVICE_TYPE]
             UserPref(
                 id = userId ?: return@map null,
                 profileImageIndex = profileImageIndex,
                 nickname = nickname,
-                authServiceType = authServiceType ?: return@map null
             ).also {
                 Log.i("UserPreferencesRepository","+++ UserPref: $it")
             }
@@ -67,12 +64,10 @@ class UserPreferencesRepository @Inject constructor(
                 val userId = preferences[PreferencesKeys.KEY_USER_ID]
                 val nickname = preferences[PreferencesKeys.KEY_NICKNAME]
                 val profileImageIndex = preferences[PreferencesKeys.KEY_PROFILE_IMAGE_INDEX]
-                val authServiceType = preferences[PreferencesKeys.KEY_AUTH_SERVICE_TYPE]
                 userPref = UserPref(
                     id = userId!!,
                     profileImageIndex = profileImageIndex,
                     nickname = nickname,
-                    authServiceType = authServiceType!!
                 )
                 true
             }
@@ -89,7 +84,6 @@ class UserPreferencesRepository @Inject constructor(
             user.profileImageIndex?.let {
                 preferences[PreferencesKeys.KEY_PROFILE_IMAGE_INDEX] = it
             }
-            preferences[PreferencesKeys.KEY_AUTH_SERVICE_TYPE] = user.authServiceType
         }
     }
 
