@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayoutMediator
 import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentHomeBinding
-import com.kustims.a6six.ui.adapter.MypageTabAdapter
+import com.kustims.a6six.ui.adapter.MypagePagerFragmentStateAdapter
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private lateinit var mypagetabAdapter : MypageTabAdapter
+    private lateinit var mypagetabAdapter : MypagePagerFragmentStateAdapter
     private lateinit var viewPager: ViewPager2
 
     override fun getFragmentBinding(
