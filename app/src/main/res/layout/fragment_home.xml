@@ -3,40 +3,978 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        tools:context=".ui.fragment.home.HomeFragment">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/logo_likeit_main"
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:src="@drawable/ic_likeit_logo_main"
-            android:foregroundGravity="center"
-            app:layout_constraintStart_toStartOf="parent"
+        <!-- 메뉴바 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_69"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ic_search_main"
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:layout_marginEnd="@dimen/size_23"
-            android:src="@drawable/ic_search_main"
-            android:foregroundGravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <ImageView
+                android:id="@+id/home_top_logo"
+                android:layout_width="@dimen/size_91"
+                android:layout_height="@dimen/size_35"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_likit_top_logo"
+                android:contentDescription="@string/home_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnSearch"
+                android:layout_width="@dimen/size_31"
+                android:layout_height="@dimen/size_31"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/home_tv_search"
+                android:src="@drawable/ic_home_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 슬라이드 뷰 -->
+
+        <!-- 슬라이드 인디케이터 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_185"
+            android:layout_marginTop="@dimen/size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/layoutIndicators"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- home view -->
+
+        <ImageView
+            android:id="@+id/btnGoRestaurant"
+            android:layout_width="@dimen/size_66"
+            android:layout_height="@dimen/size_66"
+            android:layout_marginTop="@dimen/size_25"
+            android:layout_marginEnd="@dimen/size_30"
+            android:contentDescription="@string/home_content_recommendation"
+            android:src="@drawable/ic_home_go_restraurant"
+            app:layout_constraintEnd_toStartOf="@+id/btnGoCafe"
+            app:layout_constraintTop_toBottomOf="@+id/layoutIndicators" />
+
+        <ImageView
+            android:id="@+id/btnGoCafe"
+            android:layout_width="@dimen/size_66"
+            android:layout_height="@dimen/size_66"
+            android:layout_marginTop="@dimen/size_25"
+            android:contentDescription="@string/home_content_recommendation"
+            android:src="@drawable/ic_home_go_cafe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutIndicators" />
+
+        <ImageView
+            android:id="@+id/btnGoPlay"
+            android:layout_width="@dimen/size_66"
+            android:layout_height="@dimen/size_66"
+            android:layout_marginTop="@dimen/size_25"
+            android:layout_marginStart="@dimen/size_30"
+            android:contentDescription="@string/home_content_recommendation"
+            android:src="@drawable/ic_home_go_play"
+            app:layout_constraintStart_toEndOf="@+id/btnGoCafe"
+            app:layout_constraintTop_toBottomOf="@+id/layoutIndicators" />
 
         <TextView
+            android:id="@+id/tvRecommendation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home_Fragment"
-            android:textSize="@dimen/size_19"
+            android:layout_marginStart="@dimen/size_19"
+            android:layout_marginTop="@dimen/size_30"
+            android:text="@string/home_recommendation_how_about"
+            android:fontFamily="@font/suit_semibold"
+            android:textColor="@color/gray_500"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnGoCafe" />
 
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecommendation">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchLayout">
+
+                <!--                추천 item1-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item1"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_10"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item1_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item1_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text="장소 이름"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item1_image" />
+
+                        <ImageView
+                            android:id="@+id/item1_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item1_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item1_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item1_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item1_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text="4.5"
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item1_star"
+                            app:layout_constraintStart_toEndOf="@+id/item1_star"
+                            app:layout_constraintTop_toTopOf="@+id/item1_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item1_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item1_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item1_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item1_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item1_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item2-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item2"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item2_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item2_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item2_image" />
+
+                        <ImageView
+                            android:id="@+id/item2_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item2_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item2_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item2_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item2_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item2_star"
+                            app:layout_constraintStart_toEndOf="@+id/item2_star"
+                            app:layout_constraintTop_toTopOf="@+id/item2_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item2_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item2_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item2_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item2_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item2_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item3-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item3"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item3_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item3_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item3_image" />
+
+                        <ImageView
+                            android:id="@+id/item3_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item3_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item3_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item3_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item3_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item3_star"
+                            app:layout_constraintStart_toEndOf="@+id/item3_star"
+                            app:layout_constraintTop_toTopOf="@+id/item3_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item3_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item3_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item3_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item3_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item3_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item4-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item4"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item4_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item4_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item4_image" />
+
+                        <ImageView
+                            android:id="@+id/item4_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item4_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item4_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item4_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item4_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item4_star"
+                            app:layout_constraintStart_toEndOf="@+id/item4_star"
+                            app:layout_constraintTop_toTopOf="@+id/item4_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item4_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item4_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item4_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item4_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item4_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item5-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item5"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item5_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item5_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item5_image" />
+
+                        <ImageView
+                            android:id="@+id/item5_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item5_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item5_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item5_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item5_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item5_star"
+                            app:layout_constraintStart_toEndOf="@+id/item5_star"
+                            app:layout_constraintTop_toTopOf="@+id/item5_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item5_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item5_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item5_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item5_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item5_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item6-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item6"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item6_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item6_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item6_image" />
+
+                        <ImageView
+                            android:id="@+id/item6_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item6_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item6_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item6_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item6_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item6_star"
+                            app:layout_constraintStart_toEndOf="@+id/item6_star"
+                            app:layout_constraintTop_toTopOf="@+id/item6_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item6_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item6_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item6_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item6_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item6_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--                추천 item7-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/recommendation_item7"
+                    android:layout_width="@dimen/size_155"
+                    android:layout_height="@dimen/size_168"
+                    android:layout_marginStart="@dimen/size_12"
+                    app:cardElevation="@dimen/size_5"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/tv_recommendation_item7_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_106"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_home_examlple_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item7_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_7"
+                            android:layout_marginTop="@dimen/size_3"
+                            android:fontFamily="@font/suit_semibold"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item7_image" />
+
+                        <ImageView
+                            android:id="@+id/item7_star"
+                            android:layout_width="@dimen/size_10"
+                            android:layout_height="@dimen/size_10"
+                            android:contentDescription="@string/home_content_image"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_recommendation_item7_name"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/tv_recommendation_item7_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_recommendation_item7_name"
+                            app:layout_constraintVertical_bias="0.5" />
+
+                        <TextView
+                            android:id="@+id/tv_recommendation_item7_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/size_5"
+                            android:fontFamily="@font/suit_regular"
+                            android:text=""
+                            android:textColor="@color/pink_500"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/item7_star"
+                            app:layout_constraintStart_toEndOf="@+id/item7_star"
+                            app:layout_constraintTop_toTopOf="@+id/item7_star" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item7_sticker1"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item7_name" />
+
+                        <ImageView
+                            android:id="@+id/recommendation_item7_sticker2"
+                            android:layout_width="@dimen/size_35"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_margin="@dimen/size_5"
+                            android:src="@drawable/ic_sticker1"
+                            android:contentDescription="@string/home_content_image1"
+                            app:layout_constraintStart_toEndOf="@+id/recommendation_item7_sticker1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_recommendation_item7_name" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+<!--        likilist-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/likilist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/bg_gray_top_line"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+            <TextView
+                android:id="@+id/tv_likilist_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginTop="@dimen/size_20"
+                android:fontFamily="@font/suit_semibold"
+                android:text="@string/home_recommendation_week"
+                android:textColor="@color/gray_500"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            음식점 추천-->
+            <TextView
+                android:id="@+id/likilist_restaurant_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginTop="@dimen/size_22"
+                android:fontFamily="@font/suit_bold"
+                android:text="@string/home_recommendation_restaurant"
+                android:textColor="@color/black_500"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_likilist_title" />
+
+            <ImageView
+                android:id="@+id/likilist_restaurant_image1"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:layout_marginTop="@dimen/size_15"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintEnd_toStartOf="@+id/likilist_restaurant_image2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_restaurant_title" />
+
+            <ImageView
+                android:id="@+id/likilist_restaurant_image2"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintBottom_toBottomOf="@+id/likilist_restaurant_image1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/likilist_restaurant_image1"
+                app:layout_constraintTop_toTopOf="@+id/likilist_restaurant_image1" />
+
+            <TextView
+                android:id="@+id/likilist_restaurant_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_restaurant_image1"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_restaurant_image1" />
+
+            <TextView
+                android:id="@+id/likilist_restaurant_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_restaurant_image2"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_restaurant_image2" />
+
+            <!--            카페 추천-->
+            <TextView
+                android:id="@+id/likilist_cafe_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_19"
+                android:fontFamily="@font/suit_bold"
+                android:layout_marginTop="@dimen/size_30"
+                android:text="@string/home_recommendation_cafe"
+                android:textColor="@color/black_500"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_restaurant_image1" />
+
+            <ImageView
+                android:id="@+id/likilist_cafe_image1"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:layout_marginTop="@dimen/size_15"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintEnd_toStartOf="@+id/likilist_cafe_image2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_cafe_title" />
+
+            <ImageView
+                android:id="@+id/likilist_cafe_image2"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintBottom_toBottomOf="@+id/likilist_cafe_image1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/likilist_cafe_image1"
+                app:layout_constraintTop_toTopOf="@+id/likilist_cafe_image1" />
+
+            <TextView
+                android:id="@+id/likilist_cafe_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_cafe_image1"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_cafe_image1" />
+
+            <TextView
+                android:id="@+id/likilist_cafe_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_cafe_image2"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_cafe_image2" />
+
+            <!--            놀거리 추천-->
+            <TextView
+                android:id="@+id/likilist_play_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/suit_bold"
+                android:text="@string/home_recommendation_play"
+                android:textColor="@color/black_500"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_cafe_image1" />
+
+            <ImageView
+                android:id="@+id/likilist_play_image1"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:layout_marginTop="@dimen/size_15"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintEnd_toStartOf="@+id/likilist_play_image2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_play_title" />
+
+            <ImageView
+                android:id="@+id/likilist_play_image2"
+                android:layout_width="@dimen/size_155"
+                android:layout_height="@dimen/size_104"
+                android:src="@drawable/ic_home_examlple_image"
+                android:contentDescription="@string/home_content_image"
+                app:layout_constraintBottom_toBottomOf="@+id/likilist_play_image1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/likilist_play_image1"
+                app:layout_constraintTop_toTopOf="@+id/likilist_play_image1" />
+
+            <TextView
+                android:id="@+id/likilist_play_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_play_image1"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_play_image1" />
+
+            <TextView
+                android:id="@+id/likilist_play_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_5"
+                android:text=""
+                android:textColor="@color/black_500"
+                android:textSize="12sp"
+                android:fontFamily="@font/suit_regular"
+                app:layout_constraintStart_toStartOf="@+id/likilist_play_image2"
+                app:layout_constraintTop_toBottomOf="@+id/likilist_play_image2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        바텀네비게이션 마진값-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toBottomOf="@+id/likilist">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

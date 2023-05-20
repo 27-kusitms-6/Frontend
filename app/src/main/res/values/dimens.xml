@@ -48,19 +48,24 @@
     <dimen name="size_45">45dp</dimen>
     <dimen name="size_46">46dp</dimen>
     <dimen name="size_48">48dp</dimen>
+    <dimen name="size_49">49dp</dimen>
     <dimen name="size_50">50dp</dimen>
     <dimen name="size_52">52dp</dimen>
     <dimen name="size_54">54dp</dimen>
-    <dimen name="size_55">55dp</dimen>
     <dimen name="size_56">56dp</dimen>
     <dimen name="size_57">57dp</dimen>
     <dimen name="size_60">60dp</dimen>
     <dimen name="size_61">61dp</dimen>
     <dimen name="size_64">64dp</dimen>
     <dimen name="size_66">66dp</dimen>
+    <dimen name="size_69">69dp</dimen>
     <dimen name="size_70">70dp</dimen>
+    <dimen name="size_75">75dp</dimen>
     <dimen name="size_78">78dp</dimen>
+    <dimen name="size_79">79dp</dimen>
+    <dimen name="size_85">85dp</dimen>
     <dimen name="size_88">88dp</dimen>
+    <dimen name="size_91">91dp</dimen>
     <dimen name="size_100">100dp</dimen>
     <dimen name="size_101">101dp</dimen>
     <dimen name="size_104">104dp</dimen>
@@ -68,11 +73,19 @@
     <dimen name="size_138">138dp</dimen>
     <dimen name="size_148">148dp</dimen>
     <dimen name="size_152">152dp</dimen>
+    <dimen name="size_155">155dp</dimen>
     <dimen name="size_158">158dp</dimen>
-    <dimen name="size_173">173dp</dimen>
+    <dimen name="size_168">168dp</dimen>
+    <dimen name="size_185">185dp</dimen>
     <dimen name="size_188">188dp</dimen>
     <dimen name="size_200">200dp</dimen>
     <dimen name="size_218">218dp</dimen>
+    <dimen name="size_221">221dp</dimen>
+    <dimen name="size_244">244dp</dimen>
+    <dimen name="size_258">258dp</dimen>
+    <dimen name="size_260">260dp</dimen>
+    <dimen name="size_313">313dp</dimen>
+    <dimen name="size_352">352dp</dimen>
     <dimen name="size_500">500dp</dimen>
 
     <!-- yaksogi size -->
@@ -92,6 +105,7 @@
     <dimen name="font_size_22">22sp</dimen>
     <dimen name="font_size_20">20sp</dimen>
     <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_17">17sp</dimen>
     <dimen name="font_size_16">16sp</dimen>
     <dimen name="font_size_15">15sp</dimen>
     <dimen name="font_size_14">14sp</dimen>
