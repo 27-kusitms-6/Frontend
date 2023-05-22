@@ -14,8 +14,6 @@ import com.kustims.a6six.domain.model.SaveDetail
 class SaveDetailFragment : BaseFragment<FragmentSaveDetailBinding>() {
 
     lateinit var recyclerView: RecyclerView
-    lateinit var adapter :
-    lateinit var recyclerViewData: ArrayList<SaveDetail>
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -26,7 +24,7 @@ class SaveDetailFragment : BaseFragment<FragmentSaveDetailBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recyclerViewData = new ArrayList<SaveD>
+
     }
 
 }

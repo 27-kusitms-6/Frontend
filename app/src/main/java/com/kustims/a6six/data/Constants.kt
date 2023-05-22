@@ -6,6 +6,7 @@ object Constants {
     const val GOOGLE_CLIENT_ID ="306778587401-jd0b9burfsrvttfsbhcv2nu4huf60jfm.apps.googleusercontent.com";
     const val GOOGLE_CLIENT_SECRET ="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";
     const val KEY_PREFERENCES = "preferences_datastore"
+    const val INTRO_STRING_OBJECT = "INTRO_STRING_OBJECT"
 
     const val KEY_ACCESS_TOKEN = "accessToken"
     const val KEY_REFRESH_TOKEN = "refreshToken"
@@ -15,6 +16,8 @@ object Constants {
     const val KEY_CONTENT_TYPE = "Content-Type"
     const val VALUE_CONTENT_TYPE = "application/json"
     const val KEY_AUTHORIZATION = "Authorization"
+
+    const val OPENAI_API_KEY = "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"
 
     const val CONNECT_TIME_OUT = 15L
     const val READ_TIME_OUT = 15L
