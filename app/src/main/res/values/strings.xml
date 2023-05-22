@@ -28,5 +28,8 @@
     <string name="tv1_filter_mypage">공간에 대한 내 취향을 골라주세요</string>
     <string name="tv2_filter_mypage">내 취향을 입력하면, 맞춤 장소를 추천하고\n 내가 좋아하는 장소를 모아서 볼수 있어요</string>
 
+    <string name="title_save_item">슈퍼두퍼 강남점</string>
+    <string name="content_save_item">샌프란시스코를 대표하는 쥬이시한 프리미엄 수제버거</string>
+
 </resources>
 
