@@ -61,12 +61,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    open fun initViews() = Unit
-
     fun mainScope(block: suspend () -> Unit) {
         lifecycleScope.launchWhenCreated {
-
+            block.invoke()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 
