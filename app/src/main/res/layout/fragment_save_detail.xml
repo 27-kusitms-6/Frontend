@@ -23,9 +23,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <GridView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_save_detail"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_0"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/size_26"
             android:numColumns="2"
             app:layout_constraintTop_toBottomOf="@id/top_bar_save_detail"/>

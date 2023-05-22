@@ -8,6 +8,6 @@ import retrofit2.http.POST
 interface oAuthApi {
 
     @POST("/auth/google/idToken")
-    suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
+    fun login(@Body loginRequest: LoginRequest): LoginResponse
 
 }

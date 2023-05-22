@@ -24,11 +24,12 @@ import com.kustims.a6six.ui.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
-@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private var _binding : ActivityLoginBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var idToken: String
 
     private val viewModel:LoginViewModel by viewModels()
 
@@ -85,9 +86,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleSignInResult(completeTask: Task<GoogleSignInAccount>) {
+
         try {
             val account = completeTask.getResult(ApiException::class.java)
-            val idToken = account?.idToken.toString()
+            idToken = account?.idToken.toString()
             val email = account?.email.toString()
             val displayName = account?.displayName.toString()
 
@@ -103,6 +105,7 @@ class LoginActivity : AppCompatActivity() {
         } catch (e: ApiException) {
             Log.e("로그인 실패", "SignInResult : failed Code" + e.statusCode)
         }
+
     }
 
 

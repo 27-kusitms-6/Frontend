@@ -9,77 +9,189 @@
         android:layout_marginEnd="@dimen/size_19"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_profile_mypage"
+        <TextView
+            android:id="@+id/tv_edit_profile_mypage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_profile_mypage"
-            android:layout_marginTop="@dimen/size_25"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_nickname_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_31"
-            android:layout_marginStart="@dimen/size_16"
-            android:text="@string/mypage_nickname"
-            android:textColor="@color/likeit_font_black_30"
-            android:textSize="@dimen/font_size_18"
-            android:fontFamily="@font/suit_bold"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_mypage"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_filter_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mypage_filter"
-            android:layout_marginTop="@dimen/size_11"
-            android:textColor="@color/likeit_main_purple"
-            android:textSize="@dimen/font_size_12"
-            android:fontFamily="@font/suit_regular"
-            android:paddingStart="82dp"
-            android:drawableEnd="@drawable/imgbtn_change_mypage"
-            app:layout_constraintTop_toBottomOf="@id/tv_nickname_mypage"
-            app:layout_constraintStart_toStartOf="@id/tv_nickname_mypage"/>
-        
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_profile_edit_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_45"
-            android:background="@drawable/btn_background_edit_mypage"
+            android:layout_height="55dp"
             android:text="프로필 설정"
-            android:layout_marginTop="@dimen/size_40"
+            android:textSize="@dimen/font_size_16"
             android:fontFamily="@font/suit_bold"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tv_filter_mypage"/>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_8"
-            app:tabTextAppearance="@dimen/font_size_14"
-            app:layout_constraintTop_toBottomOf="@id/btn_profile_edit_mypage"
-            app:layout_constraintStart_toStartOf="oarent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/white"
-            android:clipToPadding="false"
-            app:tabGravity="center"
-            app:tabMode="scrollable"
-            app:tabIndicator="@color/likeit_main_purple"
-            app:tabTextColor="@color/likeit_font_black_30"/>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_layout_mypage"
+            android:textColor="@color/likeit_main_purple"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:includeFontPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_profile_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_edit_profije"
+            android:layout_marginTop="@dimen/size_29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_edit_profile_mypage"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_edit_mypage"
+            android:layout_marginStart="@dimen/size_75"
+            android:layout_marginBottom="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="@id/iv_profile_edit"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profile_edit"/>
+
+
+        <!-- 이름 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edittext_name_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:layout_marginTop="@dimen/size_27"
+            android:textColor="@color/likeit_font_gray"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_profile_edit"/>
+
+        <EditText
+            android:id="@+id/edit_text_name_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_46"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textPersonName"
+            android:backgroundTint="#f6f6f6"
+            app:layout_constraintTop_toBottomOf="@id/tv_edittext_name_mypage"/>
+
+        <!-- 닉네임 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edittext_nickname_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:layout_marginTop="14.5dp"
+            android:textColor="@color/likeit_font_gray"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_name_mypage"/>
+
+        <EditText
+            android:id="@+id/edit_text_nickname_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_46"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textPersonName"
+            android:backgroundTint="#f6f6f6"
+            app:layout_constraintTop_toBottomOf="@id/tv_edittext_nickname_mypage"/>
+
+        <!-- 전화번호 -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edittext_number_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휴대폰 번호"
+            android:layout_marginTop="14.5dp"
+            android:textColor="@color/likeit_font_gray"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_nickname_mypage"/>
+
+        <EditText
+            android:id="@+id/edit_text_number_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_46"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="number"
+            android:backgroundTint="#f6f6f6"
+            app:layout_constraintTop_toBottomOf="@id/tv_edittext_number_mypage"/>
+
+        <!-- 내 정보-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edittext_birth_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 정보"
+            android:layout_marginTop="14.5dp"
+            android:textColor="@color/likeit_font_gray"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_number_mypage"/>
+
+        <EditText
+            android:id="@+id/edit_text_birth_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_46"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="date"
+            android:backgroundTint="#f6f6f6"
+            app:layout_constraintTop_toBottomOf="@id/tv_edittext_birth_mypage"/>
+
+        <!-- 이메일 -->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_edittext_email_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일"
+            android:layout_marginTop="14.5dp"
+            android:textColor="@color/likeit_font_gray"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_birth_mypage"/>
+
+        <EditText
+            android:id="@+id/edit_text_email_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_46"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/size_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="#f6f6f6"
+            app:layout_constraintTop_toBottomOf="@id/tv_edittext_email_mypage"/>
+        
+        <Button
+            android:id="@+id/btn_edit_profile_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/btn_background_edit_mypage"
+            android:layout_marginTop="@dimen/size_30"
+            android:text="저장"
+            android:textColor="@color/white"
+            android:fontFamily="@font/suit_bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_email_mypage"/>
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
