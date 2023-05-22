@@ -52,6 +52,9 @@
     <string name="restaurant_recommendation_content_description">자세히 보기</string>
     <string name="restaurant_recommendation_content">이미지</string>
 
+    <string name="title_save_item">슈퍼두퍼 강남점</string>
+    <string name="content_save_item">샌프란시스코를 대표하는 쥬이시한 프리미엄 수제버거</string>
+
 
 </resources>
 

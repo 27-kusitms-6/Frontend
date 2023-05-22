@@ -26,37 +26,29 @@ class MainActivity: AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loadFragment(HomeFragment())
 
-        bottomNav = findViewById(R.id.menu_main) as BottomNavigationView
-        bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.fragment_home -> {
-                    loadFragment(HomeFragment())
-                    true
-                }
-                R.id.fragment_editor -> {
-                    loadFragment(EditorFragment())
-                    true
-                }
+        val firstFragment=EditorFragment()
+        val secondFragment=HomeFragment()
+        val thirdFragment=MypageFragment()
 
-                R.id.fragment_mypage -> {
-                    loadFragment(MypageFragment())
-                    true
-                }
+        setCurrentFragment(secondFragment)
 
-                else -> {
-                    false
-                }
+        binding.menuMain.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.fragment_editor->setCurrentFragment(firstFragment)
+                R.id.fragment_home->setCurrentFragment(secondFragment)
+                R.id.fragment_mypage->setCurrentFragment(thirdFragment)
+
             }
+            true
         }
 
-
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fcv_main, fragment)
-        transaction.commit()
-    }
+    private fun setCurrentFragment(fragment:Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fcv_main,fragment)
+            commit()
+        }
+
 }
