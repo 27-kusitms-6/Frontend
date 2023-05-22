@@ -11,16 +11,16 @@ import retrofit2.http.Path
 
 interface MypageApi {
 
-    @PATCH("/mypage/filter")
+    @PATCH("mypage/filter")
 
 
-    @GET("/mypage/info")
+    @GET("mypage/info")
     suspend fun getUserInfo() : GetUserInfoResponse
 
-    @PATCH("/mypage/info")
+    @PATCH("mypage/info")
 
 
-    @GET("/mypage/review")
+    @GET("mypage/review")
     suspend fun getReview() : GetReviewResponse
 
 }

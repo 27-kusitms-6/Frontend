@@ -19,31 +19,42 @@ import javax.inject.Singleton
 @OptIn(ExperimentalSerializationApi::class)
 object ApiProvider {
 
-    private const val BASE_URL = LIKEIT_BASE_URL
-    private val contentType = "application/json".toMediaType()
+    private const val timeoutRead = 30
+    private const val timeoutConnect = 30
 
-    private val json = Json {
-        ignoreUnknownKeys = true
-        isLenient = true
-        explicitNulls = false
-        coerceInputValues = true
-        encodeDefaults = true
-    }
+    private lateinit var retrofit: Retrofit
+    private val builder: Retrofit.Builder = Retrofit.Builder()
+
     private val logger = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(AuthTokenInterceptor())
-        .addInterceptor(logger)
-        .build()
+    fun setBuilderOptions(
+        targetUrl: String,
+        authToken: String? = null
+    ): Retrofit {
+        val httpClient = OkHttpClient.Builder()
+        val authInterceptor = AuthenticationInterceptor(authToken)
 
-    val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(json.asConverterFactory(contentType))
-        .client(client)
-        .build()
+        httpClient.apply {
+            addInterceptor(authInterceptor)
+            addInterceptor(logger)
+            connectTimeout(timeoutConnect.toLong(), TimeUnit.SECONDS)
+            readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)
+        }
 
+        retrofit = builder
+            .baseUrl(targetUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
+            .build()
+
+        return retrofit
+    }
+
+    fun <S> Retrofit.createService(
+        serviceClass: Class<S>
+    ): S = retrofit.create(serviceClass)
 
 
 }

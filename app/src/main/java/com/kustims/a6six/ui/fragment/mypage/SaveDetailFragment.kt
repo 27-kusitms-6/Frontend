@@ -1,4 +1,4 @@
-package com.kustims.a6six
+package com.kustims.a6six.ui.fragment.mypage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
