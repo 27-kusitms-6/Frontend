@@ -15,6 +15,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/size_19"
+        android:layout_marginEnd="@dimen/size_19"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -92,15 +94,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_8"
-            app:tabTextAppearance="@dimen/font_size_14"
             app:layout_constraintTop_toBottomOf="@id/btn_profile_edit_mypage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@color/white"
+            app:tabIndicatorColor="@color/likeit_main_purple"
             android:clipToPadding="false"
             app:tabGravity="center"
+            app:tabIndicatorHeight="3dp"
             app:tabMode="scrollable"
-            app:tabIndicator="@color/likeit_main_purple"
             app:tabTextColor="@color/likeit_font_black_30"/>
 
         <androidx.viewpager2.widget.ViewPager2
