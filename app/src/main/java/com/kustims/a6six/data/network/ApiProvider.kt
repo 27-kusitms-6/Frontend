@@ -22,10 +22,10 @@ object ApiProvider {
     private const val timeoutRead = 30
     private const val timeoutConnect = 30
 
-    private lateinit var retrofit: Retrofit
-    private val builder: Retrofit.Builder = Retrofit.Builder()
+    lateinit var retrofit: Retrofit
+    val builder: Retrofit.Builder = Retrofit.Builder()
 
-    private val logger = HttpLoggingInterceptor().apply {
+    val logger = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 

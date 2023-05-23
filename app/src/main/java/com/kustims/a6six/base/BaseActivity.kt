@@ -28,6 +28,7 @@ abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding> : AppCompatActiv
         observeData()
     }
 
+
     open fun initViews() = Unit
 
     open fun observeData() = Unit

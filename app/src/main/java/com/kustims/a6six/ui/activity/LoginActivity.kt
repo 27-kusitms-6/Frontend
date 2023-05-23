@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        mainScope {  }
         val account = GoogleSignIn.getLastSignedInAccount(this)
         if (account != null) {
             mGoogleSignInClient?.signOut()?.addOnCompleteListener(this) {
@@ -113,9 +114,11 @@ class LoginActivity : AppCompatActivity() {
     private fun handleSignInResult(completeTask: Task<GoogleSignInAccount>) {
 
         try {
+            Log.d("authCode line 1", "pass1")
             val authCode = completeTask.getResult(ApiException::class.java)?.serverAuthCode
             mainScope {
                 authCode?.run {
+                    Log.d("authCode line 2", "pass2")
                     viewModel.fetchGoogleAuthInfo(this).let {
                         when(it) {
                             is LoginState.Success<LoginGoogleResponse> -> {
@@ -127,6 +130,7 @@ class LoginActivity : AppCompatActivity() {
                                 Log.d("Error", "${it.exception}")
                         }
                     }
+                    Log.d("authCode line 3", "pass3")
                     viewModel.fetchAuthInfo(accessToken).let {
                         when(it) {
                             is LoginState.Success<LoginResponse> -> {
@@ -136,10 +140,13 @@ class LoginActivity : AppCompatActivity() {
                                 refreshToken = it.data.rtk
                                 signUp = it.data.signUp
                                 id = it.data.id
-
+                                Log.d("id", id.toString())
+                                Log.d("signUp", signUp.toString())
+                                Log.d("refreshToken", refreshToken)
+                                Log.d("accessToken", accessToken)
                                 //accessToken & refreshToken 저장
                                 viewModel.saveAuthToken(pm, accessToken, refreshToken)
-
+                                Log.d("authCode line 4", "pass4")
                                 //Main으로 이동
                                 moveToMain()
                             }
@@ -160,13 +167,15 @@ class LoginActivity : AppCompatActivity() {
             Log.d("Google_Account", email)
             Log.d("Google_displayName", displayName)
 
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
 
         } catch (e: ApiException) {
             Log.e("로그인 실패", "SignInResult : failed Code" + e.statusCode)
         }
+
 
     }
 
