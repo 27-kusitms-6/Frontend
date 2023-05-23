@@ -8,13 +8,10 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface oAuthApi {
-
-    //서버 로그인
+interface LoginService {
     @POST("auth/google/idToken")
     suspend fun fetchAuthInfo(@Body request: LoginRequest): Response<LoginResponse>?
 
-    //구글 oAuth
     @POST("oauth2/v4/token")
-    suspend fun fetchGoogleAuthInfo(@Body request:LoginGoogleRequest): Response<LoginGoogleResponse>?
+    suspend fun fetchGoogleAuthInfo(@Body request: LoginGoogleRequest): Response<LoginGoogleResponse>?
 }

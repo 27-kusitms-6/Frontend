@@ -1,13 +1,7 @@
-package com.kustims.a6six.data.network
+package com.kustims.a6six.di
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.kustims.a6six.BuildConfig
-import com.kustims.a6six.data.Constants
-import com.kustims.a6six.data.Constants.LIKEIT_BASE_URL
-import dagger.Provides
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
+import com.kustims.a6six.data.network.AuthenticationInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -10,9 +10,9 @@ import com.kustims.a6six.ui.viewmodelstate.LoginState
 import com.kustims.a6six.data.model.request.LoginGoogleRequest
 import com.kustims.a6six.data.model.request.LoginRequest
 import com.kustims.a6six.data.model.response.LoginResponse
-import com.kustims.a6six.data.network.ServiceGenerator
-import com.kustims.a6six.data.network.ServiceGenerator.createService
-import com.kustims.a6six.data.remote.LoginService
+import com.kustims.a6six.di.ServiceGenerator
+import com.kustims.a6six.di.ServiceGenerator.createService
+import com.kustims.a6six.data.network.LoginService
 
 
 class LoginRepository {
