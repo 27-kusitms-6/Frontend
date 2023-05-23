@@ -1,3 +1,5 @@
+package com.kustims.a6six.base
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +29,7 @@ abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding> : AppCompatActiv
         fetchJob = viewModel.fetchData()
         observeData()
     }
+
 
     open fun initViews() = Unit
 

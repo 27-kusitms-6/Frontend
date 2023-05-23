@@ -38,7 +38,6 @@ class MainActivity: AppCompatActivity() {
                 R.id.fragment_editor->setCurrentFragment(firstFragment)
                 R.id.fragment_home->setCurrentFragment(secondFragment)
                 R.id.fragment_mypage->setCurrentFragment(thirdFragment)
-
             }
             true
         }

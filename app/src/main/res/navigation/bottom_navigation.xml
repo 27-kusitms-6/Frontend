@@ -5,7 +5,6 @@
     <item
         android:id="@+id/fragment_editor"
         android:enabled="true"
-        app:showAsAction="always"
         android:icon="@drawable/ic_editor_off"
         android:title="에디터"/>
     <item
