@@ -17,11 +17,7 @@ import com.kustims.a6six.data.network.oAuthApi
 import kotlinx.coroutines.flow.Flow
 
 
-interface LoginRepository {
-    suspend fun getIdToken(idToken: IdToken): Result<String>
-    suspend fun setAccessTokenInDevice(accessToken: String): Result<Boolean>
-    fun getAccessTokenSavedInDevice(): Flow<Result<String>>
-
+class LoginRepository {
 
     suspend fun fetchAuthInfo(accessToken: String): LoginState<LoginResponse> {
         ApiProvider.setBuilderOptions(

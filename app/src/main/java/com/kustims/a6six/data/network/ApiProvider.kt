@@ -25,9 +25,6 @@ object ApiProvider {
     private lateinit var retrofit: Retrofit
     private val builder: Retrofit.Builder = Retrofit.Builder()
 
-    private val logger = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
 
     fun setBuilderOptions(
         targetUrl: String,
@@ -35,10 +32,15 @@ object ApiProvider {
     ): Retrofit {
         val httpClient = OkHttpClient.Builder()
         val authInterceptor = AuthenticationInterceptor(authToken)
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            if (BuildConfig.DEBUG) {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+        }
 
         httpClient.apply {
             addInterceptor(authInterceptor)
-            addInterceptor(logger)
+            addInterceptor(loggingInterceptor)
             connectTimeout(timeoutConnect.toLong(), TimeUnit.SECONDS)
             readTimeout(timeoutRead.toLong(), TimeUnit.SECONDS)
         }

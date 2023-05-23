@@ -1,6 +1,7 @@
 package com.kustims.a6six.ui.activity
 
 
+import BaseActivity
 import android.app.Activity
 import android.os.Bundle
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -31,10 +32,12 @@ import com.kustims.a6six.ui.viewmodelstate.LoginState
 import dagger.hilt.android.AndroidEntryPoint
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
-    private var _binding : ActivityLoginBinding? = null
-    private val binding get() = _binding!!
+    override fun getViewBinding(): ActivityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
+    override val viewModel: LoginViewModel
+        get() = LoginViewModel()
+
 
     private lateinit var idToken: String
 
@@ -44,7 +47,6 @@ class LoginActivity : AppCompatActivity() {
     private var signUp: Boolean = false
     private var id: Int = 0
 
-    private val viewModel:LoginViewModel by viewModels()
 
     private var mGoogleSignInClient: GoogleSignInClient? = null
     private lateinit var loginLauncher: ActivityResultLauncher<Intent>
@@ -61,22 +63,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun mainScope(block: suspend () -> Unit) {
-        lifecycleScope.launchWhenCreated {
-            block.invoke()
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        _binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         val googleClientId = Constants.GOOGLE_CLIENT_ID
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -115,10 +106,13 @@ class LoginActivity : AppCompatActivity() {
         try {
             val authCode = completeTask.getResult(ApiException::class.java)?.serverAuthCode
             mainScope {
+                Log.d("PASS1", "Main Scope 성공")
                 authCode?.run {
+                    Log.d("PASS2", "추출 성공" + authCode)
                     viewModel.fetchGoogleAuthInfo(this).let {
                         when(it) {
                             is LoginState.Success<LoginGoogleResponse> -> {
+                                Log.d("PASS3", "Google Access token(idToken) 성공")
                                 Log.d("Success", "${it.data}")
                                 accessToken = it.data.access_token
                                 Log.d("accessToken", accessToken)
@@ -130,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
                     viewModel.fetchAuthInfo(accessToken).let {
                         when(it) {
                             is LoginState.Success<LoginResponse> -> {
-
+                                Log.d("PASS4", "LoginState Success & Access token 성공")
                                 Log.d("Success", "${it.data}")
                                 accessToken = it.data.atk
                                 refreshToken = it.data.rtk
@@ -138,6 +132,7 @@ class LoginActivity : AppCompatActivity() {
                                 id = it.data.id
 
                                 //accessToken & refreshToken 저장
+                                Log.d("PASS5", "datastore 성공")
                                 viewModel.saveAuthToken(pm, accessToken, refreshToken)
 
                                 //Main으로 이동
