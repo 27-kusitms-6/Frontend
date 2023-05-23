@@ -15,12 +15,9 @@ import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val loginRepository: LoginRepository
-): BaseViewModel() {
+class LoginViewModel: BaseViewModel() {
+    private val loginRepository = LoginRepository()
 
-    private val _loginDetailText = MutableStateFlow<String?>(null)
-    val loginDetailText = _loginDetailText.asStateFlow()
     suspend fun fetchAuthInfo(
         accessToken: String,
         context: CoroutineContext = Dispatchers.IO,
