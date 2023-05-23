@@ -34,7 +34,7 @@
     <string name="home_content_recommendation">추천으로 이동</string>
     <string name="home_content_image">장소 이미지</string>
     <string name="home_content_image1">스티커 이미지</string>
-    <string name="home_recommendation_how_about">#조용한 #트렌디한 이 장소는 어때요?</string>
+    <string name="home_recommendation_how_about"> 이 장소는 어때요?</string>
     <string name="home_recommendation_week">이번 주 최다 LIKILST</string>
     <string name="home_recommendation_restaurant">음식점 TOP 2</string>
     <string name="home_recommendation_cafe">카페 TOP 2</string>
@@ -52,6 +52,28 @@
     <string name="restaurant_recommendation_content_description">자세히 보기</string>
     <string name="restaurant_recommendation_content">이미지</string>
 
+    <!-- Recommendation Filter -->
+    <string name="filter_region">지역</string>
+    <string name="colse_content">종료</string>
+    <string name="filter_popular">정렬</string>
+    <string name="filter_type">종류</string>
+    <string name="filter_prefetence">취향</string>
+
+    <string name="preference_option_1">조용한</string>
+    <string name="preference_option_2">색다른</string>
+    <string name="preference_option_3">전통적인</string>
+    <string name="preference_option_4">모던한</string>
+    <string name="preference_option_5">화려한</string>
+    <string name="preference_option_6">로맨틱한</string>
+    <string name="preference_option_7">활기찬</string>
+    <string name="preference_option_8">트렌디한</string>
+
+    <string name="popular_option_1">리뷰 많은 순</string>
+    <string name="popular_option_2">최신 순</string>
+    <string name="popular_option_3">저장 순</string>
+    <string name="popular_option_4">별점 높은 순</string>
+    <string name="popular_option_5">별점 낮은 순</string>
+  
     <string name="title_save_item">슈퍼두퍼 강남점</string>
     <string name="content_save_item">샌프란시스코를 대표하는 쥬이시한 프리미엄 수제버거</string>
 

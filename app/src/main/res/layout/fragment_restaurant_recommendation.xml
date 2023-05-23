@@ -9,7 +9,7 @@
         tools:context=".ui.fragment.home.RestaurantRecommendationFragment">
 
         <TextView
-            android:id="@+id/mood1"
+            android:id="@+id/my_filter1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_30"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/mood2"
+            android:id="@+id/my_filter2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_30"
@@ -30,7 +30,7 @@
             android:textColor="@color/purple_main"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/mood1"
+            app:layout_constraintStart_toEndOf="@+id/my_filter1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mood1" />
+            app:layout_constraintTop_toBottomOf="@+id/my_filter1" />
 
 
     <!--필터 버튼-->
@@ -104,7 +104,7 @@
 
         <FrameLayout
             android:id="@+id/region_fragment"
-            android:layout_width="@dimen/size_258"
+            android:layout_width="@dimen/size_265"
             android:layout_height="@dimen/size_352"
             android:layout_marginTop="@dimen/size_10"
             android:layout_marginStart="@dimen/size_19"
@@ -113,7 +113,7 @@
 
         <FrameLayout
             android:id="@+id/popular_fragment"
-            android:layout_width="@dimen/size_148"
+            android:layout_width="@dimen/size_155"
             android:layout_height="@dimen/size_221"
             android:layout_marginTop="@dimen/size_10"
             android:layout_marginStart="@dimen/size_91"
