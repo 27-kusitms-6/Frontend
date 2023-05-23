@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragment.home.TypeFilterRestaurantFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/typeConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
+        android:background="@color/white">
+
+
+        <!--필터 메뉴-->
+        <TextView
+            android:id="@+id/filter_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_17"
+            android:text="@string/filter_type"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="@dimen/size_12"
+            android:layout_height="@dimen/size_12"
+            android:layout_marginEnd="@dimen/size_20"
+            android:contentDescription="@string/colse_content"
+            android:src="@drawable/btn_close"
+            app:layout_constraintBottom_toBottomOf="@+id/filter_region"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/filter_region" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_50"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:rowCount="3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_korean"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_korean"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_western"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_western"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_japanese"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_japanese"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_chinese"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_chinese"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_bar"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_bar"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_brunch"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_brunch"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/ic_type_etc"
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_75"
+                    android:contentDescription="@string/filter_type"
+                    android:src="@drawable/ic_type_restaurant_filter_etc"
+                    android:layout_margin="@dimen/size_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -64,6 +64,7 @@
     <dimen name="size_78">78dp</dimen>
     <dimen name="size_79">79dp</dimen>
     <dimen name="size_85">85dp</dimen>
+    <dimen name="size_86">86dp</dimen>
     <dimen name="size_88">88dp</dimen>
     <dimen name="size_91">91dp</dimen>
     <dimen name="size_100">100dp</dimen>
@@ -84,6 +85,7 @@
     <dimen name="size_244">244dp</dimen>
     <dimen name="size_258">258dp</dimen>
     <dimen name="size_260">260dp</dimen>
+    <dimen name="size_265">265dp</dimen>
     <dimen name="size_313">313dp</dimen>
     <dimen name="size_352">352dp</dimen>
     <dimen name="size_500">500dp</dimen>

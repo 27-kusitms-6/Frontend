@@ -1,6 +1,10 @@
 package com.kustims.a6six.ui.fragment.home
 
+import RestaurantRecommendationFragment
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +26,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return FragmentHomeBinding.inflate(inflater, container, false)
     }
 
-
     private val imageList = mutableListOf<Int>().apply {
         add(R.drawable.ic_banner_example)
         add(R.drawable.ic_banner_example)
@@ -36,6 +39,42 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         initViewPager2()
+
+        val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+        val cafeRecommendationFragment = CafeRecommendationFragment()
+        val playRecommendationFragment = PlayRecommendationFragment()
+
+        binding.btnGoRestaurant.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, restaurantRecommendationFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.btnGoCafe.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, cafeRecommendationFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.btnGoPlay.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, playRecommendationFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        val spannable = SpannableStringBuilder(getString(R.string.home_recommendation_week))
+        val purpleColor = ContextCompat.getColor(requireContext(), R.color.purple_main)
+        val foregroundColorSpan = ForegroundColorSpan(purpleColor)
+        spannable.setSpan(
+            foregroundColorSpan,
+            7,
+            15,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.tvLikilistTitle.text = spannable
     }
 
     private fun initViewPager2() {
@@ -97,5 +136,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             )
         }
     }
-
 }

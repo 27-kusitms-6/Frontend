@@ -111,16 +111,41 @@
             app:layout_constraintTop_toBottomOf="@+id/layoutIndicators" />
 
         <TextView
-            android:id="@+id/tvRecommendation"
+            android:id="@+id/my_filter1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_19"
+            android:layout_marginTop="@dimen/size_30"
+            android:text=""
+            android:fontFamily="@font/suit_semibold"
+            android:textColor="@color/purple_main"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnGoCafe" />
+
+        <TextView
+            android:id="@+id/my_filter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_4"
+            android:layout_marginTop="@dimen/size_30"
+            android:text=""
+            android:fontFamily="@font/suit_semibold"
+            android:textColor="@color/purple_main"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/my_filter1"
+            app:layout_constraintTop_toBottomOf="@+id/btnGoCafe" />
+
+        <TextView
+            android:id="@+id/tvRecommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_30"
             android:text="@string/home_recommendation_how_about"
             android:fontFamily="@font/suit_semibold"
             android:textColor="@color/gray_500"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/my_filter2"
             app:layout_constraintTop_toBottomOf="@+id/btnGoCafe" />
 
 
