@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/size_19"
+        android:layout_marginEnd="@dimen/size_19"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/top_bar_save_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="내가 저장한 장소"
+            android:textSize="16sp"
+            android:fontFamily="@font/suit_bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/likeit_main_purple"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <GridView
+            android:id="@+id/recyclerview_save_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_26"
+            android:numColumns="2"
+            android:gravity="center"
+            tools:listitem="@layout/likelist_save_item2"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_save_detail"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
