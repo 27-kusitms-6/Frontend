@@ -1,3 +1,5 @@
+package com.kustims.a6six.base
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
