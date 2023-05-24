@@ -5,19 +5,32 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
+import com.kustims.a6six.data.network.APIS
+import com.kustims.a6six.data.network.RetrofitClient
+import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.databinding.FragmentHomeBinding
 import com.kustims.a6six.ui.adapter.ViewPager2Adapter
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.recommendation_item.*
+import kotlinx.coroutines.launch
+import timber.log.Timber
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+
+    private lateinit var retService: APIS
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -26,6 +39,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return FragmentHomeBinding.inflate(inflater, container, false)
     }
 
+    //viewPager2 이미지 초기화
     private val imageList = mutableListOf<Int>().apply {
         add(R.drawable.ic_banner_example)
         add(R.drawable.ic_banner_example)
@@ -37,6 +51,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //accessToken
+
+        val preferenceManager = PreferenceManager(requireContext())
+        // Store a string value
+        preferenceManager.setString(PreferenceManager.KEY_ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_NwW")
+
+        // Retrieve the stored string value
+        val accessToken = preferenceManager.getString(PreferenceManager.KEY_ACCESS_TOKEN)
+
+
+        //retrofit
+        retService = RetrofitClient
+            .getRetrofitInstance()
+            .create(APIS::class.java)
 
         initViewPager2()
 
@@ -75,7 +103,73 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
         binding.tvLikilistTitle.text = spannable
+
+        //recyclerView
+        val recyclerView = binding.recyclerView
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = layoutManager
+
+
+        //이번주 top 2
+        lifecycleScope.launch {
+            try {
+                val response = retService.getTop2Data()
+                if (response.isSuccessful) {
+                    val top2Data = response.body()?.data
+                    //data 처리
+                    Log.d( "홈","${top2Data.toString()}")
+
+                    //restaurant
+                    Picasso.get()
+                        .load(top2Data!!.restaurant[0].img)
+                        .into(binding.likilistRestaurantImage1)
+
+                    Picasso.get()
+                        .load(top2Data!!.restaurant[1].img)
+                        .into(binding.likilistRestaurantImage2)
+
+                    binding.likilistRestaurantName1.text = top2Data.restaurant[0].name
+                    binding.likilistRestaurantName2.text = top2Data.restaurant[1].name
+
+                    //cafe
+                    Picasso.get()
+                        .load(top2Data!!.cafe[0].img)
+                        .into(binding.likilistCafeImage1)
+
+                    Picasso.get()
+                        .load(top2Data!!.cafe[1].img)
+                        .into(binding.likilistCafeImage2)
+
+                    binding.likilistCafeName1.text = top2Data.cafe[0].name
+                    binding.likilistCafeName2.text = top2Data.cafe[1].name
+
+                    //play
+                    Picasso.get()
+                        .load(top2Data.play[0].img)
+                        .into(binding.likilistPlayImage1)
+
+                    Picasso.get()
+                        .load(top2Data.play[1].img)
+                        .into(binding.likilistPlayImage2)
+
+                    binding.likilistPlayName1.text = top2Data.play[0].name
+                    binding.likilistPlayName2.text = top2Data.play[1].name
+
+
+
+                } else {
+                    // 에러 처리
+                    Timber.d("Error: ${response.code()} ${response.message()}")
+                }
+            } catch (e: Exception) {
+                // 예외 처리
+                Timber.e(/* message = */ "Exception: ${e.message}")
+            }
+        }
+
     }
+
+
 
     private fun initViewPager2() {
         viewPager = binding.viewPager.apply {

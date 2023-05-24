@@ -41,7 +41,7 @@
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:contentDescription="@string/filter_region"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginTop="@dimen/size_50"
@@ -61,6 +61,7 @@
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_seoul"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -71,9 +72,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_incheon"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_incheon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +87,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_gyeonggido"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_gyeonggido"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -97,9 +102,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_daejeon"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_daejeon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -110,9 +117,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_daegu"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_daegu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -123,9 +132,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_busan"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_busan"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -136,9 +147,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_gangwon"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_gangwon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -149,9 +162,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_gwangju"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_gwangju"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -162,9 +177,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_ulsan"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_ulsan"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -175,9 +192,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_gyeongnam"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_gyeongnam"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -188,10 +207,12 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_gyeongbuk"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
-                        android:src="@drawable/ic_gyeongsangbuk"
+                        android:padding="@dimen/size_1"
+                        android:src="@drawable/ic_gyeongbuk"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -201,9 +222,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_jeonnam"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_jeonnam"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -214,9 +237,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_jeonbuk"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_jeonbuk"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -227,9 +252,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_jeju"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_jeju"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -240,9 +267,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_chungnam"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_chungnam"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -253,9 +282,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
+                        android:id="@+id/ic_chungbuk"
                         android:layout_width="@dimen/size_86"
                         android:layout_height="@dimen/size_86"
                         android:contentDescription="@string/filter_region"
+                        android:padding="@dimen/size_1"
                         android:src="@drawable/ic_chungbuk"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

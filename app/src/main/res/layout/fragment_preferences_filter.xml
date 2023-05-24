@@ -54,56 +54,72 @@
                     android:id="@+id/preference_option_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_1" />
 
                 <TextView
                     android:id="@+id/preference_option_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_2" />
 
                 <TextView
                     android:id="@+id/preference_option_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_3" />
 
                 <TextView
                     android:id="@+id/preference_option_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_4" />
 
                 <TextView
                     android:id="@+id/preference_option_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_5" />
 
                 <TextView
                     android:id="@+id/preference_option_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_3" />
 
                 <TextView
                     android:id="@+id/preference_option_7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_7" />
 
                 <TextView
                     android:id="@+id/preference_option_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/size_12"
+                    android:padding="@dimen/size_7"
+                    android:fontFamily="@font/suit_regular"
+                    android:textColor="@color/black_500"
                     android:text="@string/preference_option_8" />
 
             </LinearLayout>

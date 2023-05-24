@@ -26,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_6"
             android:text="@string/restaurant_recommendation_tv_mood2"
             android:textColor="@color/purple_main"
             android:textSize="20sp"
@@ -97,14 +98,15 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginTop="@dimen/size_20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/region" />
+            app:layout_constraintTop_toBottomOf="@+id/region"
+            tools:listitem="@layout/recommendation_item"/>
 
         <FrameLayout
             android:id="@+id/region_fragment"
-            android:layout_width="@dimen/size_265"
+            android:layout_width="@dimen/size_267"
             android:layout_height="@dimen/size_352"
             android:layout_marginTop="@dimen/size_10"
             android:layout_marginStart="@dimen/size_19"
@@ -114,7 +116,7 @@
         <FrameLayout
             android:id="@+id/popular_fragment"
             android:layout_width="@dimen/size_155"
-            android:layout_height="@dimen/size_221"
+            android:layout_height="@dimen/size_230"
             android:layout_marginTop="@dimen/size_10"
             android:layout_marginStart="@dimen/size_91"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +125,7 @@
         <FrameLayout
             android:id="@+id/preferences_fragment"
             android:layout_width="@dimen/size_244"
-            android:layout_height="@dimen/size_313"
+            android:layout_height="@dimen/size_330"
             android:layout_marginTop="@dimen/size_10"
             android:layout_marginStart="@dimen/size_91"
             app:layout_constraintStart_toStartOf="parent"
