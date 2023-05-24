@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CafeRecommendationFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.fragment.home.CafeRecommendationFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/my_filter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_30"
+            android:text="@string/restaurant_recommendation_tv_mood1"
+            android:textSize="20sp"
+            android:textColor="@color/purple_main"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_filter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_6"
+            android:text="@string/restaurant_recommendation_tv_mood2"
+            android:textColor="@color/purple_main"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/my_filter1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_3"
+            android:layout_marginStart="@dimen/size_30"
+            android:text="@string/cafe_recommendation_how_about"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_filter1" />
+
+
+        <!--필터 버튼-->
+        <ImageView
+            android:id="@+id/region"
+            android:layout_width="@dimen/size_75"
+            android:layout_height="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_30"
+            android:layout_marginTop="@dimen/size_15"
+            android:src="@drawable/ic_filter_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text"/>
+
+        <ImageView
+            android:id="@+id/popularity"
+            android:layout_width="@dimen/size_75"
+            android:layout_height="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_15"
+            android:layout_marginTop="@dimen/size_15"
+            android:src="@drawable/ic_filter_2"
+            app:layout_constraintStart_toEndOf="@+id/region"
+            app:layout_constraintTop_toBottomOf="@+id/text"/>
+
+        <ImageView
+            android:id="@+id/preference"
+            android:layout_width="@dimen/size_75"
+            android:layout_height="@dimen/size_30"
+            android:layout_marginStart="@dimen/size_15"
+            android:layout_marginTop="@dimen/size_15"
+            android:src="@drawable/ic_filter_3"
+            app:layout_constraintStart_toEndOf="@+id/popularity"
+            app:layout_constraintTop_toBottomOf="@+id/text"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cafe_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region"
+            tools:listitem="@layout/recommendation_item"/>
+
+        <FrameLayout
+            android:id="@+id/region_fragment"
+            android:layout_width="@dimen/size_267"
+            android:layout_height="@dimen/size_352"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+        <FrameLayout
+            android:id="@+id/popular_fragment"
+            android:layout_width="@dimen/size_155"
+            android:layout_height="@dimen/size_230"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+        <FrameLayout
+            android:id="@+id/preferences_fragment"
+            android:layout_width="@dimen/size_244"
+            android:layout_height="@dimen/size_330"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+        <FrameLayout
+            android:id="@+id/type_fragment"
+            android:layout_width="@dimen/size_260"
+            android:layout_height="@dimen/size_352"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_21"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

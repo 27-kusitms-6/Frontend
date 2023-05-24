@@ -82,11 +82,14 @@
     <dimen name="size_200">200dp</dimen>
     <dimen name="size_218">218dp</dimen>
     <dimen name="size_221">221dp</dimen>
+    <dimen name="size_230">230dp</dimen>
     <dimen name="size_244">244dp</dimen>
     <dimen name="size_258">258dp</dimen>
     <dimen name="size_260">260dp</dimen>
     <dimen name="size_265">265dp</dimen>
+    <dimen name="size_267">267dp</dimen>
     <dimen name="size_313">313dp</dimen>
+    <dimen name="size_330">330dp</dimen>
     <dimen name="size_352">352dp</dimen>
     <dimen name="size_500">500dp</dimen>
 
