@@ -10,6 +10,7 @@
     android:elevation="5dp">
 
     <LinearLayout
+        android:id="@+id/ll_filter_mypage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -20,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_filter_quiet"
-            android:layout_marginTop="@dimen/size_24"
+            android:layout_marginTop="@dimen/size_20"
             android:layout_gravity="center_horizontal"/>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -28,14 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/filter_name"
+            android:fontFamily="@font/suit_bold"
             android:layout_marginTop="@dimen/size_5"
             android:layout_gravity="center_horizontal"
              />
 
-
     </LinearLayout>
-
-
 
 
 </androidx.cardview.widget.CardView>

@@ -15,6 +15,7 @@ import com.kustims.a6six.ui.activity.MainActivity
 import com.kustims.a6six.ui.adapter.MypagePagerFragmentStateAdapter
 import com.kustims.a6six.ui.viewmodel.MypageViewModel
 import com.kustims.a6six.ui.viewmodelstate.MypageState
+import com.squareup.picasso.Picasso
 
 
 class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
@@ -26,9 +27,13 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
     lateinit var pm: PreferenceManager
 
     //getUserInfo
+    lateinit var name:String
+    lateinit var Email: String
+    lateinit var phoneNum: String
     lateinit var nickname: String
     lateinit var filters: List<String>
     lateinit var imgUrl: String
+    lateinit var birthDate: String
 
 
     //pm 검증용
@@ -60,26 +65,37 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
                     is MypageState.Success -> {
                         Log.d("getInfo Success", "{it.data}")
 
-                        nickname = it.data.data.name
-                        Log.d("mypafe Info_Success", nickname)
+                        nickname = it.data.data.nickname
+                        Log.d("mypage Info_Success", nickname)
                         filters = it.data.data.filters
-                        Log.d("mypafe Info_Success", filters.toString())
+                        Log.d("mypage Info_Success", filters.toString())
                         imgUrl = it.data.data.imgUrl
-                        Log.d("mypafe Info_Success", imgUrl)
+                        Log.d("mypage Info_Success", imgUrl)
+                        Email = it.data.data.email
+                        Log.d("mypage Info_Success", Email)
+                        name = it.data.data.name
+                        Log.d("mypage Info_Success", name)
+                        phoneNum = it.data.data.phoneNum
+                        Log.d("mypage Info_Success", phoneNum)
+                        birthDate = it.data.data.birthDate
 
                         viewModel.putFilters(pm, filters)
+                        viewModel.saveUserInfo(pm, imgUrl, name, nickname, phoneNum, Email, birthDate)
                         _filters = pm.getFilters()
+
                         if(! _filters.isEmpty()){
                             Log.d("pm_filters", "Success put Filters :"+_filters.toString())
                         } else {
-                            Log.d("pm_filters", "Failure put Filters")
+                            Log.d("pm_filters", "Failure put Filters because is Empty")
                         }
 
 
                         binding.apply {
-                            tvNicknameMypage.text = nickname
-                            tvFilterMypage.text = filters.toString()
-                            ivProfileMypage.setImageURI(Uri.parse(imgUrl))
+                            tvNicknameMypage.text = name
+                            tvFilterMypage.text = filters.joinToString(", ") { "#$it" }
+                            Picasso.get()
+                                .load(imgUrl)
+                                .into(binding.ivProfileMypage)
                         }
                     }
 
@@ -108,7 +124,10 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
         }
 
         TabLayoutMediator(binding.tabLayoutMypage, viewPager) { tab, position ->
-            tab.text = "${position}"
+            when(position) {
+                0 -> tab.text = "   LIKELIST   "
+                1 -> tab.text = "   나의 리뷰   "
+            }
         }.attach()
 
 
@@ -128,7 +147,7 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
                 .commit()
         }
 
-        binding.tvFilterMypage.setOnClickListener {
+        binding.btnChangeFilterMypage.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fcv_main, PreferMypageFragment())
                 .addToBackStack(null)

@@ -55,10 +55,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         val preferenceManager = PreferenceManager(requireContext())
         // Store a string value
-        preferenceManager.setString(PreferenceManager.KEY_ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_NwW")
+        preferenceManager.setString(PreferenceManager.ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_NwW")
 
         // Retrieve the stored string value
-        val accessToken = preferenceManager.getString(PreferenceManager.KEY_ACCESS_TOKEN)
+        val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN)
 
 
         //retrofit

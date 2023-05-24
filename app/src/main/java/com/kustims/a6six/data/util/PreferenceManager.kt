@@ -2,6 +2,8 @@ package com.kustims.a6six.data.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.telephony.PhoneNumberUtils
+import com.google.android.material.internal.NavigationMenu
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.kustims.a6six.data.Constants.KEY_ACCESS_TOKEN
@@ -25,6 +27,12 @@ class PreferenceManager(
         const val ACCESS_TOKEN = "accessToken"
         const val REFRESH_TOKEN = "refreshToken"
         const val Filters = "filters"
+        const val IMG_URL = "imageUrl"
+        const val NAME = "name"
+        const val NICKNAME = "nickname"
+        const val PHONENUMBER = "phoneNumber"
+        const val EMAIL = "email"
+        const val BIRTHDATE ="birthDate"
     }
 
     private fun getPreferences(context: Context): SharedPreferences {
@@ -180,5 +188,39 @@ class PreferenceManager(
         } else {
             emptyList()
         }
+    }
+
+    fun putInfo(imageUrl:String?, name:String?, nickname: String?, email: String?, phoneNum: String?, birthDate: String?) {
+        editor.putString(IMG_URL, imageUrl)
+        editor.putString(NAME, name)
+        editor.putString(NICKNAME, nickname)
+        editor.putString(EMAIL, email)
+        editor.putString(PHONENUMBER, phoneNum)
+        editor.putString(BIRTHDATE, birthDate)
+        editor.apply()
+    }
+
+    fun getName(): String? {
+        return prefs.getString(NAME, null)
+    }
+
+    fun getNickname(): String? {
+        return prefs.getString(NICKNAME, null)
+    }
+
+    fun getImgUrl(): String? {
+        return prefs.getString(IMG_URL, null)
+    }
+
+    fun getEmail(): String? {
+        return prefs.getString(EMAIL, null)
+    }
+
+    fun getPhoneNum(): String? {
+        return prefs.getString(PHONENUMBER, null)
+    }
+
+    fun getbirthDate(): String? {
+        return prefs.getString(BIRTHDATE, null)
     }
 }

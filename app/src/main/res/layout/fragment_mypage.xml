@@ -66,19 +66,26 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_filter_mypage"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mypage_filter"
                 android:layout_marginTop="@dimen/size_11"
                 android:textColor="@color/likeit_main_purple"
                 android:textSize="@dimen/font_size_12"
                 android:fontFamily="@font/suit_regular"
-                android:paddingStart="82dp"
-                android:layout_marginStart="@dimen/size_19"
-                android:layout_marginEnd="@dimen/size_19"
-                android:drawableEnd="@drawable/imgbtn_change_mypage"
                 app:layout_constraintTop_toBottomOf="@id/tv_nickname_mypage"
                 app:layout_constraintStart_toStartOf="@id/tv_nickname_mypage"/>
+
+            <ImageButton
+                android:id="@+id/btn_change_filter_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/imgbtn_change_mypage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_filter_mypage"
+                android:layout_marginEnd="@dimen/size_20"/>
+
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_profile_edit_mypage"
@@ -109,6 +116,8 @@
                 app:tabIndicatorHeight="3dp"
                 app:tabMode="scrollable"
                 android:layout_marginStart="@dimen/size_19"
+                app:tabPaddingStart="@dimen/size_16"
+                app:tabPaddingEnd="@dimen/size_16"
                 android:layout_marginEnd="@dimen/size_19"
                 app:tabTextColor="@color/likeit_font_black_30"/>
 

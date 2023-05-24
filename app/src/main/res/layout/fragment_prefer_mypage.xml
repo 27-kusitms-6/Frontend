@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv1_filter_mypage"
-            android:layout_marginTop="@dimen/size_25"
+            android:layout_marginTop="@dimen/size_15"
             android:fontFamily="@font/suit_bold"
             android:textSize="@dimen/font_size_22"
             android:textColor="@color/likeit_font_black_30"
@@ -34,10 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/background_ballon_setting"
+            android:paddingTop="10dp"
+            android:paddingStart="17dp"
             android:text="@string/tv2_filter_mypage"
             android:textSize="@dimen/font_size_11"
             android:fontFamily="@font/suit_regular"
-            android:layout_marginTop="@dimen/size_35"
+            android:layout_marginTop="@dimen/size_15"
+            android:layout_marginStart="@dimen/size_10"
             app:layout_constraintStart_toStartOf="@id/grid_view_prefer_mypage"
             app:layout_constraintTop_toBottomOf="@id/tv1_prefer_mypage"
             android:textColor="@color/likeit_main_purple"/>
@@ -46,11 +49,13 @@
         <GridView
             android:id="@+id/grid_view_prefer_mypage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_0"
+            android:layout_height="400dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_marginStart="@dimen/size_16"
             android:layout_marginEnd="@dimen/size_16"
-            android:horizontalSpacing="@dimen/size_6"
             android:numColumns="2"
+            android:choiceMode="multipleChoice"
             android:layout_marginTop="@dimen/size_11"
             android:verticalSpacing="@dimen/size_12"
             android:gravity="center"
@@ -58,6 +63,18 @@
             app:layout_constraintEnd_toEndOf="@id/tv1_prefer_mypage"
             tools:listitem="@layout/filter_item"
             app:layout_constraintTop_toBottomOf="@id/tv2_prefer_mypage"/>
+
+
+        <ImageView
+            android:id="@+id/banner_"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/banner_prefer_mypage"
+            android:layout_marginBottom="@dimen/size_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
 
         <Button
             android:id="@+id/btn_prefer_mypage"
@@ -70,15 +87,8 @@
             android:background="@drawable/btn_background_edit_mypage"
             android:layout_marginStart="@dimen/size_16"
             android:layout_marginEnd="@dimen/size_16"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="@dimen/size_50"/>
-
-
-
-
-
-
-
+            app:layout_constraintTop_toBottomOf="@id/grid_view_prefer_mypage"
+            android:layout_marginTop="@dimen/size_20"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
