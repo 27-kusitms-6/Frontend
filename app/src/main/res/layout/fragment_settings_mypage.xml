@@ -11,6 +11,20 @@
         android:paddingTop="@dimen/size_23"
         android:paddingEnd="19dp">
 
+        <TextView
+            android:id="@+id/tv_setting_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="내 정보"
+            android:textSize="@dimen/font_size_16"
+            android:fontFamily="@font/suit_bold"
+            android:textColor="@color/likeit_main_purple"
+            app:layout_constraintStart_toStartOf="parent"
+            android:includeFontPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"/>
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_editProfile_mypage_setting"
             android:layout_width="wrap_content"
@@ -20,9 +34,8 @@
             android:text="회원 정보 수정"
             android:textColor="#000000"
             android:textSize="@dimen/font_size_15"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_vector_mypage_setting"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ic_vector_mypage_setting" />
+            app:layout_constraintTop_toBottomOf="@id/tv_setting_mypage" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ic_vector_mypage_setting"

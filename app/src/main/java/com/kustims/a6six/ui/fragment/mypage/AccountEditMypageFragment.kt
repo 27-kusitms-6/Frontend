@@ -1,34 +1,37 @@
 package com.kustims.a6six.ui.fragment.mypage
 
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import com.kustims.a6six.base.BaseFragment
+import com.kustims.a6six.base.BaseFragment2
 import com.kustims.a6six.databinding.FragmentAccountEditMypageBinding
+import com.kustims.a6six.ui.activity.MainActivity
+import com.kustims.a6six.ui.viewmodel.MypageViewModel
 
 
-class AccountEditMypageFragment : BaseFragment<FragmentAccountEditMypageBinding>() {
+class AccountEditMypageFragment : BaseFragment2<MypageViewModel, FragmentAccountEditMypageBinding>() {
+
+    override val viewModel: MypageViewModel = MypageViewModel()
+    override fun getViewBinding(): FragmentAccountEditMypageBinding = FragmentAccountEditMypageBinding.inflate(layoutInflater)
 
 
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentAccountEditMypageBinding {
-        return FragmentAccountEditMypageBinding.inflate(inflater, container, false)
-    }
+    lateinit var accessToken: String
+
+    //getUserInfo
+    lateinit var nickname: String
+    lateinit var filters: List<String>
+    lateinit var imgUrl: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //tab layout attach
+        accessToken = (activity as? MainActivity)?.accessToken ?: ""
+        Log.d("accessToken_Mypage", accessToken)
+
+        initViews()
 
 
     }
-
-
-
-
 
 
 }

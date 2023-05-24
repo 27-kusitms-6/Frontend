@@ -1,3 +1,4 @@
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
@@ -15,7 +16,8 @@ class AuthenticationInterceptor(
             .header(contentType, contentTypeValue)
             .apply {
                 accessToken?.run {
-                    header("Authorization", this)
+                    header("Authorization", "Bearer "+ this)
+                    Log.d("Bearer TOken", "Bearer " +this)
                 }
             }
 

@@ -4,25 +4,26 @@ import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 
-class AuthenticationInterceptor(
-    private val accessToken: String? = null
-) : Interceptor {
+class AuthenticationInterceptor(private val accessToken: String?) : Interceptor {
     private val contentType = "Content-Type"
     private val contentTypeValue = "application/json"
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val original: Request = chain.request()
-        var builder: Request.Builder = original.newBuilder()
-        builder = builder
+        val builder: Request.Builder = original.newBuilder()
             .header(contentType, contentTypeValue)
-            .apply {
-                accessToken?.run {
-                    header("Authorization", this)
-                }
-            }
+
+        accessToken?.run {
+            builder.header("Authorization", "Bearer $this")
+        }
 
         val request: Request = builder.build()
 
         return chain.proceed(request)
     }
 }
+
+
+
+
+

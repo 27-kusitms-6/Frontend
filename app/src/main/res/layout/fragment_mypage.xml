@@ -13,106 +13,115 @@
         <import type="android.view.View" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="@dimen/size_19"
-        android:layout_marginEnd="@dimen/size_19"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_topbar_title_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:fontFamily="@font/suit_bold"
-            android:gravity="center"
-            android:text="@string/mypage_tv_topbar_mypage"
-            android:textColor="@color/purple_main"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_topbar_title_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:fontFamily="@font/suit_bold"
+                android:gravity="center"
+                android:text="@string/mypage_tv_topbar_mypage"
+                android:textColor="@color/purple_main"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/setting_topbar_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_marginEnd="@dimen/size_21"
-            android:src="@drawable/ic_mypage_union"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/setting_topbar_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginEnd="@dimen/size_21"
+                android:src="@drawable/ic_mypage_union"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_profile_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_profile_mypage"
-            android:layout_marginTop="@dimen/size_25"
-            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
-            app:layout_constraintStart_toStartOf="parent"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_profile_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_profile_mypage"
+                android:layout_marginTop="@dimen/size_25"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_nickname_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_31"
-            android:layout_marginStart="@dimen/size_16"
-            android:text="@string/mypage_nickname"
-            android:textColor="@color/likeit_font_black_30"
-            android:textSize="@dimen/font_size_18"
-            android:fontFamily="@font/suit_bold"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_mypage"
-            app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_nickname_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_31"
+                android:layout_marginStart="@dimen/size_16"
+                android:text="@string/mypage_nickname"
+                android:textColor="@color/likeit_font_black_30"
+                android:textSize="@dimen/font_size_18"
+                android:fontFamily="@font/suit_bold"
+                app:layout_constraintStart_toEndOf="@id/iv_profile_mypage"
+                app:layout_constraintTop_toBottomOf="@id/tv_topbar_title_mypage"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_filter_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mypage_filter"
-            android:layout_marginTop="@dimen/size_11"
-            android:textColor="@color/likeit_main_purple"
-            android:textSize="@dimen/font_size_12"
-            android:fontFamily="@font/suit_regular"
-            android:paddingStart="82dp"
-            android:drawableEnd="@drawable/imgbtn_change_mypage"
-            app:layout_constraintTop_toBottomOf="@id/tv_nickname_mypage"
-            app:layout_constraintStart_toStartOf="@id/tv_nickname_mypage"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_filter_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mypage_filter"
+                android:layout_marginTop="@dimen/size_11"
+                android:textColor="@color/likeit_main_purple"
+                android:textSize="@dimen/font_size_12"
+                android:fontFamily="@font/suit_regular"
+                android:paddingStart="82dp"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                android:drawableEnd="@drawable/imgbtn_change_mypage"
+                app:layout_constraintTop_toBottomOf="@id/tv_nickname_mypage"
+                app:layout_constraintStart_toStartOf="@id/tv_nickname_mypage"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_profile_edit_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_45"
-            android:layout_marginTop="@dimen/size_40"
-            android:background="@drawable/btn_background_edit_mypage"
-            android:fontFamily="@font/suit_bold"
-            android:text="프로필 설정"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tv_filter_mypage"
-            tools:ignore="TouchTargetSizeCheck" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_profile_edit_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_45"
+                android:layout_marginTop="@dimen/size_40"
+                android:background="@drawable/btn_background_edit_mypage"
+                android:fontFamily="@font/suit_bold"
+                android:text="프로필 설정"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                app:layout_constraintTop_toBottomOf="@id/tv_filter_mypage"
+                tools:ignore="TouchTargetSizeCheck" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_8"
-            app:layout_constraintTop_toBottomOf="@id/btn_profile_edit_mypage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/white"
-            app:tabIndicatorColor="@color/likeit_main_purple"
-            android:clipToPadding="false"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="3dp"
-            app:tabMode="scrollable"
-            app:tabTextColor="@color/likeit_font_black_30"/>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_8"
+                app:layout_constraintTop_toBottomOf="@id/btn_profile_edit_mypage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/white"
+                app:tabIndicatorColor="@color/likeit_main_purple"
+                android:clipToPadding="false"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="3dp"
+                app:tabMode="scrollable"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                app:tabTextColor="@color/likeit_font_black_30"/>
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager_mypage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_layout_mypage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager_mypage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_layout_mypage"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
