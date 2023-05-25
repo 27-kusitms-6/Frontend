@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentPlaceDetailBinding
 import com.kustims.a6six.ui.adapter.PlaceDetailViewAdapter
 import com.kustims.a6six.ui.viewmodel.PlaceDetailViewModel
 import com.kustims.a6six.ui.viewmodel.PlaceDetailViewModelFactory
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_place_detail.*
 
 
 class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
@@ -48,6 +50,18 @@ class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
             binding.negativeStickerCount2.text = place.top2NegativeStickerCount[1].toString()
             binding.positiveStickerCount1.text = place.top2PositiveStickerCount[0].toString()
             binding.positiveStickerCount2.text = place.top2PositiveStickerCount[1].toString()
+
+            var star = place.starRating.toInt()
+            //별점
+            when (star) {
+                1 -> binding.starInt.setImageResource(R.drawable.ic_star1)
+                2 -> binding.starInt.setImageResource(R.drawable.ic_star2)
+                3 -> binding.starInt.setImageResource(R.drawable.ic_star3)
+                4 -> binding.starInt.setImageResource(R.drawable.ic_star4)
+                5 -> binding.starInt.setImageResource(R.drawable.ic_star5)
+                else -> binding.starInt.setImageResource(R.drawable.ic_star3)
+            }
+
 
             //이미지 처리
             Picasso.get()

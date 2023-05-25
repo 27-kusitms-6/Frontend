@@ -80,7 +80,7 @@
                 android:id="@+id/star_float"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_26"
-                android:src="@drawable/ic_star1"
+                android:src="@drawable/ic_star_02"
                 app:layout_constraintBottom_toBottomOf="@+id/star_int"
                 app:layout_constraintStart_toEndOf="@+id/star_int"
                 app:layout_constraintTop_toTopOf="@+id/star_int" />

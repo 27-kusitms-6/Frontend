@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_19"
             android:layout_marginTop="@dimen/size_30"
-            android:text=""
+            android:text="@string/restaurant_recommendation_tv_mood1"
             android:fontFamily="@font/suit_semibold"
             android:textColor="@color/purple_main"
             android:textSize="16sp"
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_4"
             android:layout_marginTop="@dimen/size_30"
-            android:text=""
+            android:text="@string/restaurant_recommendation_tv_mood2"
             android:fontFamily="@font/suit_semibold"
             android:textColor="@color/purple_main"
             android:textSize="16sp"
@@ -145,6 +145,7 @@
             android:fontFamily="@font/suit_semibold"
             android:textColor="@color/gray_500"
             android:textSize="16sp"
+            android:layout_marginStart="@dimen/size_3"
             app:layout_constraintStart_toEndOf="@+id/my_filter2"
             app:layout_constraintTop_toBottomOf="@+id/btnGoCafe" />
 

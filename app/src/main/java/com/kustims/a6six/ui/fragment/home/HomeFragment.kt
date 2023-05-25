@@ -79,20 +79,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         initViewPager2()
 
-//        binding.btnGoRestaurant.setOnClickListener {
-//            parentFragmentManager.beginTransaction()
-//                .replace(R.id.fcv_main, restaurantRecommendationFragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
-
-        //test용
         binding.btnGoRestaurant.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fcv_main, placeDetailFragment)
+                .replace(R.id.fcv_main, restaurantRecommendationFragment)
                 .addToBackStack(null)
                 .commit()
         }
+
+        //test용
+//        binding.btnGoRestaurant.setOnClickListener {
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.fcv_main, placeDetailFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
 
         binding.btnGoCafe.setOnClickListener {
             parentFragmentManager.beginTransaction()
