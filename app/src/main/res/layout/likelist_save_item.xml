@@ -9,26 +9,31 @@
         android:id="@+id/photo_likelist_save"
         android:layout_width="match_parent"
         android:layout_height="104dp"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/ic_image_restaurant"/>
 
-    <View
-        android:id="@+id/view_likelist_save"
-        android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:layout_alignLeft="@+id/photo_likelist_save"
-        android:layout_margin="00dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/background_likelist_photo" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_likelist_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="@string/likelist_save_tv_name"
         android:fontFamily="@font/suit_semibold"
         android:textSize="@dimen/size_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/photo_likelist_save"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/content_likelist_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="육즙을 품다 육품"
+        android:fontFamily="@font/suit_regular"
+        android:textSize="@dimen/size_10"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_likelist_save"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

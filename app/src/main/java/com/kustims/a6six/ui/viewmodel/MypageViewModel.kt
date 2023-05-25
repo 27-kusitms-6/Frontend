@@ -2,6 +2,7 @@ package com.kustims.a6six.ui.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.kustims.a6six.app.Base.BaseViewModel
+import com.kustims.a6six.data.model.response.GetBookMarkResponse
 import com.kustims.a6six.data.model.response.GetUserInfoResponse
 import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.domain.repository.MypageRepository
@@ -41,5 +42,19 @@ class MypageViewModel: BaseViewModel() {
 
     suspend fun setFilters(accessToken: String, filter: List<String>) = viewModelScope.async {
         mypageRepository.setFilter(accessToken, filter)
+    }.await()
+
+
+    suspend fun getBookmark(
+        accessToken: String,
+        context: CoroutineContext = Dispatchers.IO,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+    ): MypageState<GetBookMarkResponse> = viewModelScope.async(
+        context = context,
+        start = start
+    ) {
+        mypageRepository.getBookmark(
+            accessToken = accessToken
+        )
     }.await()
 }

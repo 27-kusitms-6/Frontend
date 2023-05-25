@@ -109,8 +109,8 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
 
         val pagerAdapter = MypagePagerFragmentStateAdapter(this)
             .apply {
-                addFragment(MyreviewMypageFragment())
                 addFragment(LikelistMypageFragment())
+                addFragment(MyreviewMypageFragment())
             }
 
         val viewPager: ViewPager2 = binding.viewPagerMypage.apply {
@@ -153,6 +153,7 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
                 .addToBackStack(null)
                 .commit()
         }
+
 
     }
 
