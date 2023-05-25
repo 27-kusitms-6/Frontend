@@ -26,6 +26,10 @@ class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnClose.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         val imageViewIds = listOf(
             R.id.ic_seoul,
             R.id.ic_incheon,
@@ -70,12 +74,15 @@ class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
                     imageView.setImageDrawable(originalDrawables[imageViewId])
                 }
 
-                if(imageName == "ic_seoul") {
-                    val restaurantRecommendationFragment = RestaurantRecommendationFragment()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.fcv_main, restaurantRecommendationFragment)
-                        .addToBackStack(null)
-                        .commit()
+                if (imageName == "ic_seoul") {
+                    imageView.postDelayed({
+                        val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+                        parentFragmentManager.beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                            .replace(R.id.fcv_main, restaurantRecommendationFragment)
+                            .addToBackStack(null)
+                            .commit()
+                    }, 300)
                 } else {
                     Toast.makeText(requireContext(), "추후 업데이트될 예정입니다", Toast.LENGTH_SHORT).show()
                 }

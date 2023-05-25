@@ -29,15 +29,43 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //view 초기화
+        binding.region.setImageResource(R.drawable.ic_filter_1)
+        binding.popularity.setImageResource(R.drawable.ic_filter_2)
+        binding.preference.setImageResource(R.drawable.ic_filter_3)
+        binding.type.setImageResource(R.drawable.ic_filter_4)
 
-        val category2 = "null"
-        val filters = listOf("조용한", "트렌디한") //사용자 기본 선택 필터로 변경 필요
+        val defaultFilters = "조용한,트렌디한" //사용자 기본 선택 필터로 변경 필요
+        var category2 = "null"
+        var filters: List<String> = defaultFilters.split(",")
         var orderBy : Int = 1
         // orderBy 값 전달 받기
-        val orderByValue = arguments?.getInt("orderBy", 0)
+        val orderByValue = arguments?.getInt("orderBy", 1)
         if (orderByValue != null) {
+            binding.region.setImageResource(R.drawable.ic_filter_1)
+            binding.preference.setImageResource(R.drawable.ic_filter_3)
+            binding.type.setImageResource(R.drawable.ic_filter_4)
+            binding.popularity.setImageResource(R.drawable.ic_filter2_select)
             orderBy = orderByValue
         }
+        val filter = arguments?.getString("filter", "")
+        if (!filter.isNullOrEmpty()) {
+            binding.region.setImageResource(R.drawable.ic_filter_1)
+            binding.popularity.setImageResource(R.drawable.ic_filter_2)
+            binding.type.setImageResource(R.drawable.ic_filter_4)
+            binding.preference.setImageResource(R.drawable.ic_filter3_select)
+            filters = filter.split(",")
+        }
+
+        val type = arguments?.getString("type", "")
+        if (!type.isNullOrEmpty()) {
+            binding.region.setImageResource(R.drawable.ic_filter_1)
+            binding.popularity.setImageResource(R.drawable.ic_filter_2)
+            binding.preference.setImageResource(R.drawable.ic_filter_3)
+            binding.type.setImageResource(R.drawable.ic_filter4_select)
+            category2 = type
+        }
+
 
         // ViewModel 초기화
         val factory = RecommendationViewModelFactory(requireActivity().application, category2, filters, orderBy, accessToken)

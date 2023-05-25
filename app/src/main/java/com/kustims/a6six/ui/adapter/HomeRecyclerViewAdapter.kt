@@ -72,6 +72,8 @@ class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
         }
 
         view.setOnClickListener {
+
+
             //clickListener(task)
 //            todoChecked = !todoChecked
 //            clickListener(task)

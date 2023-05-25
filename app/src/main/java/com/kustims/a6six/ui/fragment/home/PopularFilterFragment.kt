@@ -28,6 +28,10 @@ class PopularFilterFragment : BaseFragment<FragmentPopularFilterBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnClose.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         binding.popularOption1.setOnClickListener {
             binding.popularOption1.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.popularOption1.setTextColor(resources.getColor(R.color.purple_main))
