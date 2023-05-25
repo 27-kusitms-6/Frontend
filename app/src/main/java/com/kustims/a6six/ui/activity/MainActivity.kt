@@ -23,6 +23,9 @@ class MainActivity: AppCompatActivity() {
     lateinit var accessToken: String
     lateinit var filters: List<String>
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

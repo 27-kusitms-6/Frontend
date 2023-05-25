@@ -56,7 +56,6 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
 
         initViews()
 
-
         //coroutine Viewmodel
         mainScope {
             Log.d("mypage_Scope", "Success")
@@ -65,19 +64,19 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
                     is MypageState.Success -> {
                         Log.d("getInfo Success", "{it.data}")
 
-                        nickname = it.data.data.nickname
+                        nickname = it.data.data.nickname.toString()
                         Log.d("mypage Info_Success", nickname)
-                        filters = it.data.data.filters
+                        filters = it.data.data.filters!!
                         Log.d("mypage Info_Success", filters.toString())
-                        imgUrl = it.data.data.imgUrl
+                        imgUrl = it.data.data.imgUrl.toString()
                         Log.d("mypage Info_Success", imgUrl)
-                        Email = it.data.data.email
+                        Email = it.data.data.email.toString()
                         Log.d("mypage Info_Success", Email)
-                        name = it.data.data.name
+                        name = it.data.data.name.toString()
                         Log.d("mypage Info_Success", name)
-                        phoneNum = it.data.data.phoneNum
+                        phoneNum = it.data.data.phoneNum.toString()
                         Log.d("mypage Info_Success", phoneNum)
-                        birthDate = it.data.data.birthDate
+                        birthDate = it.data.data.birthDate.toString()
 
                         viewModel.putFilters(pm, filters)
                         viewModel.saveUserInfo(pm, imgUrl, name, nickname, phoneNum, Email, birthDate)
@@ -100,7 +99,9 @@ class MypageFragment : BaseFragment2<MypageViewModel, FragmentMypageBinding>() {
                     }
 
                     is MypageState.Error -> {
-                        Log.d("getInfo Error", "${it.exception}")
+
+                    }
+                    else -> {
                     }
                 }
             }

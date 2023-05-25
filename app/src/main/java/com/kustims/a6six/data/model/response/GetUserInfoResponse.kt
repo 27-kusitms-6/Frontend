@@ -7,13 +7,13 @@ data class GetUserInfoResponse(
 ) {
 
     data class Data(
-        val birthDate: String = "",
-        val email: String = "",
-        val filters: List<String> = emptyList(),
-        val imgUrl: String = "",
-        val name: String = "",
-        val nickname: String = "",
-        val phoneNum: String = "",
+        val birthDate: String? = "",
+        val email: String? = "",
+        val filters: List<String>? = emptyList(),
+        val imgUrl: String?= "",
+        val name: String? = "",
+        val nickname: String? = "",
+        val phoneNum: String? = "",
     )
     {
         companion object {

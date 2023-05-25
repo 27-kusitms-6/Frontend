@@ -72,6 +72,7 @@ class SaveDetailFragment : BaseFragment2<MypageViewModel, FragmentSaveDetailBind
                     is MypageState.Error -> {
                         Log.d("getInfo Error", "${response.exception}")
                     }
+                    else -> {}
                 }
             }
         }

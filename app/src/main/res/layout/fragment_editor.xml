@@ -172,7 +172,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ep.01"
+                        android:text="ep.0 프리뷰"
                         android:fontFamily="@font/suit_medium"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp" />

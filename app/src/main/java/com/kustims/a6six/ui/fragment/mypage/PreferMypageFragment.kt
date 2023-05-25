@@ -31,7 +31,7 @@ class PreferMypageFragment: BaseFragment2<MypageViewModel, FragmentPreferMypageB
 
     //pm 검증용
     lateinit var _filters: List<String>
-    lateinit var _firtstF: String
+    lateinit var _firstF: String
     lateinit var _secondF: String
 
     //보낼 용
@@ -118,21 +118,25 @@ class PreferMypageFragment: BaseFragment2<MypageViewModel, FragmentPreferMypageB
         accessToken = (activity as? MainActivity)?.accessToken ?: ""
         Log.d("accessToken_Mypage", accessToken)
 
+
         filterInitGridView()
         binding.btnPreferMypage.setOnClickListener{
             mainScope {
-                Log.d("filters_retrofit_prefer", filters.toString())
-                viewModel.setFilters(accessToken, filters).let {
-                    when (it) {
-                        is MypageState.Success -> {
-                            message = it.data.message
-                            Log.d("Set_Filter", message)
-                            _filters = filters
-                            pm.putFilters(filters)
-                            Log.d("Set_Filter", "pm PutFilter Success")
-                        }
-                        is MypageState.Error -> {
-                            Log.d("Set_Filter Error", "${it.exception}")
+                if(!(filters.size == 0)) {
+                    Log.d("filters_retrofit_prefer", filters.toString())
+                    viewModel.setFilters(accessToken, filters).let {
+                        when (it) {
+                            is MypageState.Success -> {
+                                message = it.data.message
+                                Log.d("Set_Filter", message)
+                                _filters = filters
+                                pm.putFilters(filters)
+                                Log.d("Set_Filter", "pm PutFilter Success")
+                            }
+                            is MypageState.Error -> {
+                                Log.d("Set_Filter Error", "${it.exception}")
+                            }
+                            else -> {}
                         }
                     }
                 }
@@ -141,19 +145,20 @@ class PreferMypageFragment: BaseFragment2<MypageViewModel, FragmentPreferMypageB
     }
 
     private fun filterInitGridView() {
-        _filters = pm.getFilters()
-        _firtstF = _filters[0]
-        Log.d("_fitstF", _firtstF)
-        _secondF = _filters[1]
-        Log.d("_secondF", _secondF)
+        _filters = pm.getFilters() ?: emptyList()
+        if (_filters.isNotEmpty()) {
+            _firstF = if (_filters.isNotEmpty()) _filters[0] else ""
+            Log.d("_fitstF", _firstF)
+            _secondF = if (_filters.size > 1) _filters[1] else ""
+            Log.d("_secondF", _secondF)
+        }
 
         val updatedFilterList: MutableList<HashMap<String, Any>> = mutableListOf()
         //_filters 안에 들어가있는거 list 전달
         for (filter in filterList) {
             val name = filter["name"] as String
-            val isClicked = (name.equals(_firtstF) || name.equals(_secondF))
+            val isClicked = (name.equals(_firstF) || name.equals(_secondF))
             val updatedFilter = HashMap(filter)
-            Log.d("updatedFilter_1", updatedFilter.toString())
             updatedFilter["isClicked"] = isClicked
             updatedFilterList.add(updatedFilter)
         }
@@ -167,8 +172,13 @@ class PreferMypageFragment: BaseFragment2<MypageViewModel, FragmentPreferMypageB
         val clickedFilterList = updatedFilterList.filter { it["isClicked"] == true }
         Log.d("clickedFilterList", clickedFilterList.toString())
         filters = clickedFilterList.map { it["name"].toString() }
-        Log.d("filters", filters.toString())
-        _filters = filters
+
+        if(filters.isNullOrEmpty()) {
+            filters = listOf("로맨틱한", "화려한")
+        } else {
+            Log.d("filters", filters.toString())
+            _filters = filters
+        }
     }
 
 
