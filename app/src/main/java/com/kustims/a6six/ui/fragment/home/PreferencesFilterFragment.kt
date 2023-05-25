@@ -1,6 +1,9 @@
 package com.kustims.a6six.ui.fragment.home
 
+import RestaurantRecommendationFragment
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +13,8 @@ import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentPreferencesFilterBinding
 
 class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>() {
+
+    private var filter: String = ""
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -21,10 +26,16 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnClose.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         binding.preferenceOption1.setOnClickListener {
             binding.preferenceOption1.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption1.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "조용한"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -32,6 +43,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption2.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption2.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "색다른"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -39,6 +52,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption3.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption3.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "전통적인"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -46,6 +61,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption4.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption4.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "모던한"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -53,6 +70,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption5.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption5.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "화려한"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -60,6 +79,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption6.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption6.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "로맨틱한"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -67,6 +88,8 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption7.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption7.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "활기찬"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
 
@@ -74,10 +97,30 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
             binding.preferenceOption8.setBackgroundResource(R.drawable.bg_purple_item_select_round)
             binding.preferenceOption8.setTextColor(resources.getColor(R.color.purple_main))
             //fragment replace
+            filter = "트렌디한"
+            openRestaurantRecommendationFragmentWithDelay(filter, 300)
 
         }
+        }
 
+    private fun openRestaurantRecommendationFragmentWithDelay(filter: String, delayMillis: Long) {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
+            openRestaurantRecommendationFragment(filter)
+        }, delayMillis)
+    }
 
+    private fun openRestaurantRecommendationFragment(filter: String) {
+        val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+        val bundle = Bundle().apply {
+            putString("filter", filter)
+        }
+        restaurantRecommendationFragment.arguments = bundle
 
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+            .replace(R.id.fcv_main, restaurantRecommendationFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
