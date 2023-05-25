@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="155dp"
+    android:layout_width="wrap_content"
     android:layout_gravity="center"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
-    android:layout_height="170dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,21 +31,12 @@
             android:layout_marginTop="112dp"
             android:fontFamily="@font/suit_semibold"
             android:text="@string/title_save_item"
+            android:layout_marginBottom="20dp"
             android:textColor="@color/likeit_font_black_30"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/iv_save_item"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/content_save_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_2"
-            android:text="@string/content_save_item"
-            android:textColor="@color/likeit_font_black_30"
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="@+id/title_save_item"
-            app:layout_constraintTop_toBottomOf="@id/title_save_item" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
@@ -56,6 +47,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_save_item"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

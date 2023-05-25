@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.ViewModelFactoryDsl
+import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentLikelistMypageBinding
 import com.kustims.a6six.ui.viewmodel.LikelistViewModel
@@ -35,34 +36,23 @@ class LikelistMypageFragment : BaseFragment<FragmentLikelistMypageBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.tv1ViewpagerMypage.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, SaveDetailFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.tv2ViewpagerMypage.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, ViewpagerMypage2Fragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        viewModel.onStart()
-//    }
-//
-//    fun<T: ViewModel> FragmentActivity.obtainViewModel(viewModelClass: Class<T>): LikelistViewModel =
-//        ViewModelProvider(viewModelStore,Vi)
-//
-//
-//    companion object {
-//        @SuppressLint("StaticFieldLeak")
-//        @Volatile private var INSTANCE: ViewModelFactory? = null
-//
-//        fun getInstance(application: Application) =
-//            INSTANCE
-//                ?: synchronized(ViewModelFactory::class.java) {
-//                    INSTANCE
-//                        ?: ViewModelFactory(
-//                        )
-//                            .also { INSTANCE = it }
-//                }
-//
-//        @VisibleForTesting
-//        fun destroyInstance() {
-//            INSTANCE = null
-//        }
-//    }
+
+
 
 }
