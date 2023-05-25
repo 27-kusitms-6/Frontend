@@ -19,6 +19,11 @@ class TypeFilterPlayFragment : BaseFragment<FragmentTypeFilterPlayBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnClose.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .remove(this@TypeFilterPlayFragment)
+                .commit()
+        }
 
     }
 }

@@ -22,7 +22,9 @@ data class DetailPlaceResponse(
         val top2NegativeStickerCount: List<Int>,
         val top2NegativeStickers: List<String>,
         val top2PositiveStickerCount: List<Int>,
-        val top2PositiveStickers: List<String>
+        val top2PositiveStickers: List<String>,
+        val top2PositiveStickerName: List<String>,
+        val top2NegativeStickerName: List<String>,
     )
 
     data class Review(

@@ -42,8 +42,8 @@
 
 
     <!-- Restaurant Recommendation Fragmentt -->
-    <string name="restaurant_recommendation_tv_mood1">#조용한</string>
-    <string name="restaurant_recommendation_tv_mood2">  #트렌디한</string>
+    <string name="restaurant_recommendation_tv_mood1">#색다른</string>
+    <string name="restaurant_recommendation_tv_mood2">#활기찬</string>
     <string name="restaurant_recommendation_how_about">이 음식점은 어때요?</string>
     <string name="cafe_recommendation_how_about">이 카페는 어때요?</string>
     <string name="play_recommendation_how_about">이 놀거리는 어때요?</string>

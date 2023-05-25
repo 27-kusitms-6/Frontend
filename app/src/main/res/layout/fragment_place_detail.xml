@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="@dimen/size_4"
-                android:text="이름"
+                android:text=""
                 android:textColor="@color/black"
                 android:fontFamily="@font/suit_regular"
                 android:textSize="20sp"
@@ -44,7 +44,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="@dimen/size_7"
                 android:fontFamily="@font/suit_semibold"
-                android:text="4.2"
+                android:text=""
                 android:textColor="@color/pink_500"
                 android:textSize="25sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_place_image"
@@ -58,7 +58,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="@dimen/size_7"
                 android:fontFamily="@font/suit_regular"
-                android:text="주소"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_place_image"
@@ -76,14 +76,14 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_place_rating"
                 app:layout_constraintTop_toTopOf="@+id/tv_place_rating" />
 
-            <ImageView
-                android:id="@+id/star_float"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/size_26"
-                android:src="@drawable/ic_star1"
-                app:layout_constraintBottom_toBottomOf="@+id/star_int"
-                app:layout_constraintStart_toEndOf="@+id/star_int"
-                app:layout_constraintTop_toTopOf="@+id/star_int" />
+<!--            <ImageView-->
+<!--                android:id="@+id/star_float"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="@dimen/size_26"-->
+<!--                android:src="@drawable/ic_star_02"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/star_int"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/star_int"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/star_int" />-->
 
             <ImageView
                 android:id="@+id/btn_bookmark"
@@ -191,7 +191,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/suit_semibold"
-                    android:text="1035"
+                    android:text=""
                     android:textColor="@color/purple_main"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_1"
@@ -230,7 +230,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/suit_semibold"
-                    android:text="1035"
+                    android:text=""
                     android:textColor="@color/purple_main"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_2"
@@ -245,8 +245,9 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_sticker1"
-                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_name_1"
+                    android:src="@drawable/ic_sticker_nt"
+                    android:layout_marginEnd="110dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <TextView
@@ -271,7 +272,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/suit_semibold"
-                    android:text="1035"
+                    android:text=""
                     android:textColor="@color/pink_500"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_1"
@@ -285,7 +286,8 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/ic_sticker1"
-                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_name_2"
+                    android:layout_marginEnd="110dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/negative_sticker_count_1" />
 
                 <TextView
@@ -310,7 +312,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/suit_semibold"
-                    android:text="1035"
+                    android:text=""
                     android:textColor="@color/pink_500"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_2"

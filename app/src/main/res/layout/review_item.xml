@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="13dp"
             android:layout_marginStart="24dp"
-            android:src="@drawable/ic_star"
+            android:src="@drawable/ic_star3"
             app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
             app:layout_constraintStart_toEndOf="@+id/tv_nickname"
             app:layout_constraintTop_toTopOf="@+id/tv_nickname"
