@@ -3,7 +3,8 @@
 # 💜 *LIKIT! **라이킷 💜***
 
 ---
-apk 
+apk 위치
+
 https://www.notion.so/Likit-APK-c64fe647e2254254bc3cf1d97c1310b0?pvs=4
 
 <div align="center">
