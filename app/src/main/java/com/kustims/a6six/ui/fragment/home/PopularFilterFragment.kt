@@ -16,7 +16,7 @@ import com.kustims.a6six.databinding.FragmentRegionFilterBinding
 class PopularFilterFragment : BaseFragment<FragmentPopularFilterBinding>() {
 
     private var orderBy: Int = 0
-//    private val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+    var set_fragment: Int = 1
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -27,6 +27,11 @@ class PopularFilterFragment : BaseFragment<FragmentPopularFilterBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val set_fragment_value = arguments?.getInt("set_fragment_value", 1)
+        if (set_fragment_value != null) {
+            set_fragment = set_fragment_value
+        }
 
         binding.btnClose.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -86,14 +91,23 @@ class PopularFilterFragment : BaseFragment<FragmentPopularFilterBinding>() {
 
     private fun openRestaurantRecommendationFragment(orderBy: Int) {
         val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+        val cafeRecommendationFragment = CafeRecommendationFragment()
+        val playRecommendationFragment = PlayRecommendationFragment()
+        var go_fragment: BaseFragment<*>? = null
+        when (set_fragment) {
+            1 -> go_fragment = restaurantRecommendationFragment
+            2 -> go_fragment = cafeRecommendationFragment
+            3 -> go_fragment = playRecommendationFragment
+            else -> go_fragment = restaurantRecommendationFragment
+        }
         val bundle = Bundle().apply {
             putInt("orderBy", orderBy)
         }
-        restaurantRecommendationFragment.arguments = bundle
+        go_fragment.arguments = bundle
 
         parentFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-            .replace(R.id.fcv_main, restaurantRecommendationFragment)
+            .replace(R.id.fcv_main, go_fragment)
             .addToBackStack(null)
             .commit()
     }

@@ -36,7 +36,6 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
         //accessToken
         val preferenceManager = PreferenceManager(requireContext())
         accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
-//        Log.d("accessToken", accessToken)
 
         val defaultFilters = "색다른,활기찬" // 사용자 기본 선택 필터로 변경 필요
         var category2 = "null"
@@ -108,9 +107,15 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
         binding.region.setOnClickListener {
             if (regionFragment == null) {
                 binding.region.setImageResource(R.drawable.ic_filter1_select)
-                regionFragment = RegionFilterFragment()
+                val tempFragment = RegionFilterFragment()
+                regionFragment = tempFragment
+
+                val bundle = Bundle().apply {
+                    putInt("set_fragment_value", 1)
+                }
+                tempFragment.arguments = bundle
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.region_fragment, regionFragment!!)
+                    .replace(R.id.region_fragment, tempFragment)
                     .addToBackStack(null)
                     .commit()
             } else {
@@ -126,6 +131,10 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
             if (popularityFragment == null) {
                 binding.popularity.setImageResource(R.drawable.ic_filter2_select)
                 popularityFragment = PopularFilterFragment()
+                val bundle = Bundle().apply {
+                    putInt("set_fragment_value", 1)
+                }
+                popularityFragment?.arguments = bundle
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.popular_fragment, popularityFragment!!)
                     .addToBackStack(null)
@@ -143,6 +152,10 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
             if (preferencesFragment == null) {
                 binding.preference.setImageResource(R.drawable.ic_filter3_select)
                 preferencesFragment = PreferencesFilterFragment()
+                val bundle = Bundle().apply {
+                    putInt("set_fragment_value", 1)
+                }
+                preferencesFragment?.arguments = bundle
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.preferences_fragment, preferencesFragment!!)
                     .addToBackStack(null)
@@ -160,6 +173,10 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
             if (typeFragment == null) {
                 binding.type.setImageResource(R.drawable.ic_filter4_select)
                 typeFragment = TypeFilterRestaurantFragment()
+                val bundle = Bundle().apply {
+                    putInt("set_fragment_value", 1)
+                }
+                typeFragment?.arguments = bundle
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.type_fragment, typeFragment!!)
                     .addToBackStack(null)
@@ -172,16 +189,6 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                 typeFragment = null
             }
         }
-
-        // 뒤로 가기 버튼 처리
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                parentFragmentManager.popBackStackImmediate()
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fcv_main, HomeFragment())
-                    .commit()
-            }
-        })
     }
 
     private fun openPlaceDetailFragment(placeId: Int) {

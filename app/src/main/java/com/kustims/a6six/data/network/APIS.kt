@@ -24,6 +24,18 @@ interface APIS {
         @Header("Authorization") accessToken: String
     ): Response<HomePlaceResponse>
 
+    @POST("/place/list/activity")
+    suspend fun getRecommendationPlay(
+        @Header("Authorization") accessToken: String,
+        @Body request: RecommendationRequest
+    ): Response<RecommendationResponse>
+
+    @POST("/place/list/cafe")
+    suspend fun getRecommendationCafe(
+        @Header("Authorization") accessToken: String,
+        @Body request: RecommendationRequest
+    ): Response<RecommendationResponse>
+
     @POST("/place/list/restaurant")
     suspend fun getRecommendationRestaurant(
         @Header("Authorization") accessToken: String,
