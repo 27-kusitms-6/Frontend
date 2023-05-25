@@ -46,6 +46,14 @@ class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
             Log.d("placeId", placeId.toString())
         }
 
+        binding.btnGoReview.setOnClickListener{
+            val reviewFragment = ReviewFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fcv_main, reviewFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         // ViewModel 초기화
         val factory = PlaceDetailViewModelFactory(requireActivity().application, placeId, accessToken)
 
