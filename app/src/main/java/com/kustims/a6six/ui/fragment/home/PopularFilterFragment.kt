@@ -1,6 +1,6 @@
 package com.kustims.a6six.ui.fragment.home
 
-import RestaurantRecommendationFragment
+import com.kustims.a6six.ui.fragment.home.RestaurantRecommendationFragment
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -29,7 +29,9 @@ class PopularFilterFragment : BaseFragment<FragmentPopularFilterBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnClose.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.beginTransaction()
+                .remove(this@PopularFilterFragment)
+                .commit()
         }
 
         binding.popularOption1.setOnClickListener {

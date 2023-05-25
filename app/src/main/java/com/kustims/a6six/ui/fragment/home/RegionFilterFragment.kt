@@ -1,6 +1,6 @@
 package com.kustims.a6six.ui.fragment.home
 
-import RestaurantRecommendationFragment
+import com.kustims.a6six.ui.fragment.home.RestaurantRecommendationFragment
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,7 +27,9 @@ class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnClose.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.beginTransaction()
+                .remove(this@RegionFilterFragment)
+                .commit()
         }
 
         val imageViewIds = listOf(

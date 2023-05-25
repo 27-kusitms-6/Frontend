@@ -1,13 +1,18 @@
+package com.kustims.a6six.ui.fragment.home
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
+import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.databinding.FragmentRestaurantRecommendationBinding
 import com.kustims.a6six.ui.adapter.RecommendationViewAdapter
 import com.kustims.a6six.ui.fragment.home.*
@@ -24,15 +29,19 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
 
     private lateinit var viewModel: RecommendationViewModel
     private lateinit var recommendationViewAdapter: RecommendationViewAdapter
-    private val accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
+    private var accessToken = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //accessToken
+        val preferenceManager = PreferenceManager(requireContext())
+        accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
+//        Log.d("accessToken", accessToken)
 
-        val defaultFilters = "색다른,활기찬" //사용자 기본 선택 필터로 변경 필요
+        val defaultFilters = "색다른,활기찬" // 사용자 기본 선택 필터로 변경 필요
         var category2 = "null"
         var filters: List<String> = defaultFilters.split(",")
-        var orderBy : Int = 1
+        var orderBy: Int = 1
         // orderBy 값 전달 받기
         val orderByValue = arguments?.getInt("orderBy", 1)
         if (orderByValue != null) {
@@ -60,15 +69,22 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
             category2 = type
         }
 
-
+        // recycler view
         // ViewModel 초기화
-        val factory = RecommendationViewModelFactory(requireActivity().application, category2, filters, orderBy, accessToken)
-        Log.d("RestaurantRecommendationFragment", "category2: $category2, filters: $filters, orderBy: $orderBy, accessToken: $accessToken")
+        val factory = RecommendationViewModelFactory(
+            requireActivity().application,
+            category2,
+            filters,
+            orderBy,
+            accessToken,
+        )
         viewModel = ViewModelProvider(this, factory).get(RecommendationViewModel::class.java)
 
         recommendationViewAdapter = RecommendationViewAdapter { place ->
             // Click event 처리
-            Log.d("RestaurantRecommendationFragment", "place: $place")
+            var bundle = Bundle()
+            var placeId = place.id
+            openPlaceDetailFragment(placeId)
         }
 
         // RecyclerView 구성
@@ -82,9 +98,7 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
             }
         })
 
-        // Fetch recommendation places
         viewModel.fetchPlaces(category2, filters, orderBy)
-
 
         var regionFragment: RegionFilterFragment? = null
         var popularityFragment: PopularFilterFragment? = null
@@ -101,7 +115,9 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                     .commit()
             } else {
                 binding.region.setImageResource(R.drawable.ic_filter_1)
-                parentFragmentManager.popBackStack()
+                parentFragmentManager.beginTransaction()
+                    .remove(regionFragment!!)
+                    .commit()
                 regionFragment = null
             }
         }
@@ -116,7 +132,9 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                     .commit()
             } else {
                 binding.popularity.setImageResource(R.drawable.ic_filter_2)
-                parentFragmentManager.popBackStack()
+                parentFragmentManager.beginTransaction()
+                    .remove(popularityFragment!!)
+                    .commit()
                 popularityFragment = null
             }
         }
@@ -131,7 +149,9 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                     .commit()
             } else {
                 binding.preference.setImageResource(R.drawable.ic_filter_3)
-                parentFragmentManager.popBackStack()
+                parentFragmentManager.beginTransaction()
+                    .remove(preferencesFragment!!)
+                    .commit()
                 preferencesFragment = null
             }
         }
@@ -146,9 +166,41 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                     .commit()
             } else {
                 binding.type.setImageResource(R.drawable.ic_filter_4)
-                parentFragmentManager.popBackStack()
+                parentFragmentManager.beginTransaction()
+                    .remove(typeFragment!!)
+                    .commit()
                 typeFragment = null
             }
         }
+
+        // 뒤로 가기 버튼 처리
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                parentFragmentManager.popBackStackImmediate()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fcv_main, HomeFragment())
+                    .commit()
+            }
+        })
+    }
+
+    private fun openPlaceDetailFragment(placeId: Int) {
+        val placeDetailFragment = PlaceDetailFragment()
+        val bundle = Bundle().apply {
+            putInt("placeId", placeId)
+        }
+        placeDetailFragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            .replace(R.id.fcv_main, placeDetailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
+

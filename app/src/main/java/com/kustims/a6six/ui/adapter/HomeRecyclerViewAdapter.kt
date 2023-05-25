@@ -79,6 +79,4 @@ class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){
 //            clickListener(task)
         }
     }
-
-
 }

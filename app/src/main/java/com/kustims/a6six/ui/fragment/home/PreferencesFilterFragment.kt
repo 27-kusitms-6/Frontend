@@ -1,10 +1,8 @@
 package com.kustims.a6six.ui.fragment.home
 
-import RestaurantRecommendationFragment
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +25,9 @@ class PreferencesFilterFragment : BaseFragment<FragmentPreferencesFilterBinding>
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnClose.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.beginTransaction()
+                .remove(this@PreferencesFilterFragment)
+                .commit()
         }
 
         binding.preferenceOption1.setOnClickListener {

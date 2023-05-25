@@ -1,6 +1,6 @@
 package com.kustims.a6six.ui.fragment.home
 
-import RestaurantRecommendationFragment
+import com.kustims.a6six.ui.fragment.home.RestaurantRecommendationFragment
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -26,7 +26,9 @@ class TypeFilterRestaurantFragment : BaseFragment<FragmentTypeFilterRestaurantBi
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnClose.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.beginTransaction()
+                .remove(this@TypeFilterRestaurantFragment)
+                .commit()
         }
 
         binding.icTypeKorean.setOnClickListener {

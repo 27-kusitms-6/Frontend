@@ -1,6 +1,6 @@
 package com.kustims.a6six.ui.fragment.home
 
-import RestaurantRecommendationFragment
+import com.kustims.a6six.ui.fragment.home.RestaurantRecommendationFragment
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -67,9 +67,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //accessToken
         val preferenceManager = PreferenceManager(requireContext())
         // Store a string value
-        preferenceManager.setString(PreferenceManager.ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_NwW")
+        preferenceManager.setString(PreferenceManager.ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw")
 
-        val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN)
+        val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
+        Log.d("Home accessToken", accessToken)
 
         //retrofit
         retService = RetrofitClient

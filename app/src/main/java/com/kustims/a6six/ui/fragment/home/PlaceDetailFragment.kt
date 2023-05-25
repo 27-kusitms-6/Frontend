@@ -10,20 +10,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
+import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.databinding.FragmentPlaceDetailBinding
 import com.kustims.a6six.ui.adapter.PlaceDetailViewAdapter
 import com.kustims.a6six.ui.viewmodel.PlaceDetailViewModel
 import com.kustims.a6six.ui.viewmodel.PlaceDetailViewModelFactory
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_place_detail.*
 
 
 class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
 
     private lateinit var viewModel: PlaceDetailViewModel
     private lateinit var recommendationViewAdapter: PlaceDetailViewAdapter
-    private val accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
+//    private val accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
     var placeId : Int = 28
+    private var accessToken = ""
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -35,6 +36,16 @@ class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //accessToken
+        val preferenceManager = PreferenceManager(requireContext())
+        accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
+
+        val placeIdValue = arguments?.getInt("placeId", 28)
+        if (placeIdValue != null) {
+            placeId = placeIdValue
+            Log.d("placeId", placeId.toString())
+        }
+
         // ViewModel 초기화
         val factory = PlaceDetailViewModelFactory(requireActivity().application, placeId, accessToken)
 
@@ -43,13 +54,18 @@ class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
         viewModel.place.observe(viewLifecycleOwner, Observer { place ->
             // UI 업데이트
             binding.tvPlaceName.text = place.name
-            binding.tvPlaceRating.text = place.starRating.toString()
-            binding.textView2.text = "${place.reviewCount} 개"
-            binding.tvPlaceAddress.text = place.content
-            binding.negativeStickerCount1.text = place.top2NegativeStickerCount[0].toString()
-            binding.negativeStickerCount2.text = place.top2NegativeStickerCount[1].toString()
-            binding.positiveStickerCount1.text = place.top2PositiveStickerCount[0].toString()
-            binding.positiveStickerCount2.text = place.top2PositiveStickerCount[1].toString()
+            binding.tvPlaceRating.text = place.starRating?.toString() ?: ""
+            binding.textView2.text = "${place.reviewCount ?: 0} 개"
+            binding.tvPlaceAddress.text = place.content ?: ""
+            binding.positiveStickerName1.text = place.top2PositiveStickerName?.getOrNull(0) ?: ""
+            binding.positiveStickerName2.text = place.top2PositiveStickerName?.getOrNull(1) ?: ""
+            binding.negativeStickerName1.text = place.top2NegativeStickerName?.getOrNull(0) ?: ""
+            binding.negativeStickerName2.text = place.top2NegativeStickerName?.getOrNull(1) ?: ""
+            binding.negativeStickerCount1.text = place.top2NegativeStickerCount?.getOrNull(0)?.toString() ?: ""
+            binding.negativeStickerCount2.text = place.top2NegativeStickerCount?.getOrNull(1)?.toString() ?: ""
+            binding.positiveStickerCount1.text = place.top2PositiveStickerCount?.getOrNull(0)?.toString() ?: ""
+            binding.positiveStickerCount2.text = place.top2PositiveStickerCount?.getOrNull(1)?.toString() ?: ""
+
 
             var star = place.starRating.toInt()
             //별점
@@ -63,26 +79,37 @@ class PlaceDetailFragment : BaseFragment<FragmentPlaceDetailBinding>() {
             }
 
 
-            //이미지 처리
-            Picasso.get()
-                .load(place.placeImg)
-                .into(binding.tvPlaceImage)
+            if (place.placeImg != null) {
+                Picasso.get()
+                    .load(place.placeImg)
+                    .into(binding.tvPlaceImage)
+            } else {
+                // null
+            }
 
-            Picasso.get()
-                .load(place.top2NegativeStickers[0])
-                .into(binding.negativeStickerImage1)
+            if (place.top2NegativeStickers.size == 2) {
+                Picasso.get()
+                    .load(place.top2NegativeStickers[0])
+                    .into(binding.negativeStickerImage1)
 
-            Picasso.get()
-                .load(place.top2NegativeStickers[1])
-                .into(binding.negativeStickerImage2)
+                Picasso.get()
+                    .load(place.top2NegativeStickers[1])
+                    .into(binding.negativeStickerImage2)
+            } else {
+                // null
+            }
 
-            Picasso.get()
-                .load(place.top2PositiveStickers[0])
-                .into(binding.positiveStickerImage1)
+            if (place.top2PositiveStickers.size == 2) {
+                Picasso.get()
+                    .load(place.top2PositiveStickers[0])
+                    .into(binding.positiveStickerImage1)
 
-            Picasso.get()
-                .load(place.top2PositiveStickers[1])
-                .into(binding.positiveStickerImage2)
+                Picasso.get()
+                    .load(place.top2PositiveStickers[1])
+                    .into(binding.positiveStickerImage2)
+            } else {
+                // null
+            }
 
         })
 
