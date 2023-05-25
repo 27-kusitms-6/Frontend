@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
+import com.kustims.a6six.data.model.response.DetailPlaceResponse
 import com.kustims.a6six.data.network.APIS
 import com.kustims.a6six.data.network.RetrofitClient
 import com.kustims.a6six.data.util.PreferenceManager
@@ -61,6 +62,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val restaurantRecommendationFragment = RestaurantRecommendationFragment()
         val cafeRecommendationFragment = CafeRecommendationFragment()
         val playRecommendationFragment = PlayRecommendationFragment()
+        val placeDetailFragment = PlaceDetailFragment()
 
         //accessToken
         val preferenceManager = PreferenceManager(requireContext())
@@ -77,9 +79,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         initViewPager2()
 
+//        binding.btnGoRestaurant.setOnClickListener {
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.fcv_main, restaurantRecommendationFragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+
+        //test용
         binding.btnGoRestaurant.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fcv_main, restaurantRecommendationFragment)
+                .replace(R.id.fcv_main, placeDetailFragment)
                 .addToBackStack(null)
                 .commit()
         }
