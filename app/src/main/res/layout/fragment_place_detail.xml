@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragment.home.PlaceDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/tv_place_image"
+                android:layout_width="134dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/home_content_image"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="@dimen/size_40"
+                android:layout_marginStart="@dimen/size_19"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_image_restaurant" />
+
+            <TextView
+                android:id="@+id/tv_place_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="@dimen/size_4"
+                android:text="이름"
+                android:textColor="@color/black"
+                android:fontFamily="@font/suit_regular"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_place_image"
+                app:layout_constraintTop_toTopOf="@+id/tv_place_image"
+                app:layout_constraintVertical_bias="0.111" />
+
+            <TextView
+                android:id="@+id/tv_place_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="@dimen/size_7"
+                android:fontFamily="@font/suit_semibold"
+                android:text="4.2"
+                android:textColor="@color/pink_500"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_place_image"
+                app:layout_constraintTop_toBottomOf="@+id/tv_place_name" />
+
+
+            <TextView
+                android:id="@+id/tv_place_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="@dimen/size_7"
+                android:fontFamily="@font/suit_regular"
+                android:text="주소"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_place_image"
+                app:layout_constraintTop_toBottomOf="@+id/tv_place_rating" />
+
+
+            <ImageView
+                android:id="@+id/star_int"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_26"
+                android:src="@drawable/ic_star4"
+                android:layout_marginStart="@dimen/size_13"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_place_rating"
+                app:layout_constraintStart_toEndOf="@+id/tv_place_rating"
+                app:layout_constraintTop_toTopOf="@+id/tv_place_rating" />
+
+            <ImageView
+                android:id="@+id/star_float"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_26"
+                android:src="@drawable/ic_star1"
+                app:layout_constraintBottom_toBottomOf="@+id/star_int"
+                app:layout_constraintStart_toEndOf="@+id/star_int"
+                app:layout_constraintTop_toTopOf="@+id/star_int" />
+
+            <ImageView
+                android:id="@+id/btn_bookmark"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/btn_bookmark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_place_image" />
+
+            <ImageView
+                android:id="@+id/btn_go_review"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_40"
+                android:src="@drawable/btn_go_review"
+                android:layout_marginTop="@dimen/size_35"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_place_image" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_185"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginStart="@dimen/size_19"
+                android:layout_marginEnd="@dimen/size_19"
+                android:background="@color/white"
+                android:elevation="@dimen/size_3"
+                app:layout_constraintTop_toBottomOf="@+id/btn_go_review"
+                tools:layout_editor_absoluteX="31dp">
+
+
+                <TextView
+                    android:id="@+id/tv_place_review2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_11"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="부정 TOP 2"
+                    android:textColor="@color/pink_500"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_place_review"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_place_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_11"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="긍정 TOP 2"
+                    android:textColor="@color/purple_main"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_place_review2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginStart="@dimen/size_19"
+                    android:layout_marginTop="@dimen/size_40"
+                    android:layout_marginEnd="@dimen/size_19"
+                    android:background="@color/gray_300"
+                    android:elevation="@dimen/size_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="19dp" />
+
+                <ImageView
+                    android:id="@+id/positive_sticker_image_1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_sticker1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+                <TextView
+                    android:id="@+id/positive_sticker_name_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="@font/suit_regular"
+                    android:text="매장 깔끔"
+                    android:textColor="@color/black_500"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_1"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_image_1"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/positive_sticker_count_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="1035"
+                    android:textColor="@color/purple_main"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_1"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_image_1"
+                    app:layout_constraintTop_toBottomOf="@+id/positive_sticker_name_1" />
+
+                <ImageView
+                    android:id="@+id/positive_sticker_image_2"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_sticker1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/positive_sticker_count_1" />
+
+                <TextView
+                    android:id="@+id/positive_sticker_name_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/suit_regular"
+                    android:text="매장 깔끔"
+                    android:textColor="@color/black_500"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_2"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_image_2"
+                    app:layout_constraintTop_toBottomOf="@+id/positive_sticker_count_1"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/positive_sticker_count_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="1035"
+                    android:textColor="@color/purple_main"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/positive_sticker_image_2"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_image_2"
+                    app:layout_constraintTop_toBottomOf="@+id/positive_sticker_name_2" />
+
+                <!--            부정-->
+
+                <ImageView
+                    android:id="@+id/negative_sticker_image_1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_sticker1"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_name_1"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+                <TextView
+                    android:id="@+id/negative_sticker_name_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="@font/suit_regular"
+                    android:text="부정 부"
+                    android:textColor="@color/black_500"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_1"
+                    app:layout_constraintStart_toEndOf="@+id/negative_sticker_image_1"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/negative_sticker_count_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="1035"
+                    android:textColor="@color/pink_500"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_1"
+                    app:layout_constraintStart_toEndOf="@+id/negative_sticker_image_1"
+                    app:layout_constraintTop_toBottomOf="@+id/negative_sticker_name_1" />
+
+                <ImageView
+                    android:id="@+id/negative_sticker_image_2"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_sticker1"
+                    app:layout_constraintStart_toEndOf="@+id/positive_sticker_name_2"
+                    app:layout_constraintTop_toBottomOf="@+id/negative_sticker_count_1" />
+
+                <TextView
+                    android:id="@+id/negative_sticker_name_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/suit_regular"
+                    android:text="매장 깔끔"
+                    android:textColor="@color/black_500"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_2"
+                    app:layout_constraintStart_toEndOf="@+id/negative_sticker_image_2"
+                    app:layout_constraintTop_toBottomOf="@+id/negative_sticker_count_1"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/negative_sticker_count_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/suit_semibold"
+                    android:text="1035"
+                    android:textColor="@color/pink_500"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/negative_sticker_image_2"
+                    app:layout_constraintStart_toEndOf="@+id/negative_sticker_image_2"
+                    app:layout_constraintTop_toBottomOf="@+id/negative_sticker_name_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/iv_validation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="22dp"
+                android:src="@drawable/iv_recent"
+                android:layout_marginEnd="@dimen/size_30"
+                android:layout_marginTop="@dimen/size_19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_22"
+                android:layout_marginTop="@dimen/size_19"
+                android:fontFamily="@font/suit_regular"
+                android:text="총 리뷰 "
+                android:textColor="@color/black_500"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_19"
+                android:fontFamily="@font/suit_regular"
+                android:text="개"
+                android:textColor="@color/black_500"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:listitem="@layout/review_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

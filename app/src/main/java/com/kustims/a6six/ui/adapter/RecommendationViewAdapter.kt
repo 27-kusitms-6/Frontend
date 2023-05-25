@@ -1,6 +1,5 @@
 package com.kustims.a6six.ui.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,8 +37,8 @@ class RecommendationViewAdapter(
     }
 
     inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        private val name: TextView = view.findViewById(R.id.tv_restaurant_name)
-        private val content: TextView = view.findViewById(R.id.tv_restaurant_intro)
+        private val name: TextView = view.findViewById(R.id.tv_nickname)
+        private val content: TextView = view.findViewById(R.id.tv_review_content)
         private val starRating: TextView = view.findViewById(R.id.tv_score)
         private val openingHours: TextView = view.findViewById(R.id.tv_business_hours)
         private val reviewCount: TextView = view.findViewById(R.id.tv_review_count)

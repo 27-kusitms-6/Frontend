@@ -11,7 +11,6 @@ import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentRestaurantRecommendationBinding
 import com.kustims.a6six.ui.adapter.RecommendationViewAdapter
 import com.kustims.a6six.ui.fragment.home.*
-import com.kustims.a6six.ui.viewmodel.HomeViewModel
 import com.kustims.a6six.ui.viewmodel.RecommendationViewModel
 import com.kustims.a6six.ui.viewmodel.RecommendationViewModelFactory
 
@@ -30,10 +29,10 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //view 초기화
-        binding.region.setImageResource(R.drawable.ic_filter_1)
-        binding.popularity.setImageResource(R.drawable.ic_filter_2)
-        binding.preference.setImageResource(R.drawable.ic_filter_3)
-        binding.type.setImageResource(R.drawable.ic_filter_4)
+//        binding.region.setImageResource(R.drawable.ic_filter_1)
+//        binding.popularity.setImageResource(R.drawable.ic_filter_2)
+//        binding.preference.setImageResource(R.drawable.ic_filter_3)
+//        binding.type.setImageResource(R.drawable.ic_filter_4)
 
         val defaultFilters = "조용한,트렌디한" //사용자 기본 선택 필터로 변경 필요
         var category2 = "null"
