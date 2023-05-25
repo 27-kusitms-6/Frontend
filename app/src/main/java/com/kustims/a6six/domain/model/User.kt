@@ -8,5 +8,4 @@ data class User(
     var name: String,
     var nickname: String,
     var phoneNum: String
-
 )
