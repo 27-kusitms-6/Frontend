@@ -12,8 +12,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
@@ -21,9 +24,10 @@ import com.kustims.a6six.data.network.APIS
 import com.kustims.a6six.data.network.RetrofitClient
 import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.databinding.FragmentHomeBinding
+import com.kustims.a6six.ui.adapter.HomeRecyclerViewAdapter
 import com.kustims.a6six.ui.adapter.ViewPager2Adapter
+import com.kustims.a6six.ui.viewmodel.HomeViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.recommendation_item.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -31,6 +35,8 @@ import timber.log.Timber
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private lateinit var retService: APIS
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var homeRecyclerViewAdapter: HomeRecyclerViewAdapter
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -51,26 +57,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //accessToken
 
+        val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+        val cafeRecommendationFragment = CafeRecommendationFragment()
+        val playRecommendationFragment = PlayRecommendationFragment()
+
+        //accessToken
         val preferenceManager = PreferenceManager(requireContext())
         // Store a string value
         preferenceManager.setString(PreferenceManager.ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_NwW")
 
-        // Retrieve the stored string value
         val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN)
-
 
         //retrofit
         retService = RetrofitClient
             .getRetrofitInstance()
             .create(APIS::class.java)
 
-        initViewPager2()
 
-        val restaurantRecommendationFragment = RestaurantRecommendationFragment()
-        val cafeRecommendationFragment = CafeRecommendationFragment()
-        val playRecommendationFragment = PlayRecommendationFragment()
+        initViewPager2()
 
         binding.btnGoRestaurant.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -104,14 +109,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         )
         binding.tvLikilistTitle.text = spannable
 
-        //recyclerView
-        val recyclerView = binding.recyclerView
+        // ViewModel 초기화
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        homeRecyclerViewAdapter = HomeRecyclerViewAdapter { task ->
+            //click event 처리
+        }
+
+        // RecyclerView 구성
+        val recyclerView: RecyclerView = binding.recyclerView
+        recyclerView.adapter = homeRecyclerViewAdapter
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = layoutManager
 
+        // ViewModel과 RecyclerView 어댑터 연결
+        viewModel.tasks.observe(viewLifecycleOwner, Observer { tasks ->
+            homeRecyclerViewAdapter.updateTasks(tasks)
+        })
+
+
 
         //이번주 top 2
-        lifecycleScope.launch {
+        lifecycleScope.launch() {
             try {
                 val response = retService.getTop2Data()
                 if (response.isSuccessful) {
@@ -156,7 +175,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     binding.likilistPlayName2.text = top2Data.play[1].name
 
 
-
                 } else {
                     // 에러 처리
                     Timber.d("Error: ${response.code()} ${response.message()}")
@@ -168,8 +186,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
     }
-
-
 
     private fun initViewPager2() {
         viewPager = binding.viewPager.apply {

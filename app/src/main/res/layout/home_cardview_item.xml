@@ -22,6 +22,7 @@
                 android:layout_height="@dimen/size_106"
                 android:contentDescription="@string/home_content_image"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

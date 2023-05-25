@@ -4,12 +4,10 @@ import androidx.lifecycle.viewModelScope
 import com.kustims.a6six.app.Base.BaseViewModel
 import com.kustims.a6six.data.model.response.GetBookMarkResponse
 import com.kustims.a6six.data.model.response.GetUserInfoResponse
-import com.kustims.a6six.data.model.response.SetFilterReponse
 import com.kustims.a6six.data.util.PreferenceManager
 import com.kustims.a6six.domain.repository.MypageRepository
 import com.kustims.a6six.ui.viewmodelstate.MypageState
 import kotlinx.coroutines.*
-import org.koin.androidx.compose.viewModel
 import kotlin.coroutines.CoroutineContext
 
 class MypageViewModel: BaseViewModel() {
