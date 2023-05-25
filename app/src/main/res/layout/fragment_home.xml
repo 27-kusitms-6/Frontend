@@ -49,13 +49,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- 슬라이드 뷰 -->
-
-        <!-- 슬라이드 인디케이터 -->
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_185"
             android:layout_marginTop="@dimen/size_10"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -63,6 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
             app:layout_constraintVertical_bias="0.0" />
 
+        <!-- 슬라이드 인디케이터 -->
         <LinearLayout
             android:id="@+id/layoutIndicators"
             android:layout_width="@dimen/size_0"
@@ -201,6 +201,7 @@
                 android:layout_height="@dimen/size_104"
                 android:layout_marginTop="@dimen/size_15"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintEnd_toStartOf="@+id/likilist_restaurant_image2"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -212,6 +213,7 @@
                 android:layout_width="@dimen/size_155"
                 android:layout_height="@dimen/size_104"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintBottom_toBottomOf="@+id/likilist_restaurant_image1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -263,6 +265,7 @@
                 android:layout_height="@dimen/size_104"
                 android:layout_marginTop="@dimen/size_15"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintEnd_toStartOf="@+id/likilist_cafe_image2"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -274,6 +277,7 @@
                 android:layout_width="@dimen/size_155"
                 android:layout_height="@dimen/size_104"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintBottom_toBottomOf="@+id/likilist_cafe_image1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -325,6 +329,7 @@
                 android:layout_height="@dimen/size_104"
                 android:layout_marginTop="@dimen/size_15"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintEnd_toStartOf="@+id/likilist_play_image2"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -336,6 +341,7 @@
                 android:layout_width="@dimen/size_155"
                 android:layout_height="@dimen/size_104"
                 android:src="@drawable/ic_home_examlple_image"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/home_content_image"
                 app:layout_constraintBottom_toBottomOf="@+id/likilist_play_image1"
                 app:layout_constraintEnd_toEndOf="parent"

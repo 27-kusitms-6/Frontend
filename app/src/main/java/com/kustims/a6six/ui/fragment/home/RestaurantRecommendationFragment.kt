@@ -1,11 +1,19 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
 import com.kustims.a6six.databinding.FragmentRestaurantRecommendationBinding
+import com.kustims.a6six.ui.adapter.RecommendationViewAdapter
 import com.kustims.a6six.ui.fragment.home.*
+import com.kustims.a6six.ui.viewmodel.HomeViewModel
+import com.kustims.a6six.ui.viewmodel.RecommendationViewModel
+import com.kustims.a6six.ui.viewmodel.RecommendationViewModelFactory
 
 class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommendationBinding>() {
     override fun getFragmentBinding(
@@ -15,8 +23,44 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
         return FragmentRestaurantRecommendationBinding.inflate(inflater, container, false)
     }
 
+    private lateinit var viewModel: RecommendationViewModel
+    private lateinit var recommendationViewAdapter: RecommendationViewAdapter
+    private val accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val category2 = "null"
+        val filters = listOf("조용한", "트렌디한") //사용자 기본 선택 필터로 변경 필요
+        var orderBy : Int = 1
+        // orderBy 값 전달 받기
+        val orderByValue = arguments?.getInt("orderBy", 0)
+        if (orderByValue != null) {
+            orderBy = orderByValue
+        }
+
+        // ViewModel 초기화
+        val factory = RecommendationViewModelFactory(requireActivity().application, category2, filters, orderBy, accessToken)
+        Log.d("RestaurantRecommendationFragment", "category2: $category2, filters: $filters, orderBy: $orderBy, accessToken: $accessToken")
+        viewModel = ViewModelProvider(this, factory).get(RecommendationViewModel::class.java)
+
+        recommendationViewAdapter = RecommendationViewAdapter { place ->
+            // Click event 처리
+        }
+
+        // RecyclerView 구성
+        binding.recyclerview.adapter = recommendationViewAdapter
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+
+        // ViewModel과 RecyclerView 어댑터 연결
+        viewModel.places.observe(viewLifecycleOwner, Observer { places ->
+            places?.let {
+                recommendationViewAdapter.updatePlaces(it)
+            }
+        })
+
+        // Fetch recommendation places
+        viewModel.fetchPlaces(category2, filters, orderBy)
 
         var regionFragment: RegionFilterFragment? = null
         var popularityFragment: PopularFilterFragment? = null
@@ -82,8 +126,5 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
                 typeFragment = null
             }
         }
-
-
-
     }
 }
