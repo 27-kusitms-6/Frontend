@@ -89,6 +89,7 @@ class RestaurantRecommendationFragment : BaseFragment<FragmentRestaurantRecommen
         // Fetch recommendation places
         viewModel.fetchPlaces(category2, filters, orderBy)
 
+
         var regionFragment: RegionFilterFragment? = null
         var popularityFragment: PopularFilterFragment? = null
         var preferencesFragment: PreferencesFilterFragment? = null

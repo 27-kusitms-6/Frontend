@@ -17,7 +17,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.275"
@@ -58,7 +58,6 @@
             android:id="@+id/tv_place_image"
             android:layout_width="112dp"
             android:layout_height="88dp"
-            android:layout_marginEnd="28dp"
             android:src="@drawable/ic_home_examlple_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,12 +79,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
             android:text="리뷰와 같아요"
             android:textColor="@color/black"
             android:textSize="9sp"
+            android:layout_marginTop="@dimen/size_10"
             app:layout_constraintStart_toStartOf="@+id/tv_restaurant_image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_restaurant_image" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_content" />
 
         <TextView
             android:id="@+id/tv_positive_review_count"
@@ -123,9 +122,10 @@
             android:text="리뷰와 달라요"
             android:textColor="@color/black"
             android:textSize="9sp"
+            android:layout_marginTop="@dimen/size_10"
             app:layout_constraintBottom_toBottomOf="@+id/string"
             app:layout_constraintStart_toEndOf="@+id/string"
-            app:layout_constraintTop_toTopOf="@+id/string"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_content"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
