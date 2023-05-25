@@ -3,6 +3,8 @@
 # 💜 *LIKIT! **라이킷 💜***
 
 ---
+apk 
+https://www.notion.so/Likit-APK-c64fe647e2254254bc3cf1d97c1310b0?pvs=4
 
 <div align="center">
 
@@ -34,7 +36,7 @@
 | 디자인 | 나태진 | 프로토타입, 서비스 디자인 담당 |
 | 개발 | 신민서 | 프론트엔드 개발 담당 |
 | 개발 | 정채현 | 프론트엔드 개발 담당 |
-| 개발 | 김수민 | 백엔드 개발 담당 |
+| 개발 | 김수 | 백엔드 개발 담당 |
 | 개발 | 장진우 | 백엔드 개발 담당 |
 
 ### **📑 목적 및 필요성**
@@ -305,6 +307,6 @@
 
 
 ### 📑 소프트웨어 아키텍쳐
-<img width="951" alt="KakaoTalk_20230414_173738822" src="https://user-images.githubusercontent.com/100370200/232049796-1df81377-3e85-4c9e-bd84-6ac4e2dc8818.png">
+<img width="499" alt="KakaoTalk_Photo_2023-05-25-23-59-35" src="https://github.com/27-kusitms-6/Frontend/assets/80222352/5950ad37-0d14-4868-b299-91d69debf046">
 
 
