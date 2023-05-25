@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_region_filter.*
 
 class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
 
+    var set_fragment: Int = 1
+
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -25,6 +27,11 @@ class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val set_fragment_value = arguments?.getInt("set_fragment_value", 1)
+        if (set_fragment_value != null) {
+            set_fragment = set_fragment_value
+        }
 
         binding.btnClose.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -79,20 +86,26 @@ class RegionFilterFragment : BaseFragment<FragmentRegionFilterBinding>() {
                 if (imageName == "ic_seoul") {
                     imageView.postDelayed({
                         val restaurantRecommendationFragment = RestaurantRecommendationFragment()
+                        val cafeRecommendationFragment = CafeRecommendationFragment()
+                        val playRecommendationFragment = PlayRecommendationFragment()
+                        var go_fragment: BaseFragment<*>? = null
+                        when (set_fragment) {
+                            1 -> go_fragment = restaurantRecommendationFragment
+                            2 -> go_fragment = cafeRecommendationFragment
+                            3 -> go_fragment = playRecommendationFragment
+                            else -> go_fragment = restaurantRecommendationFragment
+                        }
                         parentFragmentManager.beginTransaction()
                             .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                            .replace(R.id.fcv_main, restaurantRecommendationFragment)
+                            .replace(R.id.fcv_main, go_fragment)
                             .addToBackStack(null)
                             .commit()
                     }, 300)
                 } else {
-                    Toast.makeText(requireContext(), "추후 업데이트될 예정입니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "추후 업데이트될 예정입니다.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-
-
-
 
     }
 }

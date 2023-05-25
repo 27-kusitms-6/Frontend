@@ -86,10 +86,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/region"
             tools:listitem="@layout/recommendation_item"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/cafe_recyclerview" />
+
 
         <FrameLayout
             android:id="@+id/region_fragment"

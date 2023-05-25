@@ -38,6 +38,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private lateinit var retService: APIS
     private lateinit var viewModel: HomeViewModel
     private lateinit var homeRecyclerViewAdapter: HomeRecyclerViewAdapter
+    private lateinit var viewPager: ViewPager2
+    private lateinit var indicators: Array<ImageView?>
+
+    var restaurant1: Int = 28
+    var restaurant2: Int = 28
+    var cafe1: Int = 28
+    var cafe2: Int = 28
+    var play1: Int = 28
+    var play2: Int = 28
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -53,8 +62,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         add(R.drawable.ic_banner_example)
     }
 
-    private lateinit var viewPager: ViewPager2
-    private lateinit var indicators: Array<ImageView?>
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -67,7 +75,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //accessToken
         val preferenceManager = PreferenceManager(requireContext())
         // Store a string value
-        preferenceManager.setString(PreferenceManager.ACCESS_TOKEN, "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw")
+        preferenceManager.setString(
+            PreferenceManager.ACCESS_TOKEN,
+            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
+        )
 
         val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
         Log.d("Home accessToken", accessToken)
@@ -86,14 +97,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 .addToBackStack(null)
                 .commit()
         }
-
-        //test용
-//        binding.btnGoRestaurant.setOnClickListener {
-//            parentFragmentManager.beginTransaction()
-//                .replace(R.id.fcv_main, placeDetailFragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
 
         binding.btnGoCafe.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -125,6 +128,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         homeRecyclerViewAdapter = HomeRecyclerViewAdapter { task ->
             //click event 처리
+            var placeId = task.id
+            openPlaceDetailFragment(placeId)
         }
 
         // RecyclerView 구성
@@ -139,7 +144,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         })
 
 
-
         //이번주 top 2
         lifecycleScope.launch() {
             try {
@@ -147,7 +151,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 if (response.isSuccessful) {
                     val top2Data = response.body()?.data
                     //data 처리
-                    Log.d( "홈","${top2Data.toString()}")
+                    Log.d("홈", "${top2Data.toString()}")
+
+                    restaurant1 = top2Data!!.restaurant[0].id
+                    restaurant2 = top2Data!!.restaurant[1].id
+                    cafe1 = top2Data!!.cafe[0].id
+                    cafe2 = top2Data!!.cafe[1].id
+                    play1 = top2Data!!.play[0].id
+                    play2 = top2Data!!.play[1].id
 
                     //restaurant
                     Picasso.get()
@@ -194,6 +205,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 // 예외 처리
                 Timber.e(/* message = */ "Exception: ${e.message}")
             }
+        }
+
+        binding.likilistRestaurantImage1.setOnClickListener {
+            openPlaceDetailFragment(restaurant1)
+        }
+        binding.likilistRestaurantImage2.setOnClickListener {
+            openPlaceDetailFragment(restaurant2)
+        }
+        binding.likilistCafeImage1.setOnClickListener {
+            openPlaceDetailFragment(cafe1)
+        }
+        binding.likilistCafeImage2.setOnClickListener {
+            openPlaceDetailFragment(cafe2)
+        }
+        binding.likilistPlayImage1.setOnClickListener {
+            openPlaceDetailFragment(play1)
+        }
+        binding.likilistPlayImage2.setOnClickListener {
+            openPlaceDetailFragment(play2)
         }
 
     }
@@ -256,5 +286,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 )
             )
         }
+    }
+
+    private fun openPlaceDetailFragment(placeId: Int) {
+        val placeDetailFragment = PlaceDetailFragment()
+        val bundle = Bundle().apply {
+            putInt("placeId", placeId)
+        }
+        placeDetailFragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            .replace(R.id.fcv_main, placeDetailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }
