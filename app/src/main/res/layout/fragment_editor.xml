@@ -5,17 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:scrollbars="none" >
-
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <com.denzcoskun.imageslider.ImageSlider
+
+        <com.denzcoskun.imageslider.ImageSlider
                 android:layout_width="match_parent"
                 android:layout_height="270dp"
                 android:id="@+id/image_slider_editor"
@@ -42,16 +39,84 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:src="@drawable/icon_filter_editor"
                     app:layout_constraintStart_toStartOf="parent"/>
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv1_content_editor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iv_test5"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"/>
 
+                <LinearLayout
+                    android:id="@+id/ll2_content_editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시은 에디터의 또간집"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="28dp"
+                        android:fontFamily="@font/suit_semibold"
+                        android:textSize="12sp"
+                        android:textColor="#303030"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ep.01"
+                        android:fontFamily="@font/suit_regular"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="28dp"/>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv2_content_editor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iv_test5_2"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"/>
+
+
+                <LinearLayout
+                    android:id="@+id/ll1_content_editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="서현 에디터의 또간집"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="28dp"
+                        android:fontFamily="@font/suit_semibold"
+                        android:textSize="12sp"
+                        android:textColor="#303030"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ep.01"
+                        android:fontFamily="@font/suit_regular"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="28dp"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
