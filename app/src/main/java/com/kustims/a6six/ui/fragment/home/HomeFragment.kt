@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.kustims.a6six.R
 import com.kustims.a6six.base.BaseFragment
-import com.kustims.a6six.data.model.response.DetailPlaceResponse
 import com.kustims.a6six.data.network.APIS
 import com.kustims.a6six.data.network.RetrofitClient
 import com.kustims.a6six.data.util.PreferenceManager
@@ -57,9 +56,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     //viewPager2 이미지 초기화
     private val imageList = mutableListOf<Int>().apply {
-        add(R.drawable.ic_banner_example)
-        add(R.drawable.ic_banner_example)
-        add(R.drawable.ic_banner_example)
+        add(R.drawable.iv_home_banner_1)
+        add(R.drawable.iv_home_banner_2)
+        add(R.drawable.iv_home_banner_3)
     }
 
 
@@ -75,10 +74,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         //accessToken
         val preferenceManager = PreferenceManager(requireContext())
         // Store a string value
-        preferenceManager.setString(
-            PreferenceManager.ACCESS_TOKEN,
-            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
-        )
+//        preferenceManager.setString(
+//            PreferenceManager.ACCESS_TOKEN,
+//            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0bHNhbHN0ajAxQGR1a3N1bmcuYWMua3IiLCJhdXRoIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjg0OTEwMDMyLCJleHAiOjE2ODg1MTAwMzJ9.klAMhLWSUQL-43lzS0i4vbWI-slpPkixz6hUxG1n4Tx1xj9Kl7rDt4Ee1ccPkj1istfYNUZdWteqD-JELtX_Nw"
+//        )
 
         val accessToken = preferenceManager.getString(PreferenceManager.ACCESS_TOKEN).toString()
         Log.d("Home accessToken", accessToken)
